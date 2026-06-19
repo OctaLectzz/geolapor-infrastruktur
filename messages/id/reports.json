@@ -2,25 +2,153 @@
   "form": {
     "title": "Buat Laporan Infrastruktur",
     "description": "Lengkapi detail kerusakan, lokasi, dan bukti foto.",
-    "categoryLabel": "Kategori",
-    "descriptionLabel": "Deskripsi Kerusakan",
-    "locationLabel": "Lokasi",
-    "photoLabel": "Bukti Foto",
-    "submit": "Kirim Laporan"
+    "sections": {
+      "basicInfo": "Informasi Dasar",
+      "location": "Lokasi Kejadian",
+      "evidence": "Bukti Foto"
+    },
+    "fields": {
+      "title": "Judul laporan",
+      "category": "Kategori",
+      "description": "Deskripsi kerusakan",
+      "address": "Alamat atau patokan",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "photos": "Bukti foto"
+    },
+    "placeholders": {
+      "title": "Contoh: Jalan berlubang di depan pasar",
+      "category": "Pilih kategori",
+      "description": "Jelaskan kondisi kerusakan secara singkat",
+      "address": "Masukkan alamat atau patokan terdekat"
+    },
+    "helpers": {
+      "photo": "Unggah foto yang jelas untuk membantu verifikasi.",
+      "location": "Gunakan GPS atau pilih titik secara manual di peta."
+    },
+    "actions": {
+      "submit": "Kirim Laporan",
+      "submitting": "Mengirim laporan...",
+      "saveDraft": "Simpan Draf",
+      "useCurrentLocation": "Gunakan Lokasi Saat Ini",
+      "adjustPin": "Geser Pin",
+      "uploadPhoto": "Unggah Foto"
+    }
+  },
+  "statuses": {
+    "pendingVerification": "Menunggu Verifikasi",
+    "verified": "Terverifikasi",
+    "rejected": "Ditolak",
+    "assigned": "Ditugaskan",
+    "inProgress": "Dalam Proses",
+    "needReview": "Perlu Ditinjau",
+    "completed": "Selesai",
+    "cancelled": "Dibatalkan"
+  },
+  "categories": {
+    "road": "Jalan",
+    "bridge": "Jembatan",
+    "drainage": "Drainase",
+    "streetLight": "Lampu Jalan",
+    "sidewalk": "Trotoar",
+    "publicFacility": "Fasilitas Umum",
+    "other": "Lainnya"
   },
   "list": {
     "title": "Daftar Laporan",
-    "empty": "Belum ada laporan."
+    "myReports": "Laporan Saya",
+    "allReports": "Semua Laporan",
+    "empty": "Belum ada laporan.",
+    "searchPlaceholder": "Cari kode, judul, atau lokasi",
+    "statusFilter": "Filter status",
+    "categoryFilter": "Filter kategori",
+    "regionFilter": "Filter wilayah",
+    "dateFilter": "Filter tanggal",
+    "sortNewest": "Terbaru",
+    "sortOldest": "Terlama"
   },
   "detail": {
     "title": "Detail Laporan",
+    "reportCode": "Kode laporan",
     "timeline": "Linimasa Progres",
-    "evidence": "Bukti Laporan"
+    "evidence": "Bukti Laporan",
+    "location": "Lokasi",
+    "reporter": "Pelapor",
+    "createdAt": "Dibuat pada",
+    "updatedAt": "Diperbarui pada",
+    "rejectionNote": "Catatan penolakan",
+    "completionEvidence": "Bukti penyelesaian"
+  },
+  "map": {
+    "title": "Peta Laporan Publik",
+    "description": "Lihat sebaran laporan infrastruktur yang telah diverifikasi.",
+    "searchPlaceholder": "Cari lokasi atau kode laporan",
+    "filterByStatus": "Filter status",
+    "filterByCategory": "Filter kategori",
+    "showMyLocation": "Tampilkan Lokasi Saya",
+    "openDetail": "Buka Detail",
+    "markerPreview": "Ringkasan Laporan",
+    "clusterLabel": "Kumpulan laporan",
+    "empty": "Tidak ada laporan pada area ini.",
+    "privateDataNotice": "Data pribadi pelapor tidak ditampilkan."
+  },
+  "admin": {
+    "actions": {
+      "verify": "Verifikasi",
+      "reject": "Tolak",
+      "assign": "Tugaskan",
+      "complete": "Selesaikan",
+      "cancel": "Batalkan Laporan",
+      "reviewProgress": "Tinjau Progres",
+      "viewDuplicates": "Cek Duplikat",
+      "addNote": "Tambah Catatan"
+    },
+    "fields": {
+      "rejectionNote": "Catatan penolakan",
+      "assignmentNote": "Catatan penugasan",
+      "officer": "Petugas",
+      "dueDate": "Batas waktu"
+    },
+    "messages": {
+      "verifySuccess": "Laporan berhasil diverifikasi.",
+      "rejectSuccess": "Laporan berhasil ditolak.",
+      "assignSuccess": "Laporan berhasil ditugaskan.",
+      "completeSuccess": "Laporan berhasil diselesaikan."
+    }
+  },
+  "officer": {
+    "tasks": "Tugas Petugas",
+    "assignedTask": "Tugas Ditugaskan",
+    "taskDetail": "Detail Tugas",
+    "startWork": "Mulai Pengerjaan",
+    "submitProgress": "Kirim Progres",
+    "submitReview": "Ajukan Peninjauan",
+    "progressNote": "Catatan progres",
+    "progressPhoto": "Foto progres",
+    "progressValue": "Persentase progres",
+    "openLocation": "Buka Lokasi",
+    "dueDate": "Batas waktu"
+  },
+  "emptyStates": {
+    "noReports": "Belum ada laporan.",
+    "noSearchResults": "Tidak ada laporan yang cocok.",
+    "noAssignedTasks": "Belum ada tugas ditugaskan.",
+    "noPublicReports": "Belum ada laporan publik pada filter ini.",
+    "noEvidence": "Belum ada bukti foto."
   },
   "validation": {
+    "titleRequired": "Judul laporan wajib diisi.",
     "categoryRequired": "Kategori wajib dipilih.",
     "descriptionRequired": "Deskripsi kerusakan wajib diisi.",
+    "addressRequired": "Alamat atau patokan wajib diisi.",
+    "latitudeRequired": "Latitude wajib ditentukan.",
+    "longitudeRequired": "Longitude wajib ditentukan.",
     "locationRequired": "Lokasi wajib ditentukan.",
-    "photoRequired": "Minimal satu foto wajib diunggah."
+    "photoRequired": "Minimal satu foto wajib diunggah.",
+    "photoInvalid": "Foto harus berformat JPG, PNG, atau WebP.",
+    "rejectionNoteRequired": "Catatan penolakan wajib diisi.",
+    "officerRequired": "Petugas wajib dipilih.",
+    "progressRequired": "Progres wajib diisi.",
+    "progressRange": "Progres harus bernilai 0 sampai 100."
   }
 }

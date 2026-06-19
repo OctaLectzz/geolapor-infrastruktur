@@ -2,25 +2,153 @@
   "form": {
     "title": "Create Infrastructure Report",
     "description": "Complete the damage details, location, and photo evidence.",
-    "categoryLabel": "Category",
-    "descriptionLabel": "Damage Description",
-    "locationLabel": "Location",
-    "photoLabel": "Photo Evidence",
-    "submit": "Submit Report"
+    "sections": {
+      "basicInfo": "Basic Information",
+      "location": "Incident Location",
+      "evidence": "Photo Evidence"
+    },
+    "fields": {
+      "title": "Report title",
+      "category": "Category",
+      "description": "Damage description",
+      "address": "Address or landmark",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "photos": "Photo evidence"
+    },
+    "placeholders": {
+      "title": "Example: Pothole in front of the market",
+      "category": "Select category",
+      "description": "Briefly describe the damage condition",
+      "address": "Enter the nearest address or landmark"
+    },
+    "helpers": {
+      "photo": "Upload a clear photo to help verification.",
+      "location": "Use GPS or manually select a point on the map."
+    },
+    "actions": {
+      "submit": "Submit Report",
+      "submitting": "Submitting report...",
+      "saveDraft": "Save Draft",
+      "useCurrentLocation": "Use Current Location",
+      "adjustPin": "Adjust Pin",
+      "uploadPhoto": "Upload Photo"
+    }
+  },
+  "statuses": {
+    "pendingVerification": "Pending Verification",
+    "verified": "Verified",
+    "rejected": "Rejected",
+    "assigned": "Assigned",
+    "inProgress": "In Progress",
+    "needReview": "Needs Review",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
+  },
+  "categories": {
+    "road": "Road",
+    "bridge": "Bridge",
+    "drainage": "Drainage",
+    "streetLight": "Street Light",
+    "sidewalk": "Sidewalk",
+    "publicFacility": "Public Facility",
+    "other": "Other"
   },
   "list": {
     "title": "Report List",
-    "empty": "No reports yet."
+    "myReports": "My Reports",
+    "allReports": "All Reports",
+    "empty": "No reports yet.",
+    "searchPlaceholder": "Search code, title, or location",
+    "statusFilter": "Status filter",
+    "categoryFilter": "Category filter",
+    "regionFilter": "Region filter",
+    "dateFilter": "Date filter",
+    "sortNewest": "Newest",
+    "sortOldest": "Oldest"
   },
   "detail": {
     "title": "Report Detail",
+    "reportCode": "Report code",
     "timeline": "Progress Timeline",
-    "evidence": "Report Evidence"
+    "evidence": "Report Evidence",
+    "location": "Location",
+    "reporter": "Reporter",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "rejectionNote": "Rejection note",
+    "completionEvidence": "Completion evidence"
+  },
+  "map": {
+    "title": "Public Report Map",
+    "description": "View the distribution of verified infrastructure reports.",
+    "searchPlaceholder": "Search location or report code",
+    "filterByStatus": "Filter by status",
+    "filterByCategory": "Filter by category",
+    "showMyLocation": "Show My Location",
+    "openDetail": "Open Detail",
+    "markerPreview": "Report Preview",
+    "clusterLabel": "Report cluster",
+    "empty": "No reports in this area.",
+    "privateDataNotice": "Reporter private data is not shown."
+  },
+  "admin": {
+    "actions": {
+      "verify": "Verify",
+      "reject": "Reject",
+      "assign": "Assign",
+      "complete": "Complete",
+      "cancel": "Cancel Report",
+      "reviewProgress": "Review Progress",
+      "viewDuplicates": "Check Duplicates",
+      "addNote": "Add Note"
+    },
+    "fields": {
+      "rejectionNote": "Rejection note",
+      "assignmentNote": "Assignment note",
+      "officer": "Officer",
+      "dueDate": "Due date"
+    },
+    "messages": {
+      "verifySuccess": "Report verified successfully.",
+      "rejectSuccess": "Report rejected successfully.",
+      "assignSuccess": "Report assigned successfully.",
+      "completeSuccess": "Report completed successfully."
+    }
+  },
+  "officer": {
+    "tasks": "Officer Tasks",
+    "assignedTask": "Assigned Task",
+    "taskDetail": "Task Detail",
+    "startWork": "Start Work",
+    "submitProgress": "Submit Progress",
+    "submitReview": "Submit for Review",
+    "progressNote": "Progress note",
+    "progressPhoto": "Progress photo",
+    "progressValue": "Progress percentage",
+    "openLocation": "Open Location",
+    "dueDate": "Due date"
+  },
+  "emptyStates": {
+    "noReports": "No reports yet.",
+    "noSearchResults": "No matching reports.",
+    "noAssignedTasks": "No assigned tasks yet.",
+    "noPublicReports": "No public reports for this filter.",
+    "noEvidence": "No photo evidence yet."
   },
   "validation": {
+    "titleRequired": "Report title is required.",
     "categoryRequired": "Category is required.",
     "descriptionRequired": "Damage description is required.",
+    "addressRequired": "Address or landmark is required.",
+    "latitudeRequired": "Latitude is required.",
+    "longitudeRequired": "Longitude is required.",
     "locationRequired": "Location is required.",
-    "photoRequired": "At least one photo must be uploaded."
+    "photoRequired": "At least one photo must be uploaded.",
+    "photoInvalid": "Photo must be JPG, PNG, or WebP.",
+    "rejectionNoteRequired": "Rejection note is required.",
+    "officerRequired": "Officer is required.",
+    "progressRequired": "Progress is required.",
+    "progressRange": "Progress must be between 0 and 100."
   }
 }

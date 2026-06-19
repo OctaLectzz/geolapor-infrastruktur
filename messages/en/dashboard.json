@@ -1,22 +1,121 @@
 {
   "overview": {
     "title": "Dashboard",
-    "description": "Monitor report summaries, assignments, and repair progress."
+    "description": "Monitor report summaries, assignments, and repair progress.",
+    "welcome": "Welcome back",
+    "lastUpdated": "Last updated"
   },
   "stats": {
     "totalReports": "Total Reports",
     "pendingVerification": "Pending Verification",
+    "verifiedReports": "Verified Reports",
     "activeAssignments": "Active Assignments",
-    "completedReports": "Completed Reports"
+    "inProgressReports": "In Progress",
+    "needReview": "Needs Review",
+    "completedReports": "Completed Reports",
+    "rejectedReports": "Rejected Reports"
+  },
+  "navigation": {
+    "overview": "Overview",
+    "reports": "Reports",
+    "verification": "Verification",
+    "assignments": "Assignments",
+    "tasks": "Tasks",
+    "map": "Map",
+    "users": "Users",
+    "settings": "Settings"
+  },
+  "filters": {
+    "search": "Search reports",
+    "status": "Status",
+    "category": "Category",
+    "region": "Region",
+    "date": "Date",
+    "officer": "Officer"
   },
   "admin": {
     "title": "Admin Dashboard",
+    "description": "Manage report verification, assignments, and progress review.",
     "pendingReports": "Reports Pending Verification",
-    "assignOfficer": "Assign Officer"
+    "verifiedReports": "Verified Reports",
+    "needReviewReports": "Reports Needing Review",
+    "duplicateCandidates": "Duplicate Candidates",
+    "assignOfficer": "Assign Officer",
+    "actions": {
+      "verify": "Verify",
+      "reject": "Reject",
+      "assign": "Assign",
+      "complete": "Complete",
+      "cancel": "Cancel",
+      "review": "Review",
+      "openMap": "Open Map",
+      "viewHistory": "View History"
+    },
+    "empty": {
+      "pendingReports": "No reports are pending verification.",
+      "needReviewReports": "No reports need review.",
+      "assignments": "No active assignments yet."
+    }
   },
   "officer": {
     "title": "Officer Dashboard",
+    "description": "View field tasks and submit progress updates.",
     "assignedTasks": "Assigned Tasks",
-    "submitUpdate": "Submit Field Update"
+    "activeTasks": "Active Tasks",
+    "completedTasks": "Completed Tasks",
+    "submitUpdate": "Submit Field Update",
+    "actions": {
+      "startWork": "Start Work",
+      "submitProgress": "Submit Progress",
+      "submitReview": "Submit for Review",
+      "openLocation": "Open Location",
+      "uploadEvidence": "Upload Evidence"
+    },
+    "labels": {
+      "assignmentNote": "Assignment note",
+      "dueDate": "Due date",
+      "progress": "Progress",
+      "progressNote": "Progress note",
+      "evidencePhoto": "Evidence photo"
+    },
+    "empty": {
+      "assignedTasks": "No tasks have been assigned yet.",
+      "activeTasks": "No active tasks yet.",
+      "completedTasks": "No completed tasks yet."
+    }
+  },
+  "user": {
+    "title": "Citizen Dashboard",
+    "description": "Track reports you submitted and their handling progress.",
+    "myReports": "My Reports",
+    "createReport": "Create Report",
+    "trackProgress": "Track Progress"
+  },
+  "tables": {
+    "columns": {
+      "code": "Code",
+      "title": "Title",
+      "category": "Category",
+      "status": "Status",
+      "location": "Location",
+      "reporter": "Reporter",
+      "officer": "Officer",
+      "createdAt": "Created",
+      "updatedAt": "Updated",
+      "actions": "Actions"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page",
+      "rowsPerPage": "Rows per page"
+    }
+  },
+  "emptyStates": {
+    "noData": "No data yet.",
+    "noReports": "No reports yet.",
+    "noTasks": "No tasks yet.",
+    "noResults": "No matching results.",
+    "noAssignments": "No assignments yet."
   }
 }

@@ -11,8 +11,16 @@
     "home": "Beranda",
     "map": "Peta Publik",
     "reports": "Laporan",
+    "createReport": "Buat Laporan",
+    "myReports": "Laporan Saya",
     "dashboard": "Dasbor",
-    "login": "Masuk"
+    "admin": "Admin",
+    "officer": "Petugas",
+    "settings": "Pengaturan",
+    "profile": "Profil",
+    "login": "Masuk",
+    "register": "Daftar",
+    "logout": "Keluar"
   },
   "actions": {
     "getStarted": "Mulai Melapor",
@@ -20,17 +28,44 @@
     "learnMore": "Pelajari Alur",
     "submit": "Kirim",
     "cancel": "Batal",
-    "save": "Simpan"
+    "save": "Simpan",
+    "edit": "Ubah",
+    "delete": "Hapus",
+    "confirm": "Konfirmasi",
+    "back": "Kembali",
+    "next": "Lanjut",
+    "search": "Cari",
+    "filter": "Filter",
+    "reset": "Reset",
+    "refresh": "Muat Ulang",
+    "viewDetail": "Lihat Detail",
+    "uploadPhoto": "Unggah Foto",
+    "useCurrentLocation": "Gunakan Lokasi Saat Ini",
+    "selectOnMap": "Pilih di Peta"
   },
   "status": {
-    "draft": "Draf",
-    "submitted": "Terkirim",
+    "pendingVerification": "Menunggu Verifikasi",
     "verified": "Terverifikasi",
+    "rejected": "Ditolak",
     "assigned": "Ditugaskan",
     "inProgress": "Dalam Proses",
     "needReview": "Perlu Ditinjau",
     "completed": "Selesai",
-    "rejected": "Ditolak"
+    "cancelled": "Dibatalkan"
+  },
+  "roles": {
+    "user": "Warga",
+    "officer": "Petugas",
+    "admin": "Admin",
+    "superadmin": "Superadmin"
+  },
+  "emptyStates": {
+    "noReports": "Belum ada laporan.",
+    "noTasks": "Belum ada tugas.",
+    "noResults": "Tidak ada hasil yang cocok.",
+    "noNotifications": "Belum ada notifikasi.",
+    "noMapReports": "Tidak ada laporan pada filter ini.",
+    "noPhotos": "Belum ada foto."
   },
   "home": {
     "eyebrow": "Pelaporan infrastruktur berbasis geolokasi",
@@ -51,5 +86,15 @@
       "workflowTitle": "Progres Terbuka",
       "workflowDescription": "Status laporan dapat dipantau dari pengiriman, verifikasi, pengerjaan, hingga selesai."
     }
+  },
+  "validation": {
+    "required": "Wajib diisi.",
+    "invalidEmail": "Format email tidak valid.",
+    "minLength": "Isi terlalu pendek.",
+    "maxLength": "Isi terlalu panjang.",
+    "invalidFileType": "Jenis file tidak didukung.",
+    "fileTooLarge": "Ukuran file terlalu besar.",
+    "locationPermissionDenied": "Izin lokasi ditolak.",
+    "unknownError": "Terjadi kesalahan. Coba lagi."
   }
 }

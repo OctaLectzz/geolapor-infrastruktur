@@ -1,22 +1,121 @@
 {
   "overview": {
     "title": "Dasbor",
-    "description": "Pantau ringkasan laporan, penugasan, dan progres perbaikan."
+    "description": "Pantau ringkasan laporan, penugasan, dan progres perbaikan.",
+    "welcome": "Selamat datang kembali",
+    "lastUpdated": "Terakhir diperbarui"
   },
   "stats": {
     "totalReports": "Total Laporan",
     "pendingVerification": "Menunggu Verifikasi",
+    "verifiedReports": "Laporan Terverifikasi",
     "activeAssignments": "Penugasan Aktif",
-    "completedReports": "Laporan Selesai"
+    "inProgressReports": "Sedang Dikerjakan",
+    "needReview": "Perlu Ditinjau",
+    "completedReports": "Laporan Selesai",
+    "rejectedReports": "Laporan Ditolak"
+  },
+  "navigation": {
+    "overview": "Ringkasan",
+    "reports": "Laporan",
+    "verification": "Verifikasi",
+    "assignments": "Penugasan",
+    "tasks": "Tugas",
+    "map": "Peta",
+    "users": "Pengguna",
+    "settings": "Pengaturan"
+  },
+  "filters": {
+    "search": "Cari laporan",
+    "status": "Status",
+    "category": "Kategori",
+    "region": "Wilayah",
+    "date": "Tanggal",
+    "officer": "Petugas"
   },
   "admin": {
     "title": "Dasbor Admin",
+    "description": "Kelola verifikasi, penugasan, dan peninjauan progres laporan.",
     "pendingReports": "Laporan Menunggu Verifikasi",
-    "assignOfficer": "Tugaskan Petugas"
+    "verifiedReports": "Laporan Terverifikasi",
+    "needReviewReports": "Laporan Perlu Ditinjau",
+    "duplicateCandidates": "Kandidat Duplikat",
+    "assignOfficer": "Tugaskan Petugas",
+    "actions": {
+      "verify": "Verifikasi",
+      "reject": "Tolak",
+      "assign": "Tugaskan",
+      "complete": "Selesaikan",
+      "cancel": "Batalkan",
+      "review": "Tinjau",
+      "openMap": "Buka Peta",
+      "viewHistory": "Lihat Riwayat"
+    },
+    "empty": {
+      "pendingReports": "Tidak ada laporan yang menunggu verifikasi.",
+      "needReviewReports": "Tidak ada laporan yang perlu ditinjau.",
+      "assignments": "Belum ada penugasan aktif."
+    }
   },
   "officer": {
     "title": "Dasbor Petugas",
+    "description": "Lihat tugas lapangan dan kirim pembaruan progres.",
     "assignedTasks": "Tugas Ditugaskan",
-    "submitUpdate": "Kirim Pembaruan Lapangan"
+    "activeTasks": "Tugas Aktif",
+    "completedTasks": "Tugas Selesai",
+    "submitUpdate": "Kirim Pembaruan Lapangan",
+    "actions": {
+      "startWork": "Mulai Pengerjaan",
+      "submitProgress": "Kirim Progres",
+      "submitReview": "Ajukan Peninjauan",
+      "openLocation": "Buka Lokasi",
+      "uploadEvidence": "Unggah Bukti"
+    },
+    "labels": {
+      "assignmentNote": "Catatan penugasan",
+      "dueDate": "Batas waktu",
+      "progress": "Progres",
+      "progressNote": "Catatan progres",
+      "evidencePhoto": "Foto bukti"
+    },
+    "empty": {
+      "assignedTasks": "Belum ada tugas yang ditugaskan.",
+      "activeTasks": "Belum ada tugas aktif.",
+      "completedTasks": "Belum ada tugas selesai."
+    }
+  },
+  "user": {
+    "title": "Dasbor Warga",
+    "description": "Pantau laporan yang Anda kirim dan progres penanganannya.",
+    "myReports": "Laporan Saya",
+    "createReport": "Buat Laporan",
+    "trackProgress": "Pantau Progres"
+  },
+  "tables": {
+    "columns": {
+      "code": "Kode",
+      "title": "Judul",
+      "category": "Kategori",
+      "status": "Status",
+      "location": "Lokasi",
+      "reporter": "Pelapor",
+      "officer": "Petugas",
+      "createdAt": "Dibuat",
+      "updatedAt": "Diperbarui",
+      "actions": "Aksi"
+    },
+    "pagination": {
+      "previous": "Sebelumnya",
+      "next": "Berikutnya",
+      "page": "Halaman",
+      "rowsPerPage": "Baris per halaman"
+    }
+  },
+  "emptyStates": {
+    "noData": "Belum ada data.",
+    "noReports": "Belum ada laporan.",
+    "noTasks": "Belum ada tugas.",
+    "noResults": "Tidak ada hasil yang cocok.",
+    "noAssignments": "Belum ada penugasan."
   }
 }

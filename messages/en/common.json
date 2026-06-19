@@ -11,8 +11,16 @@
     "home": "Home",
     "map": "Public Map",
     "reports": "Reports",
+    "createReport": "Create Report",
+    "myReports": "My Reports",
     "dashboard": "Dashboard",
-    "login": "Sign In"
+    "admin": "Admin",
+    "officer": "Officer",
+    "settings": "Settings",
+    "profile": "Profile",
+    "login": "Sign In",
+    "register": "Register",
+    "logout": "Sign Out"
   },
   "actions": {
     "getStarted": "Start Reporting",
@@ -20,17 +28,44 @@
     "learnMore": "Learn the Flow",
     "submit": "Submit",
     "cancel": "Cancel",
-    "save": "Save"
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "search": "Search",
+    "filter": "Filter",
+    "reset": "Reset",
+    "refresh": "Refresh",
+    "viewDetail": "View Detail",
+    "uploadPhoto": "Upload Photo",
+    "useCurrentLocation": "Use Current Location",
+    "selectOnMap": "Select on Map"
   },
   "status": {
-    "draft": "Draft",
-    "submitted": "Submitted",
+    "pendingVerification": "Pending Verification",
     "verified": "Verified",
+    "rejected": "Rejected",
     "assigned": "Assigned",
     "inProgress": "In Progress",
     "needReview": "Needs Review",
     "completed": "Completed",
-    "rejected": "Rejected"
+    "cancelled": "Cancelled"
+  },
+  "roles": {
+    "user": "Citizen",
+    "officer": "Officer",
+    "admin": "Admin",
+    "superadmin": "Superadmin"
+  },
+  "emptyStates": {
+    "noReports": "No reports yet.",
+    "noTasks": "No tasks yet.",
+    "noResults": "No matching results.",
+    "noNotifications": "No notifications yet.",
+    "noMapReports": "No reports for this filter.",
+    "noPhotos": "No photos yet."
   },
   "home": {
     "eyebrow": "Geolocation-based infrastructure reporting",
@@ -51,5 +86,15 @@
       "workflowTitle": "Open Progress",
       "workflowDescription": "Report status can be tracked from submission, verification, field work, review, to completion."
     }
+  },
+  "validation": {
+    "required": "This field is required.",
+    "invalidEmail": "Enter a valid email address.",
+    "minLength": "This value is too short.",
+    "maxLength": "This value is too long.",
+    "invalidFileType": "This file type is not supported.",
+    "fileTooLarge": "The file is too large.",
+    "locationPermissionDenied": "Location permission was denied.",
+    "unknownError": "Something went wrong. Please try again."
   }
 }
