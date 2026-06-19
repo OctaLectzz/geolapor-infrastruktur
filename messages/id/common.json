@@ -59,6 +59,17 @@
     "admin": "Admin",
     "superadmin": "Superadmin"
   },
+  "theme": {
+    "toggle": "Ubah tema",
+    "light": "Terang",
+    "dark": "Gelap",
+    "system": "Sistem"
+  },
+  "language": {
+    "label": "Bahasa",
+    "id": "Indonesia",
+    "en": "English"
+  },
   "emptyStates": {
     "noReports": "Belum ada laporan.",
     "noTasks": "Belum ada tugas.",
