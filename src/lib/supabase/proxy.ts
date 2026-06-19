@@ -1,9 +1,16 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
+import type { User } from '@supabase/supabase-js'
+
 import { getSupabasePublicEnv } from './env'
 
-export async function updateSession(request: NextRequest): Promise<NextResponse> {
+interface SessionResult {
+  response: NextResponse
+  user: User | null
+}
+
+export async function updateSession(request: NextRequest): Promise<SessionResult> {
   let supabaseResponse = NextResponse.next({
     request
   })
@@ -35,5 +42,11 @@ export async function updateSession(request: NextRequest): Promise<NextResponse>
   // A simple mistake could make users appear randomly logged out.
   await supabase.auth.getClaims()
 
-  return supabaseResponse
+  // After getClaims refreshes the token, get the user for route protection.
+  const { data: userData } = await supabase.auth.getUser()
+
+  return {
+    response: supabaseResponse,
+    user: userData.user
+  }
 }
