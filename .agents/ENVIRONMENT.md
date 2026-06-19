@@ -70,10 +70,10 @@ These are not required for MVP unless the project adds provider based map tiles,
 
 ## 5. Local Setup Example
 
-Create `.env.local` from `.env.example`:
+Create `.env` from `.env.example`:
 
 ```bash
-cp .env.example .env.local
+cp .env.example .env
 ```
 
 Then fill real values locally. Never commit `.env.local`.
