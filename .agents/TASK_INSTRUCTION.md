@@ -10,14 +10,26 @@
 
 Read these files before writing or changing code:
 
-1. `AGENTS.md`
-2. `PRD.md`
-3. `ARCHITECTURE.md`
-4. `DATABASE_SCHEMA.md`
-5. `AUTHENTICATION_RBAC.md`
-6. `API_SPEC.md`
-7. `SECURITY.md`
-8. `DESIGN.md`
+1. `.agents/AGENTS.md`
+2. `.agents/README.md`
+3. `.agents/PRD.md`
+4. `.agents/ARCHITECTURE.md`
+5. `.agents/DATABASE_SCHEMA.md`
+6. `.agents/AUTHENTICATION_RBAC.md`
+7. `.agents/API_SPEC.md`
+8. `.agents/SECURITY.md`
+9. `.agents/DESIGN.md`
+10. `.agents/TASK_INSTRUCTION.md`
+11. `.agents/FLOW.md`
+12. `.agents/ENVIRONMENT.md`
+
+For Next.js-specific changes, inspect local docs first:
+
+```text
+node_modules/next/dist/docs/
+```
+
+Do not create duplicate documentation files in the repository root when the canonical file already exists in `.agents/`.
 
 ---
 
@@ -43,7 +55,7 @@ Read these files before writing or changing code:
 - [ ] Create `messages/id`.
 - [ ] Create `messages/en`.
 - [ ] Add common translation keys.
-- [ ] Add locale middleware in `src/proxy.ts`.
+- [ ] Add locale handling in `src/proxy.ts`.
 
 ### Task 1.4: Configure Supabase and Prisma
 
