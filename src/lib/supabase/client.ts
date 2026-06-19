@@ -1,6 +1,10 @@
 import { createBrowserClient } from '@supabase/ssr'
+import type { SupabaseClient } from '@supabase/supabase-js'
 
-export function createClient() {
-  // Create a supabase client on the browser with project's credentials
-  return createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!)
+import { getSupabasePublicEnv } from './env'
+
+export function createClient(): SupabaseClient {
+  const { url, publishableKey } = getSupabasePublicEnv()
+
+  return createBrowserClient(url, publishableKey)
 }
