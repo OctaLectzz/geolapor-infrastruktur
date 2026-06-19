@@ -115,3 +115,27 @@ https://your-domain.com/auth/callback
 ```
 
 Also add the Supabase OAuth callback URI in Google Cloud Console as instructed by Supabase provider settings.
+
+---
+
+## 8. Local MVP Seed Data
+
+The project includes a safe Prisma seed script for initial MVP reference data:
+
+```bash
+npm run db:seed
+```
+
+Seeded data:
+
+- Report categories.
+- Public agencies.
+- Safe default regions.
+
+Safety rules:
+
+- The seed is idempotent and can be rerun locally.
+- The seed does not create real user accounts.
+- The seed does not create admin credentials.
+- The seed does not insert secrets.
+- The seed refuses to run when `NODE_ENV=production` or `VERCEL_ENV=production` unless `ALLOW_PRODUCTION_SEED=true` is explicitly set.
