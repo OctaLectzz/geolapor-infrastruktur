@@ -1,0 +1,22 @@
+{
+  "overview": {
+    "title": "Dashboard",
+    "description": "Monitor report summaries, assignments, and repair progress."
+  },
+  "stats": {
+    "totalReports": "Total Reports",
+    "pendingVerification": "Pending Verification",
+    "activeAssignments": "Active Assignments",
+    "completedReports": "Completed Reports"
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "pendingReports": "Reports Pending Verification",
+    "assignOfficer": "Assign Officer"
+  },
+  "officer": {
+    "title": "Officer Dashboard",
+    "assignedTasks": "Assigned Tasks",
+    "submitUpdate": "Submit Field Update"
+  }
+}

@@ -1,20 +1,22 @@
-import { updateSession } from '@/lib/supabase/proxy'
-import { type NextRequest } from 'next/server'
+import createMiddleware from 'next-intl/middleware'
+import { NextResponse, type NextRequest } from 'next/server'
 
-export async function proxy(request: NextRequest) {
-  // update user's auth session
-  return await updateSession(request)
+import { routing } from '@/i18n/routing'
+import { updateSession } from '@/lib/supabase/proxy'
+
+const handleI18nRouting = createMiddleware(routing)
+
+export async function proxy(request: NextRequest): Promise<NextResponse> {
+  const intlResponse = handleI18nRouting(request)
+  const supabaseResponse = await updateSession(request)
+
+  supabaseResponse.cookies.getAll().forEach((cookie) => {
+    intlResponse.cookies.set(cookie)
+  })
+
+  return intlResponse
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * Feel free to modify this pattern to include more paths.
-     */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)'
-  ]
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)']
 }

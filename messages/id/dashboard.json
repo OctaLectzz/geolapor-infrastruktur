@@ -1,0 +1,22 @@
+{
+  "overview": {
+    "title": "Dasbor",
+    "description": "Pantau ringkasan laporan, penugasan, dan progres perbaikan."
+  },
+  "stats": {
+    "totalReports": "Total Laporan",
+    "pendingVerification": "Menunggu Verifikasi",
+    "activeAssignments": "Penugasan Aktif",
+    "completedReports": "Laporan Selesai"
+  },
+  "admin": {
+    "title": "Dasbor Admin",
+    "pendingReports": "Laporan Menunggu Verifikasi",
+    "assignOfficer": "Tugaskan Petugas"
+  },
+  "officer": {
+    "title": "Dasbor Petugas",
+    "assignedTasks": "Tugas Ditugaskan",
+    "submitUpdate": "Kirim Pembaruan Lapangan"
+  }
+}

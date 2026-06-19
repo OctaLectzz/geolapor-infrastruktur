@@ -1,0 +1,55 @@
+{
+  "app": {
+    "name": "GeoLapor Infrastruktur",
+    "tagline": "Laporkan kerusakan infrastruktur berbasis lokasi dengan transparan."
+  },
+  "metadata": {
+    "title": "GeoLapor Infrastruktur",
+    "description": "Platform pelaporan kerusakan infrastruktur berbasis geolokasi untuk warga, petugas, dan administrator."
+  },
+  "navigation": {
+    "home": "Beranda",
+    "map": "Peta Publik",
+    "reports": "Laporan",
+    "dashboard": "Dasbor",
+    "login": "Masuk"
+  },
+  "actions": {
+    "getStarted": "Mulai Melapor",
+    "viewMap": "Lihat Peta",
+    "learnMore": "Pelajari Alur",
+    "submit": "Kirim",
+    "cancel": "Batal",
+    "save": "Simpan"
+  },
+  "status": {
+    "draft": "Draf",
+    "submitted": "Terkirim",
+    "verified": "Terverifikasi",
+    "assigned": "Ditugaskan",
+    "inProgress": "Dalam Proses",
+    "needReview": "Perlu Ditinjau",
+    "completed": "Selesai",
+    "rejected": "Ditolak"
+  },
+  "home": {
+    "eyebrow": "Pelaporan infrastruktur berbasis geolokasi",
+    "title": "Bantu kota bergerak lebih cepat dari laporan hingga perbaikan.",
+    "description": "GeoLapor Infrastruktur membantu warga mengirim laporan dengan foto, koordinat, dan status progres yang dapat dipantau secara transparan.",
+    "primaryCta": "Buat Laporan",
+    "secondaryCta": "Jelajahi Peta",
+    "stats": {
+      "reportsLabel": "laporan siap dikelola",
+      "rolesLabel": "peran operasional",
+      "trackingLabel": "alur status transparan"
+    },
+    "features": {
+      "locationTitle": "Lokasi Presisi",
+      "locationDescription": "Setiap laporan disertai koordinat agar verifikasi dan penugasan petugas lebih cepat.",
+      "evidenceTitle": "Bukti Foto",
+      "evidenceDescription": "Foto kerusakan membantu admin memvalidasi kondisi lapangan sebelum menugaskan petugas.",
+      "workflowTitle": "Progres Terbuka",
+      "workflowDescription": "Status laporan dapat dipantau dari pengiriman, verifikasi, pengerjaan, hingga selesai."
+    }
+  }
+}

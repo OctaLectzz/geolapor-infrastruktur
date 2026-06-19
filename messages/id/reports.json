@@ -1,0 +1,26 @@
+{
+  "form": {
+    "title": "Buat Laporan Infrastruktur",
+    "description": "Lengkapi detail kerusakan, lokasi, dan bukti foto.",
+    "categoryLabel": "Kategori",
+    "descriptionLabel": "Deskripsi Kerusakan",
+    "locationLabel": "Lokasi",
+    "photoLabel": "Bukti Foto",
+    "submit": "Kirim Laporan"
+  },
+  "list": {
+    "title": "Daftar Laporan",
+    "empty": "Belum ada laporan."
+  },
+  "detail": {
+    "title": "Detail Laporan",
+    "timeline": "Linimasa Progres",
+    "evidence": "Bukti Laporan"
+  },
+  "validation": {
+    "categoryRequired": "Kategori wajib dipilih.",
+    "descriptionRequired": "Deskripsi kerusakan wajib diisi.",
+    "locationRequired": "Lokasi wajib ditentukan.",
+    "photoRequired": "Minimal satu foto wajib diunggah."
+  }
+}
