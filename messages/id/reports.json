@@ -221,6 +221,8 @@
     "photoTypeInvalid": "Jenis foto tidak valid.",
     "photoInvalid": "Foto harus berformat JPG, PNG, atau WebP.",
     "rejectionNoteRequired": "Catatan penolakan wajib diisi.",
+    "rejectionNoteMinLength": "Catatan penolakan minimal 5 karakter.",
+    "noteMaxLength": "Catatan maksimal 500 karakter.",
     "officerRequired": "Petugas wajib dipilih.",
     "progressRequired": "Progres wajib diisi.",
     "progressRange": "Progres harus bernilai 0 sampai 100."

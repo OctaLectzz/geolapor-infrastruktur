@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-import type { UserRole } from '../../../generated/prisma/enums'
+import type { UserRole } from '@generated/prisma/enums'
 
 import { SidebarNavigation, type SidebarNavigationItem } from '@/components/shared/sidebar-navigation'
 

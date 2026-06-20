@@ -1,4 +1,4 @@
-import type { Category } from '../../../../generated/prisma/client'
+import type { Category } from '@generated/prisma/client'
 
 import { prisma } from '@/lib/prisma'
 import { errorResponse, successResponse } from '@/lib/response'

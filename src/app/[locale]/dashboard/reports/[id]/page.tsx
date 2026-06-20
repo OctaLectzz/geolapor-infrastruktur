@@ -10,7 +10,7 @@ import { Link } from '@/i18n/navigation'
 import { requireAuth } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { toReportDetailDto } from '@/lib/report-dto'
-import { UserRole } from '../../../../../../generated/prisma/enums'
+import { UserRole } from '@generated/prisma/enums'
 
 import { ReportTimeline } from '@/features/reports/components/report-timeline'
 

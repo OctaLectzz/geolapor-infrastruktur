@@ -1,7 +1,7 @@
 import 'server-only'
 
-import type { UserProfile } from '../../generated/prisma/client'
-import type { UserRole as PrismaUserRole } from '../../generated/prisma/enums'
+import type { UserProfile } from '@generated/prisma/client'
+import type { UserRole as PrismaUserRole } from '@generated/prisma/enums'
 
 import { prisma } from '@/lib/prisma'
 import { createClient } from '@/lib/supabase/server'

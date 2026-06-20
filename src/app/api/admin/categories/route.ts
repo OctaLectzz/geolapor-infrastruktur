@@ -1,5 +1,5 @@
-import type { Category } from '../../../../../generated/prisma/client'
-import { UserRole } from '../../../../../generated/prisma/enums'
+import type { Category } from '@generated/prisma/client'
+import { UserRole } from '@generated/prisma/enums'
 
 import { requireRole } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'

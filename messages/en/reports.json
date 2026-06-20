@@ -221,6 +221,8 @@
     "photoTypeInvalid": "Photo type is invalid.",
     "photoInvalid": "Photo must be JPG, PNG, or WebP.",
     "rejectionNoteRequired": "Rejection note is required.",
+    "rejectionNoteMinLength": "Rejection note must be at least 5 characters.",
+    "noteMaxLength": "Note must be 500 characters or fewer.",
     "officerRequired": "Officer is required.",
     "progressRequired": "Progress is required.",
     "progressRange": "Progress must be between 0 and 100."

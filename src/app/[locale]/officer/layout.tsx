@@ -6,7 +6,7 @@ import { notFound, redirect } from 'next/navigation'
 import { DashboardLayout } from '@/components/shared/dashboard-layout'
 import type { SidebarNavigationItem } from '@/components/shared/sidebar-navigation'
 import { requireRole } from '@/lib/auth'
-import { UserRole } from '../../../../generated/prisma/enums'
+import { UserRole } from '@generated/prisma/enums'
 
 interface OfficerLayoutProps {
   children: ReactNode

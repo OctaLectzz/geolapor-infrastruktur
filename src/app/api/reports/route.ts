@@ -1,4 +1,4 @@
-import { NotificationType, PhotoType, ReportStatus } from '../../../../generated/prisma/enums'
+import { NotificationType, PhotoType, ReportStatus } from '@generated/prisma/enums'
 
 import { requireAuth } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'

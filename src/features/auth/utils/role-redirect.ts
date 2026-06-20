@@ -1,4 +1,4 @@
-import { UserRole, type UserRole as PrismaUserRole } from '../../../../generated/prisma/enums'
+import { UserRole, type UserRole as PrismaUserRole } from '@generated/prisma/enums'
 
 const ROLE_REDIRECTS = {
   [UserRole.SUPERADMIN]: '/admin',
