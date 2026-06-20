@@ -1,7 +1,12 @@
 {
   "form": {
+    "eyebrow": "Citizen report intake",
     "title": "Create Infrastructure Report",
-    "description": "Complete the damage details, location, and photo evidence.",
+    "description": "Complete the damage details, location, and photo evidence so the verification team can act quickly.",
+    "guidance": {
+      "title": "Before you submit",
+      "description": "Use clear photos, precise coordinates, and a short factual description. Reports with complete evidence are easier to verify."
+    },
     "sections": {
       "basicInfo": "Basic Information",
       "location": "Incident Location",
@@ -23,6 +28,8 @@
       "address": "Enter the nearest address or landmark"
     },
     "helpers": {
+      "basicInfo": "Tell us what happened and choose the most relevant infrastructure category.",
+      "address": "Optional, but helpful when the location is near a landmark or unnamed road.",
       "photo": "Upload a clear photo to help verification.",
       "location": "Use GPS or manually select a point on the map."
     },
@@ -33,6 +40,24 @@
       "useCurrentLocation": "Use Current Location",
       "adjustPin": "Adjust Pin",
       "uploadPhoto": "Upload Photo"
+    },
+    "messages": {
+      "categoryLoadError": "Categories could not be loaded. Try refreshing the page.",
+      "categoryEmpty": "No active categories are available yet.",
+      "createSuccess": "Report submitted successfully.",
+      "createErrorTitle": "Report could not be submitted",
+      "createError": "Check your information and try submitting the report again.",
+      "photoRequiredTitle": "Photo evidence required",
+      "locationRequiredTitle": "Location required"
+    },
+    "summary": {
+      "title": "Submission checklist",
+      "description": "Review the essentials before sending your report for verification.",
+      "categoryCount": "{count} active categories available.",
+      "photoCount": "{count} evidence photo selected."
+    },
+    "validation": {
+      "photoRequired": "At least one evidence photo is required."
     },
     "locationPicker": {
       "title": "Pin the report location",
@@ -178,13 +203,22 @@
   },
   "validation": {
     "titleRequired": "Report title is required.",
+    "titleMinLength": "Report title must be at least 8 characters.",
     "categoryRequired": "Category is required.",
     "descriptionRequired": "Damage description is required.",
+    "descriptionMinLength": "Damage description must be at least 20 characters.",
     "addressRequired": "Address or landmark is required.",
     "latitudeRequired": "Latitude is required.",
+    "latitudeInvalid": "Latitude must be between -90 and 90.",
     "longitudeRequired": "Longitude is required.",
+    "longitudeInvalid": "Longitude must be between -180 and 180.",
     "locationRequired": "Location is required.",
     "photoRequired": "At least one photo must be uploaded.",
+    "evidencePhotoRequired": "At least one uploaded evidence photo is required.",
+    "fileNameRequired": "Photo file name is required.",
+    "mimeTypeInvalid": "Photo must be JPG, PNG, WebP, HEIC, or HEIF.",
+    "fileSizeInvalid": "Each photo must be 5 MB or smaller.",
+    "photoTypeInvalid": "Photo type is invalid.",
     "photoInvalid": "Photo must be JPG, PNG, or WebP.",
     "rejectionNoteRequired": "Rejection note is required.",
     "officerRequired": "Officer is required.",

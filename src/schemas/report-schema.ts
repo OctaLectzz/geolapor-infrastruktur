@@ -23,12 +23,12 @@ const REPORT_VALIDATION_KEYS = {
   photoTypeInvalid: 'reports.validation.photoTypeInvalid'
 } as const
 
-export const latitudeSchema = z.coerce
+export const latitudeSchema = z
   .number({ message: REPORT_VALIDATION_KEYS.latitudeRequired })
   .min(-90, { message: REPORT_VALIDATION_KEYS.latitudeInvalid })
   .max(90, { message: REPORT_VALIDATION_KEYS.latitudeInvalid })
 
-export const longitudeSchema = z.coerce
+export const longitudeSchema = z
   .number({ message: REPORT_VALIDATION_KEYS.longitudeRequired })
   .min(-180, { message: REPORT_VALIDATION_KEYS.longitudeInvalid })
   .max(180, { message: REPORT_VALIDATION_KEYS.longitudeInvalid })

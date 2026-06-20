@@ -1,7 +1,12 @@
 {
   "form": {
+    "eyebrow": "Penerimaan laporan warga",
     "title": "Buat Laporan Infrastruktur",
-    "description": "Lengkapi detail kerusakan, lokasi, dan bukti foto.",
+    "description": "Lengkapi detail kerusakan, lokasi, dan bukti foto agar tim verifikasi dapat menindaklanjuti dengan cepat.",
+    "guidance": {
+      "title": "Sebelum mengirim",
+      "description": "Gunakan foto yang jelas, koordinat yang tepat, dan deskripsi singkat yang faktual. Laporan dengan bukti lengkap lebih mudah diverifikasi."
+    },
     "sections": {
       "basicInfo": "Informasi Dasar",
       "location": "Lokasi Kejadian",
@@ -23,6 +28,8 @@
       "address": "Masukkan alamat atau patokan terdekat"
     },
     "helpers": {
+      "basicInfo": "Jelaskan kejadian dan pilih kategori infrastruktur yang paling sesuai.",
+      "address": "Opsional, tetapi membantu jika lokasi berada dekat patokan atau jalan tanpa nama.",
       "photo": "Unggah foto yang jelas untuk membantu verifikasi.",
       "location": "Gunakan GPS atau pilih titik secara manual di peta."
     },
@@ -33,6 +40,24 @@
       "useCurrentLocation": "Gunakan Lokasi Saat Ini",
       "adjustPin": "Geser Pin",
       "uploadPhoto": "Unggah Foto"
+    },
+    "messages": {
+      "categoryLoadError": "Kategori belum dapat dimuat. Coba segarkan halaman.",
+      "categoryEmpty": "Belum ada kategori aktif yang tersedia.",
+      "createSuccess": "Laporan berhasil dikirim.",
+      "createErrorTitle": "Laporan belum dapat dikirim",
+      "createError": "Periksa informasi laporan dan coba kirim kembali.",
+      "photoRequiredTitle": "Bukti foto wajib diisi",
+      "locationRequiredTitle": "Lokasi wajib ditentukan"
+    },
+    "summary": {
+      "title": "Daftar periksa pengiriman",
+      "description": "Tinjau informasi penting sebelum laporan dikirim untuk verifikasi.",
+      "categoryCount": "{count} kategori aktif tersedia.",
+      "photoCount": "{count} foto bukti dipilih."
+    },
+    "validation": {
+      "photoRequired": "Minimal satu foto bukti wajib dipilih."
     },
     "locationPicker": {
       "title": "Tentukan lokasi laporan",
@@ -178,13 +203,22 @@
   },
   "validation": {
     "titleRequired": "Judul laporan wajib diisi.",
+    "titleMinLength": "Judul laporan minimal 8 karakter.",
     "categoryRequired": "Kategori wajib dipilih.",
     "descriptionRequired": "Deskripsi kerusakan wajib diisi.",
+    "descriptionMinLength": "Deskripsi kerusakan minimal 20 karakter.",
     "addressRequired": "Alamat atau patokan wajib diisi.",
     "latitudeRequired": "Latitude wajib ditentukan.",
+    "latitudeInvalid": "Latitude harus berada antara -90 dan 90.",
     "longitudeRequired": "Longitude wajib ditentukan.",
+    "longitudeInvalid": "Longitude harus berada antara -180 dan 180.",
     "locationRequired": "Lokasi wajib ditentukan.",
     "photoRequired": "Minimal satu foto wajib diunggah.",
+    "evidencePhotoRequired": "Minimal satu foto bukti yang telah diunggah wajib disertakan.",
+    "fileNameRequired": "Nama file foto wajib tersedia.",
+    "mimeTypeInvalid": "Foto harus berformat JPG, PNG, WebP, HEIC, atau HEIF.",
+    "fileSizeInvalid": "Setiap foto harus berukuran 5 MB atau kurang.",
+    "photoTypeInvalid": "Jenis foto tidak valid.",
     "photoInvalid": "Foto harus berformat JPG, PNG, atau WebP.",
     "rejectionNoteRequired": "Catatan penolakan wajib diisi.",
     "officerRequired": "Petugas wajib dipilih.",
