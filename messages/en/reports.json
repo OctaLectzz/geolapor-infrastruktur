@@ -55,6 +55,24 @@
       "latitudeInvalid": "Latitude must be between -90 and 90.",
       "longitudeInvalid": "Longitude must be between -180 and 180.",
       "accuracy": "Approximate accuracy: {accuracy} meters."
+    },
+    "photoUploader": {
+      "title": "Upload evidence photos",
+      "description": "Add clear photos of the damaged infrastructure before submitting your report.",
+      "label": "Evidence photos",
+      "button": "Choose photos",
+      "helper": "Accepted formats: JPG, PNG, WebP, HEIC, or HEIF. Maximum size: {maxSize} MB per photo.",
+      "previewAlt": "Evidence photo preview",
+      "selectedCount": "{count} photo selected",
+      "selectedCountPlural": "{count} photos selected",
+      "remove": "Remove photo",
+      "empty": "No evidence photo selected yet.",
+      "invalidTypeTitle": "Unsupported file type",
+      "invalidTypeDescription": "Only image files can be selected as evidence photos.",
+      "invalidSizeTitle": "Photo is too large",
+      "invalidSizeDescription": "Each evidence photo must be {maxSize} MB or smaller.",
+      "selectionRequired": "At least one evidence photo is required.",
+      "fileSize": "{size} MB"
     }
   },
   "statuses": {

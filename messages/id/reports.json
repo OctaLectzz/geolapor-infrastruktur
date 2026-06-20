@@ -55,6 +55,24 @@
       "latitudeInvalid": "Latitude harus berada antara -90 dan 90.",
       "longitudeInvalid": "Longitude harus berada antara -180 dan 180.",
       "accuracy": "Perkiraan akurasi: {accuracy} meter."
+    },
+    "photoUploader": {
+      "title": "Unggah foto bukti",
+      "description": "Tambahkan foto kerusakan infrastruktur yang jelas sebelum mengirim laporan.",
+      "label": "Foto bukti",
+      "button": "Pilih foto",
+      "helper": "Format diterima: JPG, PNG, WebP, HEIC, atau HEIF. Ukuran maksimal: {maxSize} MB per foto.",
+      "previewAlt": "Pratinjau foto bukti",
+      "selectedCount": "{count} foto dipilih",
+      "selectedCountPlural": "{count} foto dipilih",
+      "remove": "Hapus foto",
+      "empty": "Belum ada foto bukti yang dipilih.",
+      "invalidTypeTitle": "Jenis file tidak didukung",
+      "invalidTypeDescription": "Hanya file gambar yang dapat dipilih sebagai foto bukti.",
+      "invalidSizeTitle": "Foto terlalu besar",
+      "invalidSizeDescription": "Setiap foto bukti harus berukuran {maxSize} MB atau kurang.",
+      "selectionRequired": "Minimal satu foto bukti wajib dipilih.",
+      "fileSize": "{size} MB"
     }
   },
   "statuses": {
