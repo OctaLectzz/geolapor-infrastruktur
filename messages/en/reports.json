@@ -164,6 +164,7 @@
       "verify": "Verify",
       "reject": "Reject",
       "assign": "Assign",
+      "assigning": "Assigning...",
       "complete": "Complete",
       "cancel": "Cancel Report",
       "reviewProgress": "Review Progress",
@@ -176,10 +177,25 @@
       "officer": "Officer",
       "dueDate": "Due date"
     },
+    "assignment": {
+      "title": "Assign officer",
+      "description": "Choose an active field officer and provide the field instructions for this verified report.",
+      "officerPlaceholder": "Select an officer",
+      "loadingOfficers": "Loading officers...",
+      "emptyOfficers": "No active officers are available.",
+      "notePlaceholder": "Add inspection notes or repair instructions",
+      "noteHelper": "Optional. Keep instructions specific and actionable.",
+      "dueDateHelper": "Optional. Set a target completion date and time.",
+      "selectedOfficer": "Selected officer: {name}",
+      "noOfficerSelected": "Select an officer before assigning this report.",
+      "officersLoadErrorTitle": "Officers could not be loaded",
+      "officersLoadErrorDescription": "Refresh the page or try again later before assigning this report."
+    },
     "messages": {
       "verifySuccess": "Report verified successfully.",
       "rejectSuccess": "Report rejected successfully.",
       "assignSuccess": "Report assigned successfully.",
+      "assignError": "Report could not be assigned.",
       "completeSuccess": "Report completed successfully."
     }
   },
@@ -226,6 +242,7 @@
     "rejectionNoteMinLength": "Rejection note must be at least 5 characters.",
     "noteMaxLength": "Note must be 500 characters or fewer.",
     "officerRequired": "Officer is required.",
+    "dateInvalid": "Due date must be a valid date and time.",
     "progressRequired": "Progress is required.",
     "progressRange": "Progress must be between 0 and 100."
   }

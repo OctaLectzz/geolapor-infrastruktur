@@ -164,6 +164,7 @@
       "verify": "Verifikasi",
       "reject": "Tolak",
       "assign": "Tugaskan",
+      "assigning": "Menugaskan...",
       "complete": "Selesaikan",
       "cancel": "Batalkan Laporan",
       "reviewProgress": "Tinjau Progres",
@@ -176,10 +177,25 @@
       "officer": "Petugas",
       "dueDate": "Batas waktu"
     },
+    "assignment": {
+      "title": "Tugaskan petugas",
+      "description": "Pilih petugas lapangan aktif dan berikan instruksi kerja untuk laporan yang sudah diverifikasi ini.",
+      "officerPlaceholder": "Pilih petugas",
+      "loadingOfficers": "Memuat petugas...",
+      "emptyOfficers": "Belum ada petugas aktif yang tersedia.",
+      "notePlaceholder": "Tambahkan catatan inspeksi atau instruksi perbaikan",
+      "noteHelper": "Opsional. Buat instruksi tetap spesifik dan dapat ditindaklanjuti.",
+      "dueDateHelper": "Opsional. Tetapkan target tanggal dan waktu penyelesaian.",
+      "selectedOfficer": "Petugas terpilih: {name}",
+      "noOfficerSelected": "Pilih petugas sebelum menugaskan laporan ini.",
+      "officersLoadErrorTitle": "Petugas tidak dapat dimuat",
+      "officersLoadErrorDescription": "Muat ulang halaman atau coba lagi nanti sebelum menugaskan laporan ini."
+    },
     "messages": {
       "verifySuccess": "Laporan berhasil diverifikasi.",
       "rejectSuccess": "Laporan berhasil ditolak.",
       "assignSuccess": "Laporan berhasil ditugaskan.",
+      "assignError": "Laporan tidak dapat ditugaskan.",
       "completeSuccess": "Laporan berhasil diselesaikan."
     }
   },
@@ -226,6 +242,7 @@
     "rejectionNoteMinLength": "Catatan penolakan minimal 5 karakter.",
     "noteMaxLength": "Catatan maksimal 500 karakter.",
     "officerRequired": "Petugas wajib dipilih.",
+    "dateInvalid": "Batas waktu harus berupa tanggal dan waktu yang valid.",
     "progressRequired": "Progres wajib diisi.",
     "progressRange": "Progres harus bernilai 0 sampai 100."
   }

@@ -1,5 +1,5 @@
 import type { ApiResponse } from '@/types/api-response'
-import type { ReportDetailDto, ReportListResponse } from '@/types/report'
+import type { OfficerDto, OfficerListResponse, ReportDetailDto, ReportListResponse } from '@/types/report'
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null
@@ -29,6 +29,22 @@ function isReportListResponse(value: unknown): value is ReportListResponse {
 
 function isReportDetailDto(value: unknown): value is ReportDetailDto {
   return isRecord(value) && typeof value.id === 'string' && typeof value.reportCode === 'string' && Array.isArray(value.photos)
+}
+
+function isOfficerDto(value: unknown): value is OfficerDto {
+  return (
+    isRecord(value) &&
+    typeof value.id === 'string' &&
+    typeof value.fullName === 'string' &&
+    typeof value.email === 'string' &&
+    (typeof value.phoneNumber === 'string' || value.phoneNumber === null) &&
+    (typeof value.avatarUrl === 'string' || value.avatarUrl === null) &&
+    (typeof value.agencyId === 'string' || value.agencyId === null)
+  )
+}
+
+function isOfficerListResponse(value: unknown): value is OfficerListResponse {
+  return isRecord(value) && Array.isArray(value.items) && value.items.every(isOfficerDto)
 }
 
 export interface AdminReportFilters {
@@ -125,6 +141,38 @@ export async function rejectReport(id: string, rejectionNote: string): Promise<R
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ rejectionNote })
+  })
+  const body = await parseApiResponse(response)
+
+  if (!isReportDetailDto(body.data)) {
+    throw new Error('reports.messages.unexpectedError')
+  }
+
+  return body.data
+}
+
+export interface AssignReportPayload {
+  officerId: string
+  dueDate?: string
+  note?: string
+}
+
+export async function fetchActiveOfficers(): Promise<OfficerListResponse> {
+  const response = await fetch('/api/admin/officers', { method: 'GET' })
+  const body = await parseApiResponse(response)
+
+  if (!isOfficerListResponse(body.data)) {
+    throw new Error('reports.messages.unexpectedError')
+  }
+
+  return body.data
+}
+
+export async function assignReport(id: string, payload: AssignReportPayload): Promise<ReportDetailDto> {
+  const response = await fetch(`/api/admin/reports/${encodeURIComponent(id)}/assign`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
   })
   const body = await parseApiResponse(response)
 
