@@ -142,7 +142,9 @@
     "createdAt": "Dibuat pada",
     "updatedAt": "Diperbarui pada",
     "rejectionNote": "Catatan penolakan",
-    "completionEvidence": "Bukti penyelesaian"
+    "completionEvidence": "Bukti penyelesaian",
+    "reporterName": "Nama",
+    "reporterEmail": "Email"
   },
   "map": {
     "title": "Peta Laporan Publik",

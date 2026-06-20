@@ -142,7 +142,9 @@
     "createdAt": "Created at",
     "updatedAt": "Updated at",
     "rejectionNote": "Rejection note",
-    "completionEvidence": "Completion evidence"
+    "completionEvidence": "Completion evidence",
+    "reporterName": "Name",
+    "reporterEmail": "Email"
   },
   "map": {
     "title": "Public Report Map",
