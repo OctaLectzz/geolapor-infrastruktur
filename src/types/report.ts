@@ -15,7 +15,9 @@ export type ReportStatus = (typeof REPORT_STATUSES)[number]
 export type PhotoType = (typeof PHOTO_TYPES)[number]
 
 export interface EvidencePhotoMetadata {
-  fileName: string
+  fileName?: string
+  path: string
+  url: string
   mimeType: string
   size: number
   type: PhotoType
@@ -38,4 +40,62 @@ export interface ReportCreationInput extends ReportLocation {
 export interface ReportStatusTransition {
   from: ReportStatus
   to: ReportStatus
+}
+
+export interface ReportCategoryDto {
+  id: string
+  name: string
+  slug: string
+  icon: string | null
+}
+
+export interface ReportPhotoDto {
+  id: string
+  url: string
+  type: PhotoType
+  caption: string | null
+  createdAt: string
+}
+
+export interface ReportStatusHistoryDto {
+  id: string
+  status: ReportStatus
+  note: string | null
+  createdAt: string
+}
+
+export interface ReportListItemDto {
+  id: string
+  reportCode: string
+  title: string
+  description: string
+  address: string | null
+  latitude: string
+  longitude: string
+  status: ReportStatus
+  category: ReportCategoryDto
+  photo: ReportPhotoDto | null
+  createdAt: string
+  updatedAt: string
+}
+
+export interface ReportDetailDto extends Omit<ReportListItemDto, 'photo'> {
+  photos: ReportPhotoDto[]
+  histories: ReportStatusHistoryDto[]
+}
+
+export interface PaginationDto {
+  page: number
+  limit: number
+  total: number
+  totalPages: number
+}
+
+export interface ReportListResponse {
+  items: ReportListItemDto[]
+  pagination: PaginationDto
+}
+
+export interface ReportCreateResponse {
+  report: ReportDetailDto
 }

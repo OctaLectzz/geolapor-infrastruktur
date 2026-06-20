@@ -34,7 +34,9 @@ export const longitudeSchema = z.coerce
   .max(180, { message: REPORT_VALIDATION_KEYS.longitudeInvalid })
 
 export const evidencePhotoMetadataSchema = z.object({
-  fileName: z.string().trim().min(1, { message: REPORT_VALIDATION_KEYS.fileNameRequired }),
+  fileName: z.string().trim().min(1, { message: REPORT_VALIDATION_KEYS.fileNameRequired }).optional(),
+  path: z.string().trim().min(1, { message: REPORT_VALIDATION_KEYS.evidencePhotoRequired }),
+  url: z.url({ message: REPORT_VALIDATION_KEYS.evidencePhotoRequired }),
   mimeType: z.enum(ACCEPTED_EVIDENCE_PHOTO_MIME_TYPES, {
     message: REPORT_VALIDATION_KEYS.mimeTypeInvalid
   }),
