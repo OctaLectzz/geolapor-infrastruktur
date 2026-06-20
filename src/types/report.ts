@@ -112,3 +112,42 @@ export interface OfficerDto {
 export interface OfficerListResponse {
   items: OfficerDto[]
 }
+
+export interface FieldUpdateDto {
+  id: string
+  note: string
+  progress: number
+  photoUrl: string | null
+  photoPath: string | null
+  createdAt: string
+}
+
+export interface OfficerTaskListItemDto {
+  id: string
+  reportId: string
+  reportCode: string
+  title: string
+  description: string
+  address: string | null
+  latitude: string
+  longitude: string
+  status: ReportStatus
+  category: ReportCategoryDto
+  photo: ReportPhotoDto | null
+  note: string | null
+  dueDate: string | null
+  isActive: boolean
+  createdAt: string
+  updatedAt: string
+}
+
+export interface OfficerTaskDetailDto extends OfficerTaskListItemDto {
+  photos: ReportPhotoDto[]
+  histories: ReportStatusHistoryDto[]
+  fieldUpdates: FieldUpdateDto[]
+}
+
+export interface OfficerTaskListResponse {
+  items: OfficerTaskListItemDto[]
+  pagination: PaginationDto
+}
