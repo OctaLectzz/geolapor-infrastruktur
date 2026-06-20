@@ -3,13 +3,7 @@ interface SupabasePublicEnv {
   publishableKey: string
 }
 
-const SUPABASE_URL_VARIABLE = 'NEXT_PUBLIC_SUPABASE_URL'
-const SUPABASE_PUBLISHABLE_KEY_VARIABLE = 'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY'
-const SUPABASE_LEGACY_ANON_KEY_VARIABLE = 'NEXT_PUBLIC_SUPABASE_ANON_KEY'
-
-function getRequiredEnv(name: string): string {
-  const value = process.env[name]
-
+function getRequiredEnv(value: string | undefined, name: string): string {
   if (!value) {
     throw new Error(`Missing required environment variable: ${name}`)
   }
@@ -18,18 +12,18 @@ function getRequiredEnv(name: string): string {
 }
 
 function getSupabasePublishableKey(): string {
-  const publishableKey = process.env[SUPABASE_PUBLISHABLE_KEY_VARIABLE]
+  const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
 
   if (publishableKey) {
     return publishableKey
   }
 
-  return getRequiredEnv(SUPABASE_LEGACY_ANON_KEY_VARIABLE)
+  return getRequiredEnv(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY, 'NEXT_PUBLIC_SUPABASE_ANON_KEY')
 }
 
 export function getSupabasePublicEnv(): SupabasePublicEnv {
   return {
-    url: getRequiredEnv(SUPABASE_URL_VARIABLE),
+    url: getRequiredEnv(process.env.NEXT_PUBLIC_SUPABASE_URL, 'NEXT_PUBLIC_SUPABASE_URL'),
     publishableKey: getSupabasePublishableKey()
   }
 }

@@ -20,7 +20,20 @@
     "profile": "Profil",
     "login": "Masuk",
     "register": "Daftar",
-    "logout": "Keluar"
+    "logout": "Keluar",
+    "help": "Bantuan",
+    "overview": "Ringkasan",
+    "verification": "Verifikasi",
+    "categories": "Kategori",
+    "officers": "Petugas",
+    "users": "Pengguna",
+    "auditLogs": "Log Audit",
+    "myTasks": "Tugas Saya",
+    "history": "Riwayat",
+    "publicNavigation": "Navigasi publik",
+    "dashboardNavigation": "Navigasi dasbor",
+    "adminNavigation": "Navigasi admin",
+    "officerNavigation": "Navigasi petugas"
   },
   "actions": {
     "getStarted": "Mulai Melapor",

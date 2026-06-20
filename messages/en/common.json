@@ -20,7 +20,20 @@
     "profile": "Profile",
     "login": "Sign In",
     "register": "Register",
-    "logout": "Sign Out"
+    "logout": "Sign Out",
+    "help": "Help",
+    "overview": "Overview",
+    "verification": "Verification",
+    "categories": "Categories",
+    "officers": "Officers",
+    "users": "Users",
+    "auditLogs": "Audit Logs",
+    "myTasks": "My Tasks",
+    "history": "History",
+    "publicNavigation": "Public navigation",
+    "dashboardNavigation": "Dashboard navigation",
+    "adminNavigation": "Admin navigation",
+    "officerNavigation": "Officer navigation"
   },
   "actions": {
     "getStarted": "Start Reporting",
