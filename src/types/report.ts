@@ -99,3 +99,16 @@ export interface ReportListResponse {
 export interface ReportCreateResponse {
   report: ReportDetailDto
 }
+
+export interface OfficerDto {
+  id: string
+  fullName: string
+  email: string
+  phoneNumber: string | null
+  avatarUrl: string | null
+  agencyId: string | null
+}
+
+export interface OfficerListResponse {
+  items: OfficerDto[]
+}
