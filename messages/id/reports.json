@@ -33,6 +33,28 @@
       "useCurrentLocation": "Gunakan Lokasi Saat Ini",
       "adjustPin": "Geser Pin",
       "uploadPhoto": "Unggah Foto"
+    },
+    "locationPicker": {
+      "title": "Tentukan lokasi laporan",
+      "description": "Gunakan lokasi perangkat atau masukkan koordinat secara manual sebelum mengirim laporan.",
+      "useCurrentLocation": "Gunakan lokasi saat ini",
+      "locating": "Mencari lokasi...",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "latitudePlaceholder": "Contoh: -6.200000",
+      "longitudePlaceholder": "Contoh: 106.816666",
+      "selectedTitle": "Koordinat terpilih",
+      "selectedCoordinates": "{latitude}, {longitude}",
+      "emptyCoordinates": "Belum ada koordinat yang dipilih.",
+      "permissionDeniedTitle": "Izin lokasi ditolak",
+      "permissionDeniedDescription": "Izinkan akses lokasi di pengaturan browser atau masukkan latitude dan longitude secara manual.",
+      "unsupportedTitle": "GPS tidak tersedia",
+      "unsupportedDescription": "Browser ini tidak mendukung geolokasi. Masukkan koordinat secara manual.",
+      "locationUnavailableTitle": "Lokasi tidak tersedia",
+      "locationUnavailableDescription": "Kami belum dapat mendeteksi lokasi Anda. Coba lagi atau masukkan koordinat secara manual.",
+      "latitudeInvalid": "Latitude harus berada antara -90 dan 90.",
+      "longitudeInvalid": "Longitude harus berada antara -180 dan 180.",
+      "accuracy": "Perkiraan akurasi: {accuracy} meter."
     }
   },
   "statuses": {

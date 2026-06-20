@@ -33,6 +33,28 @@
       "useCurrentLocation": "Use Current Location",
       "adjustPin": "Adjust Pin",
       "uploadPhoto": "Upload Photo"
+    },
+    "locationPicker": {
+      "title": "Pin the report location",
+      "description": "Use your device location or enter coordinates manually before submitting the report.",
+      "useCurrentLocation": "Use current location",
+      "locating": "Finding location...",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "latitudePlaceholder": "Example: -6.200000",
+      "longitudePlaceholder": "Example: 106.816666",
+      "selectedTitle": "Selected coordinates",
+      "selectedCoordinates": "{latitude}, {longitude}",
+      "emptyCoordinates": "No coordinates selected yet.",
+      "permissionDeniedTitle": "Location permission denied",
+      "permissionDeniedDescription": "Allow location access in your browser settings or enter latitude and longitude manually.",
+      "unsupportedTitle": "GPS is not available",
+      "unsupportedDescription": "This browser does not support geolocation. Enter coordinates manually instead.",
+      "locationUnavailableTitle": "Location unavailable",
+      "locationUnavailableDescription": "We could not detect your location. Try again or enter coordinates manually.",
+      "latitudeInvalid": "Latitude must be between -90 and 90.",
+      "longitudeInvalid": "Longitude must be between -180 and 180.",
+      "accuracy": "Approximate accuracy: {accuracy} meters."
     }
   },
   "statuses": {
