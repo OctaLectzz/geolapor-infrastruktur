@@ -166,6 +166,9 @@
       "assign": "Assign",
       "assigning": "Assigning...",
       "complete": "Complete",
+      "completing": "Completing...",
+      "requestRevision": "Request Revision",
+      "requestingRevision": "Requesting revision...",
       "cancel": "Cancel Report",
       "reviewProgress": "Review Progress",
       "viewDuplicates": "Check Duplicates",
@@ -174,6 +177,8 @@
     "fields": {
       "rejectionNote": "Rejection note",
       "assignmentNote": "Assignment note",
+      "completionNote": "Completion note",
+      "revisionNote": "Revision note",
       "officer": "Officer",
       "dueDate": "Due date"
     },
@@ -191,13 +196,34 @@
       "officersLoadErrorTitle": "Officers could not be loaded",
       "officersLoadErrorDescription": "Refresh the page or try again later before assigning this report."
     },
+    "review": {
+      "title": "Completion review",
+      "description": "Inspect officer progress notes and evidence before closing or returning this report for revision.",
+      "readyBadge": "Ready for admin review",
+      "emptyFieldUpdates": "No officer field updates have been submitted yet.",
+      "completeDialogTitle": "Complete this report?",
+      "completeDialogDescription": "This will mark the infrastructure report as completed and notify the reporter.",
+      "completeNotePlaceholder": "Optional closing note for the reporter and audit trail",
+      "completeNoteHelper": "Optional when progress photos exist. Use this for additional completion context.",
+      "completeOverrideHelper": "Required when no progress photo exists. Explain why completion can be approved without photo evidence.",
+      "revisionDialogTitle": "Request field revision?",
+      "revisionDialogDescription": "This will return the report to in progress so the officer can submit corrected updates.",
+      "revisionNotePlaceholder": "Explain what the officer must fix or add before review",
+      "revisionNoteHelper": "Required. Keep the instruction specific and actionable.",
+      "progressValue": "{value}%",
+      "progressPhotoAlt": "Officer progress photo",
+      "viewProgressPhoto": "View progress photo",
+      "noProgressPhoto": "No progress photo attached."
+    },
     "messages": {
       "verifySuccess": "Report verified successfully.",
       "rejectSuccess": "Report rejected successfully.",
       "assignSuccess": "Report assigned successfully.",
       "assignError": "Report could not be assigned.",
       "completeSuccess": "Report completed successfully.",
+      "completeError": "Report could not be completed.",
       "revisionSuccess": "Revision requested. Report returned to in progress.",
+      "revisionError": "Revision could not be requested.",
       "noFieldUpdateExists": "Cannot complete: no field progress update exists for this report.",
       "evidenceOrNoteRequired": "Cannot complete: evidence photo or an admin override note is required."
     }
@@ -307,6 +333,7 @@
     "photoUrlInvalid": "Photo URL must be a valid URL.",
     "photoUrlRequired": "Photo URL is required when a storage path is provided.",
     "photoPathRequired": "Photo storage path is required when a photo URL is provided.",
+    "completionOverrideNoteRequired": "Add an override note of at least 5 characters when no progress photo exists.",
     "revisionNoteRequired": "Revision note is required.",
     "revisionNoteMinLength": "Revision note must be at least 5 characters."
   }

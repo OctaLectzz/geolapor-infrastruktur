@@ -182,3 +182,41 @@ export async function assignReport(id: string, payload: AssignReportPayload): Pr
 
   return body.data
 }
+
+export interface CompleteReportPayload {
+  note?: string
+}
+
+export interface RequestRevisionPayload {
+  note: string
+}
+
+export async function completeReport(id: string, payload: CompleteReportPayload): Promise<ReportDetailDto> {
+  const response = await fetch(`/api/admin/reports/${encodeURIComponent(id)}/complete`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  const body = await parseApiResponse(response)
+
+  if (!isReportDetailDto(body.data)) {
+    throw new Error('reports.messages.unexpectedError')
+  }
+
+  return body.data
+}
+
+export async function requestReportRevision(id: string, payload: RequestRevisionPayload): Promise<ReportDetailDto> {
+  const response = await fetch(`/api/admin/reports/${encodeURIComponent(id)}/request-revision`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  const body = await parseApiResponse(response)
+
+  if (!isReportDetailDto(body.data)) {
+    throw new Error('reports.messages.unexpectedError')
+  }
+
+  return body.data
+}

@@ -43,6 +43,15 @@ export async function GET(_request: Request, context: AdminReportRouteContext): 
         },
         histories: {
           orderBy: { createdAt: 'asc' }
+        },
+        assignments: {
+          where: { isActive: true },
+          include: {
+            fieldUpdates: {
+              orderBy: { createdAt: 'desc' }
+            }
+          },
+          take: 1
         }
       }
     })

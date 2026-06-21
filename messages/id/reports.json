@@ -166,6 +166,9 @@
       "assign": "Tugaskan",
       "assigning": "Menugaskan...",
       "complete": "Selesaikan",
+      "completing": "Menyelesaikan...",
+      "requestRevision": "Minta Revisi",
+      "requestingRevision": "Meminta revisi...",
       "cancel": "Batalkan Laporan",
       "reviewProgress": "Tinjau Progres",
       "viewDuplicates": "Cek Duplikat",
@@ -174,6 +177,8 @@
     "fields": {
       "rejectionNote": "Catatan penolakan",
       "assignmentNote": "Catatan penugasan",
+      "completionNote": "Catatan penyelesaian",
+      "revisionNote": "Catatan revisi",
       "officer": "Petugas",
       "dueDate": "Batas waktu"
     },
@@ -191,13 +196,34 @@
       "officersLoadErrorTitle": "Petugas tidak dapat dimuat",
       "officersLoadErrorDescription": "Muat ulang halaman atau coba lagi nanti sebelum menugaskan laporan ini."
     },
+    "review": {
+      "title": "Peninjauan penyelesaian",
+      "description": "Periksa catatan progres dan bukti dari petugas sebelum menutup laporan atau mengembalikannya untuk revisi.",
+      "readyBadge": "Siap ditinjau admin",
+      "emptyFieldUpdates": "Belum ada pembaruan lapangan dari petugas.",
+      "completeDialogTitle": "Selesaikan laporan ini?",
+      "completeDialogDescription": "Tindakan ini akan menandai laporan infrastruktur sebagai selesai dan memberi tahu pelapor.",
+      "completeNotePlaceholder": "Catatan penutup opsional untuk pelapor dan jejak audit",
+      "completeNoteHelper": "Opsional jika foto progres tersedia. Gunakan untuk menambahkan konteks penyelesaian.",
+      "completeOverrideHelper": "Wajib jika tidak ada foto progres. Jelaskan alasan penyelesaian dapat disetujui tanpa bukti foto.",
+      "revisionDialogTitle": "Minta revisi lapangan?",
+      "revisionDialogDescription": "Tindakan ini akan mengembalikan laporan ke dalam proses agar petugas dapat mengirim pembaruan yang diperbaiki.",
+      "revisionNotePlaceholder": "Jelaskan hal yang perlu diperbaiki atau ditambahkan petugas sebelum ditinjau",
+      "revisionNoteHelper": "Wajib. Buat instruksi spesifik dan dapat ditindaklanjuti.",
+      "progressValue": "{value}%",
+      "progressPhotoAlt": "Foto progres petugas",
+      "viewProgressPhoto": "Lihat foto progres",
+      "noProgressPhoto": "Tidak ada foto progres terlampir."
+    },
     "messages": {
       "verifySuccess": "Laporan berhasil diverifikasi.",
       "rejectSuccess": "Laporan berhasil ditolak.",
       "assignSuccess": "Laporan berhasil ditugaskan.",
       "assignError": "Laporan tidak dapat ditugaskan.",
       "completeSuccess": "Laporan berhasil diselesaikan.",
+      "completeError": "Laporan belum dapat diselesaikan.",
       "revisionSuccess": "Revisi diminta. Laporan dikembalikan ke dalam proses.",
+      "revisionError": "Revisi belum dapat diminta.",
       "noFieldUpdateExists": "Tidak dapat menyelesaikan: belum ada pembaruan progres lapangan untuk laporan ini.",
       "evidenceOrNoteRequired": "Tidak dapat menyelesaikan: foto bukti atau catatan admin wajib tersedia."
     }
@@ -307,6 +333,7 @@
     "photoUrlInvalid": "URL foto harus berupa URL yang valid.",
     "photoUrlRequired": "URL foto wajib diisi jika path penyimpanan disertakan.",
     "photoPathRequired": "Path penyimpanan foto wajib diisi jika URL foto disertakan.",
+    "completionOverrideNoteRequired": "Tambahkan catatan override minimal 5 karakter jika tidak ada foto progres.",
     "revisionNoteRequired": "Catatan revisi wajib diisi.",
     "revisionNoteMinLength": "Catatan revisi minimal 5 karakter."
   }

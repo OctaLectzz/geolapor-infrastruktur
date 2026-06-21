@@ -5,6 +5,7 @@ import { useCallback, useState } from 'react'
 import { useRouter } from '@/i18n/navigation'
 
 import { AssignmentPanel } from '@/features/admin/components/assignment-panel'
+import { CompletionReviewPanel } from '@/features/admin/components/completion-review-panel'
 import { VerificationPanel } from '@/features/admin/components/verification-panel'
 
 import type { ReportDetailDto } from '@/types/report'
@@ -29,6 +30,7 @@ export function AdminReportDetailClient({ report: initialReport }: AdminReportDe
     <div className="flex flex-col gap-6">
       <VerificationPanel report={report} onActionComplete={handleActionComplete} />
       <AssignmentPanel report={report} onActionComplete={handleActionComplete} />
+      <CompletionReviewPanel report={report} onActionComplete={handleActionComplete} />
     </div>
   )
 }

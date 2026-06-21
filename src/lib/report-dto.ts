@@ -1,4 +1,5 @@
 import type {
+  FieldUpdateDto,
   PhotoType,
   ReportCategoryDto,
   ReportDetailDto,
@@ -34,6 +35,21 @@ interface ReportStatusHistoryRecord {
   createdAt: Date
 }
 
+interface FieldUpdateRecord {
+  id: string
+  note: string
+  progress: number
+  photoUrl: string | null
+  photoPath: string | null
+  createdAt: Date
+}
+
+interface AssignmentRecord {
+  officerId?: string
+  isActive?: boolean
+  fieldUpdates?: FieldUpdateRecord[]
+}
+
 export interface ReportListRecord {
   id: string
   reportCode: string
@@ -51,6 +67,7 @@ export interface ReportListRecord {
 
 export interface ReportDetailRecord extends ReportListRecord {
   histories: ReportStatusHistoryRecord[]
+  assignments?: AssignmentRecord[]
 }
 
 function toCategoryDto(category: ReportCategoryRecord): ReportCategoryDto {
@@ -78,6 +95,17 @@ function toStatusHistoryDto(history: ReportStatusHistoryRecord): ReportStatusHis
     status: history.status,
     note: history.note,
     createdAt: history.createdAt.toISOString()
+  }
+}
+
+function toFieldUpdateDto(update: FieldUpdateRecord): FieldUpdateDto {
+  return {
+    id: update.id,
+    note: update.note,
+    progress: update.progress,
+    photoUrl: update.photoUrl,
+    photoPath: update.photoPath,
+    createdAt: update.createdAt.toISOString()
   }
 }
 
@@ -111,6 +139,7 @@ export function toReportDetailDto(report: ReportDetailRecord): ReportDetailDto {
     category: toCategoryDto(report.category),
     photos: report.photos.map(toPhotoDto),
     histories: report.histories.map(toStatusHistoryDto),
+    fieldUpdates: report.assignments?.flatMap((assignment) => assignment.fieldUpdates?.map(toFieldUpdateDto) ?? []) ?? [],
     createdAt: report.createdAt.toISOString(),
     updatedAt: report.updatedAt.toISOString()
   }

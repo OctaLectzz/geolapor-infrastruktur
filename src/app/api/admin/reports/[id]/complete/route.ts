@@ -110,6 +110,15 @@ export async function PATCH(request: Request, context: CompleteRouteContext): Pr
           },
           histories: {
             orderBy: { createdAt: 'asc' }
+          },
+          assignments: {
+            where: { isActive: true },
+            include: {
+              fieldUpdates: {
+                orderBy: { createdAt: 'desc' }
+              }
+            },
+            take: 1
           }
         }
       })

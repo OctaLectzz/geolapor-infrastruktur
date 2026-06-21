@@ -82,6 +82,7 @@ export interface ReportListItemDto {
 export interface ReportDetailDto extends Omit<ReportListItemDto, 'photo'> {
   photos: ReportPhotoDto[]
   histories: ReportStatusHistoryDto[]
+  fieldUpdates: FieldUpdateDto[]
 }
 
 export interface PaginationDto {

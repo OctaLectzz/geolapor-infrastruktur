@@ -39,6 +39,15 @@ export default async function AdminReportDetailPage({ params }: AdminReportDetai
       },
       reporter: {
         select: { id: true, fullName: true, email: true }
+      },
+      assignments: {
+        where: { isActive: true },
+        include: {
+          fieldUpdates: {
+            orderBy: { createdAt: 'desc' }
+          }
+        },
+        take: 1
       }
     }
   })
