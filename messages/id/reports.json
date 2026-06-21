@@ -196,7 +196,10 @@
       "rejectSuccess": "Laporan berhasil ditolak.",
       "assignSuccess": "Laporan berhasil ditugaskan.",
       "assignError": "Laporan tidak dapat ditugaskan.",
-      "completeSuccess": "Laporan berhasil diselesaikan."
+      "completeSuccess": "Laporan berhasil diselesaikan.",
+      "revisionSuccess": "Revisi diminta. Laporan dikembalikan ke dalam proses.",
+      "noFieldUpdateExists": "Tidak dapat menyelesaikan: belum ada pembaruan progres lapangan untuk laporan ini.",
+      "evidenceOrNoteRequired": "Tidak dapat menyelesaikan: foto bukti atau catatan admin wajib tersedia."
     }
   },
   "officer": {
@@ -303,6 +306,8 @@
     "progressRange": "Progres harus bernilai 0 sampai 100.",
     "photoUrlInvalid": "URL foto harus berupa URL yang valid.",
     "photoUrlRequired": "URL foto wajib diisi jika path penyimpanan disertakan.",
-    "photoPathRequired": "Path penyimpanan foto wajib diisi jika URL foto disertakan."
+    "photoPathRequired": "Path penyimpanan foto wajib diisi jika URL foto disertakan.",
+    "revisionNoteRequired": "Catatan revisi wajib diisi.",
+    "revisionNoteMinLength": "Catatan revisi minimal 5 karakter."
   }
 }

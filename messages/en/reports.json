@@ -196,7 +196,10 @@
       "rejectSuccess": "Report rejected successfully.",
       "assignSuccess": "Report assigned successfully.",
       "assignError": "Report could not be assigned.",
-      "completeSuccess": "Report completed successfully."
+      "completeSuccess": "Report completed successfully.",
+      "revisionSuccess": "Revision requested. Report returned to in progress.",
+      "noFieldUpdateExists": "Cannot complete: no field progress update exists for this report.",
+      "evidenceOrNoteRequired": "Cannot complete: evidence photo or an admin override note is required."
     }
   },
   "officer": {
@@ -303,6 +306,8 @@
     "progressRange": "Progress must be between 0 and 100.",
     "photoUrlInvalid": "Photo URL must be a valid URL.",
     "photoUrlRequired": "Photo URL is required when a storage path is provided.",
-    "photoPathRequired": "Photo storage path is required when a photo URL is provided."
+    "photoPathRequired": "Photo storage path is required when a photo URL is provided.",
+    "revisionNoteRequired": "Revision note is required.",
+    "revisionNoteMinLength": "Revision note must be at least 5 characters."
   }
 }
