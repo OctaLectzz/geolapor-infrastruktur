@@ -109,6 +109,47 @@
       "evidenceDescription": "Foto kerusakan membantu admin memvalidasi kondisi lapangan sebelum menugaskan petugas.",
       "workflowTitle": "Progres Terbuka",
       "workflowDescription": "Status laporan dapat dipantau dari pengiriman, verifikasi, pengerjaan, hingga selesai."
+    },
+    "publicStats": {
+      "title": "Platform dalam Angka",
+      "description": "Statistik real-time dari laporan yang dikirim warga di seluruh wilayah.",
+      "totalReports": "Total Laporan",
+      "verified": "Terverifikasi",
+      "completed": "Selesai",
+      "inProgress": "Dalam Proses",
+      "loadError": "Statistik tidak dapat dimuat."
+    },
+    "howItWorks": {
+      "title": "Cara Kerjanya",
+      "description": "Dari menemukan kerusakan hingga perbaikan selesai — empat langkah jelas.",
+      "step1Title": "Laporkan Kerusakan",
+      "step1Description": "Ambil foto, tandai lokasi, dan kirim laporan Anda dalam waktu kurang dari 3 menit.",
+      "step2Title": "Admin Memverifikasi",
+      "step2Description": "Administrator meninjau foto dan koordinat Anda, lalu memverifikasi atau meminta koreksi.",
+      "step3Title": "Petugas Memperbaiki",
+      "step3Description": "Petugas lapangan ditugaskan dan mengirim pembaruan progres dengan foto hingga pekerjaan selesai.",
+      "step4Title": "Pantau Progres",
+      "step4Description": "Ikuti setiap perubahan status di peta publik — dari laporan hingga penyelesaian."
+    },
+    "categoryPreview": {
+      "title": "Kategori Laporan",
+      "description": "Masalah infrastruktur dikelompokkan berdasarkan kategori agar tim yang tepat ditugaskan.",
+      "loadError": "Kategori tidak dapat dimuat.",
+      "empty": "Belum ada kategori tersedia."
+    },
+    "mapPreview": {
+      "title": "Peta Laporan Publik",
+      "description": "Lihat laporan infrastruktur terverifikasi di peta interaktif. Filter berdasarkan status atau kategori.",
+      "openMap": "Buka Peta Lengkap"
+    },
+    "footer": {
+      "copyright": "© {year} GeoLapor Infrastruktur. Hak cipta dilindungi.",
+      "builtWith": "Dibangun dengan semangat transparansi.",
+      "links": {
+        "privacy": "Privasi",
+        "terms": "Ketentuan",
+        "contact": "Kontak"
+      }
     }
   },
   "validation": {

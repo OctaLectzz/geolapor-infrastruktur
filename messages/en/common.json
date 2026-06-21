@@ -109,6 +109,47 @@
       "evidenceDescription": "Damage photos help administrators validate field conditions before assigning officers.",
       "workflowTitle": "Open Progress",
       "workflowDescription": "Report status can be tracked from submission, verification, field work, review, to completion."
+    },
+    "publicStats": {
+      "title": "Platform in Numbers",
+      "description": "Real-time statistics from reports submitted by citizens across all regions.",
+      "totalReports": "Total Reports",
+      "verified": "Verified",
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "loadError": "Statistics could not be loaded."
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "description": "From spotting damage to completed repair — four clear steps.",
+      "step1Title": "Report Damage",
+      "step1Description": "Take a photo, pin the location, and submit your report in under 3 minutes.",
+      "step2Title": "Admin Verifies",
+      "step2Description": "Administrators review your photo and coordinates, then verify or request corrections.",
+      "step3Title": "Officer Repairs",
+      "step3Description": "A field officer is assigned and submits progress updates with photos until the work is done.",
+      "step4Title": "Track Progress",
+      "step4Description": "Follow every status change on the public map — from report to completion."
+    },
+    "categoryPreview": {
+      "title": "Report Categories",
+      "description": "Infrastructure issues are organized by category so the right team gets assigned.",
+      "loadError": "Categories could not be loaded.",
+      "empty": "No categories available yet."
+    },
+    "mapPreview": {
+      "title": "Public Report Map",
+      "description": "See verified infrastructure reports on an interactive map. Filter by status or category.",
+      "openMap": "Open Full Map"
+    },
+    "footer": {
+      "copyright": "© {year} GeoLapor Infrastruktur. All rights reserved.",
+      "builtWith": "Built with transparency in mind.",
+      "links": {
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "contact": "Contact"
+      }
     }
   },
   "validation": {
