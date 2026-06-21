@@ -25,6 +25,7 @@
     "cmdk": "^1.1.1",
     "date-fns": "^4.4.0",
     "dotenv": "^17.4.2",
+    "leaflet": "^1.9.4",
     "lucide-react": "^1.21.0",
     "next": "16.2.9",
     "next-intl": "^4.13.0",
@@ -35,6 +36,7 @@
     "react-day-picker": "^10.0.1",
     "react-dom": "19.2.4",
     "react-hook-form": "^7.79.0",
+    "react-leaflet": "^5.0.0",
     "recharts": "^3.8.1",
     "shadcn": "^4.11.0",
     "sonner": "^2.0.7",
@@ -47,6 +49,7 @@
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@tailwindcss/postcss": "^4",
+    "@types/leaflet": "^1.9.21",
     "@types/node": "^20",
     "@types/pg": "^8.20.0",
     "@types/react": "^19",

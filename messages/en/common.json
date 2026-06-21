@@ -152,6 +152,37 @@
       }
     }
   },
+  "publicMap": {
+    "title": "Public Report Map",
+    "description": "Browse verified infrastructure reports across all regions.",
+    "filters": {
+      "title": "Filters",
+      "allStatuses": "All statuses",
+      "allCategories": "All categories",
+      "apply": "Apply",
+      "reset": "Reset",
+      "loading": "Loading..."
+    },
+    "preview": {
+      "viewDetail": "View Detail",
+      "noAddress": "Address not provided",
+      "close": "Close"
+    },
+    "list": {
+      "title": "Reports",
+      "empty": "No reports match the current filters.",
+      "loadError": "Reports could not be loaded.",
+      "showOnMap": "Show on map",
+      "loadMore": "Load more"
+    },
+    "status": {
+      "VERIFIED": "Verified",
+      "ASSIGNED": "Assigned",
+      "IN_PROGRESS": "In Progress",
+      "NEED_REVIEW": "Needs Review",
+      "COMPLETED": "Completed"
+    }
+  },
   "validation": {
     "required": "This field is required.",
     "invalidEmail": "Enter a valid email address.",

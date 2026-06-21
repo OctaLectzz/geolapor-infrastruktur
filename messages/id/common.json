@@ -152,6 +152,37 @@
       }
     }
   },
+  "publicMap": {
+    "title": "Peta Laporan Publik",
+    "description": "Jelajahi laporan infrastruktur terverifikasi di seluruh wilayah.",
+    "filters": {
+      "title": "Filter",
+      "allStatuses": "Semua status",
+      "allCategories": "Semua kategori",
+      "apply": "Terapkan",
+      "reset": "Reset",
+      "loading": "Memuat..."
+    },
+    "preview": {
+      "viewDetail": "Lihat Detail",
+      "noAddress": "Alamat tidak tersedia",
+      "close": "Tutup"
+    },
+    "list": {
+      "title": "Laporan",
+      "empty": "Tidak ada laporan yang cocok dengan filter saat ini.",
+      "loadError": "Laporan tidak dapat dimuat.",
+      "showOnMap": "Tampilkan di peta",
+      "loadMore": "Muat lagi"
+    },
+    "status": {
+      "VERIFIED": "Terverifikasi",
+      "ASSIGNED": "Ditugaskan",
+      "IN_PROGRESS": "Dalam Proses",
+      "NEED_REVIEW": "Perlu Ditinjau",
+      "COMPLETED": "Selesai"
+    }
+  },
   "validation": {
     "required": "Wajib diisi.",
     "invalidEmail": "Format email tidak valid.",
