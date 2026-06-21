@@ -283,6 +283,11 @@
       "submittingReview": "Mengajukan peninjauan..."
     },
     "messages": {
+      "listRetrieved": "Laporan berhasil dimuat.",
+      "detailRetrieved": "Detail laporan berhasil dimuat.",
+      "publicListRetrieved": "Laporan publik berhasil dimuat.",
+      "publicDetailRetrieved": "Detail laporan publik berhasil dimuat.",
+      "publicStatsRetrieved": "Statistik dasbor publik berhasil dimuat.",
       "tasksRetrieved": "Tugas petugas berhasil dimuat.",
       "taskRetrieved": "Detail tugas petugas berhasil dimuat.",
       "taskNotFound": "Tugas tidak ditemukan.",
@@ -335,6 +340,7 @@
     "photoPathRequired": "Path penyimpanan foto wajib diisi jika URL foto disertakan.",
     "completionOverrideNoteRequired": "Tambahkan catatan override minimal 5 karakter jika tidak ada foto progres.",
     "revisionNoteRequired": "Catatan revisi wajib diisi.",
-    "revisionNoteMinLength": "Catatan revisi minimal 5 karakter."
+    "revisionNoteMinLength": "Catatan revisi minimal 5 karakter.",
+    "publicFiltersInvalid": "Parameter filter laporan publik tidak valid."
   }
 }

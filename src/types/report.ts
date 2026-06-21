@@ -152,3 +152,56 @@ export interface OfficerTaskListResponse {
   items: OfficerTaskListItemDto[]
   pagination: PaginationDto
 }
+
+export interface PublicRegionDto {
+  id: string
+  province: string
+  city: string
+  district: string | null
+  village: string | null
+}
+
+export interface PublicReportStatusHistoryDto {
+  id: string
+  status: ReportStatus
+  createdAt: string
+}
+
+export interface PublicReportListItemDto {
+  id: string
+  reportCode: string
+  title: string
+  description: string
+  address: string | null
+  latitude: string
+  longitude: string
+  status: ReportStatus
+  category: ReportCategoryDto
+  region: PublicRegionDto | null
+  photo: ReportPhotoDto | null
+  createdAt: string
+  updatedAt: string
+}
+
+export interface PublicReportDetailDto extends Omit<PublicReportListItemDto, 'photo'> {
+  photos: ReportPhotoDto[]
+  histories: PublicReportStatusHistoryDto[]
+}
+
+export interface PublicReportListResponse {
+  items: PublicReportListItemDto[]
+  pagination: PaginationDto
+}
+
+export interface PublicCategoryStatsDto {
+  category: ReportCategoryDto
+  total: number
+}
+
+export interface PublicDashboardStatsDto {
+  total: number
+  verified: number
+  completed: number
+  inProgress: number
+  categories: PublicCategoryStatsDto[]
+}

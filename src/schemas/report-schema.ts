@@ -69,3 +69,32 @@ export const createReportSchema = z.object({
 
 export type EvidencePhotoMetadataSchema = z.infer<typeof evidencePhotoMetadataSchema>
 export type CreateReportSchema = z.infer<typeof createReportSchema>
+
+export const PUBLIC_REPORT_STATUSES = ['VERIFIED', 'ASSIGNED', 'IN_PROGRESS', 'NEED_REVIEW', 'COMPLETED'] as const
+
+const optionalCoordinateParamSchema = z
+  .string()
+  .trim()
+  .optional()
+  .transform((value) => {
+    if (!value) {
+      return undefined
+    }
+
+    return Number(value)
+  })
+
+export const publicReportQuerySchema = z
+  .object({
+    status: z.enum(PUBLIC_REPORT_STATUSES).optional(),
+    categoryId: z.string().trim().min(1).optional(),
+    regionId: z.string().trim().min(1).optional(),
+    minLat: optionalCoordinateParamSchema.refine((value) => value === undefined || (Number.isFinite(value) && value >= -90 && value <= 90)),
+    maxLat: optionalCoordinateParamSchema.refine((value) => value === undefined || (Number.isFinite(value) && value >= -90 && value <= 90)),
+    minLng: optionalCoordinateParamSchema.refine((value) => value === undefined || (Number.isFinite(value) && value >= -180 && value <= 180)),
+    maxLng: optionalCoordinateParamSchema.refine((value) => value === undefined || (Number.isFinite(value) && value >= -180 && value <= 180))
+  })
+  .refine((value) => value.minLat === undefined || value.maxLat === undefined || value.minLat <= value.maxLat)
+  .refine((value) => value.minLng === undefined || value.maxLng === undefined || value.minLng <= value.maxLng)
+
+export type PublicReportQuerySchema = z.infer<typeof publicReportQuerySchema>

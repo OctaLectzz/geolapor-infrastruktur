@@ -283,6 +283,11 @@
       "submittingReview": "Submitting review..."
     },
     "messages": {
+      "listRetrieved": "Reports retrieved successfully.",
+      "detailRetrieved": "Report detail retrieved successfully.",
+      "publicListRetrieved": "Public reports retrieved successfully.",
+      "publicDetailRetrieved": "Public report detail retrieved successfully.",
+      "publicStatsRetrieved": "Public dashboard statistics retrieved successfully.",
       "tasksRetrieved": "Officer tasks retrieved successfully.",
       "taskRetrieved": "Officer task retrieved successfully.",
       "taskNotFound": "Task was not found.",
@@ -335,6 +340,7 @@
     "photoPathRequired": "Photo storage path is required when a photo URL is provided.",
     "completionOverrideNoteRequired": "Add an override note of at least 5 characters when no progress photo exists.",
     "revisionNoteRequired": "Revision note is required.",
-    "revisionNoteMinLength": "Revision note must be at least 5 characters."
+    "revisionNoteMinLength": "Revision note must be at least 5 characters.",
+    "publicFiltersInvalid": "Public report filter parameters are invalid."
   }
 }
