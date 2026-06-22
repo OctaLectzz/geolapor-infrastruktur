@@ -158,6 +158,52 @@
       }
     }
   },
+  "helpPage": {
+    "title": "Pusat Bantuan",
+    "subtitle": "Temukan jawaban atas pertanyaan yang sering diajukan dan pelajari cara menggunakan platform.",
+    "searchPlaceholder": "Cari pertanyaan...",
+    "categories": {
+      "citizenTitle": "Panduan Warga",
+      "citizenDesc": "Pelajari cara melaporkan kerusakan dan memantau perbaikan.",
+      "adminTitle": "Panduan Admin",
+      "adminDesc": "Detail tentang verifikasi laporan dan pengelolaan pengguna.",
+      "officerTitle": "Panduan Petugas",
+      "officerDesc": "Cara memperbarui progres dan menyelesaikan tugas lapangan.",
+      "privacyTitle": "Keamanan & Privasi",
+      "privacyDesc": "Perlindungan data dan aturan akses peran pengguna."
+    },
+    "workflow": {
+      "title": "Alur Perjalanan Laporan",
+      "desc": "Pelajari apa yang terjadi pada laporan Anda mulai dari pengiriman hingga sukses diperbaiki.",
+      "step1": "1. Laporkan Kerusakan",
+      "step1Desc": "Warga mengambil foto, menandai koordinat, dan mengirim.",
+      "step2": "2. Verifikasi Admin",
+      "step2Desc": "Admin memeriksa foto dan memvalidasi rincian.",
+      "step3": "3. Penugasan Petugas",
+      "step3Desc": "Petugas lapangan ditugaskan untuk mulai perbaikan.",
+      "step4": "4. Selesai & Ditutup",
+      "step4Desc": "Perbaikan diselesaikan dan pembaruan dipublikasikan."
+    },
+    "contact": {
+      "title": "Masih butuh bantuan?",
+      "desc": "Jika Anda tidak dapat menemukan jawaban untuk pertanyaan Anda, silakan hubungi tim dukungan kami.",
+      "button": "Hubungi Dukungan"
+    },
+    "faqs": {
+      "q1": "Bagaimana cara mengirim laporan kerusakan infrastruktur?",
+      "a1": "Anda dapat mengirim laporan dengan masuk ke akun Anda, mengeklik tombol 'Buat Laporan', mengunggah foto kerusakan yang jelas, dan menandai lokasi di peta.",
+      "q2": "Bagaimana cara memantau progres laporan saya?",
+      "a2": "Anda dapat memeriksa progres dengan mengetikkan kode laporan di kotak pelacak di beranda, atau dengan mengeklik laporan Anda di Peta Publik.",
+      "q3": "Kerusakan jenis apa saja yang bisa dilaporkan?",
+      "a3": "Anda dapat melaporkan kerusakan infrastruktur publik seperti jalan berlubang, rambu lalu lintas rusak, lampu jalan padam, trotoar rusak, dan masalah fasilitas umum lainnya.",
+      "q4": "Apakah identitas saya terlindungi saat melapor?",
+      "a4": "Ya, detail profil Anda disembunyikan. Peta publik dan halaman detail laporan publik hanya menampilkan kode laporan, kategori, foto, dan wilayah umum.",
+      "q5": "Bagaimana petugas lapangan ditugaskan?",
+      "a5": "Setelah administrator memverifikasi validitas laporan, status laporan berubah menjadi Terverifikasi dan ditugaskan ke petugas lapangan yang sesuai berdasarkan kategori dan wilayah.",
+      "q6": "Berapa lama waktu yang dibutuhkan untuk perbaikan?",
+      "a6": "Waktu penyelesaian bervariasi tergantung pada tingkat keparahan kerusakan dan ketersediaan dinas terkait. Anda dapat memantau pembaruan real-time saat petugas mengirimkan foto progres."
+    }
+  },
   "publicMap": {
     "title": "Peta Laporan Publik",
     "description": "Jelajahi laporan infrastruktur terverifikasi di seluruh wilayah.",

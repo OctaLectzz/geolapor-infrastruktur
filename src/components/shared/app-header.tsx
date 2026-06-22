@@ -18,7 +18,7 @@ export function AppHeader({ actions, className }: AppHeaderProps): ReactNode {
   const t = useTranslations('common.navigation')
 
   return (
-    <header className={cn('bg-background/90 supports-backdrop-filter:bg-background/70 sticky top-0 border-b backdrop-blur', className)}>
+    <header className={cn('bg-background/90 supports-backdrop-filter:bg-background/70 sticky top-0 z-40 border-b backdrop-blur', className)}>
       <div className="mx-auto flex min-h-16 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" aria-label={t('home')}>
           <AppLogo />

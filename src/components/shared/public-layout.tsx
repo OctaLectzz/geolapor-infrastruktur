@@ -39,7 +39,7 @@ export async function PublicLayout({ children }: PublicLayoutProps): Promise<Rea
 
   return (
     <div className="bg-background flex min-h-svh flex-col">
-      <header className="bg-background/90 supports-backdrop-filter:bg-background/70 sticky top-0 border-b backdrop-blur">
+      <header className="bg-background/90 supports-backdrop-filter:bg-background/70 sticky top-0 z-40 border-b backdrop-blur">
         <div className="mx-auto flex min-h-16 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <Link href="/" aria-label={t('home')}>
             <AppLogo />

@@ -158,6 +158,52 @@
       }
     }
   },
+  "helpPage": {
+    "title": "Help Center",
+    "subtitle": "Find answers to frequently asked questions and learn how to use the platform.",
+    "searchPlaceholder": "Search questions...",
+    "categories": {
+      "citizenTitle": "Citizen Guide",
+      "citizenDesc": "Learn how to report damage and track repairs.",
+      "adminTitle": "Admin Guide",
+      "adminDesc": "Details on verifying reports and managing users.",
+      "officerTitle": "Officer Guide",
+      "officerDesc": "How to update progress and complete tasks.",
+      "privacyTitle": "Privacy & Security",
+      "privacyDesc": "Data protection and role access rules."
+    },
+    "workflow": {
+      "title": "The Report Workflow",
+      "desc": "Learn what happens to your report from submission to successful repair.",
+      "step1": "1. Report Damage",
+      "step1Desc": "Citizen takes a photo, pins coordinates, and submits.",
+      "step2": "2. Admin Verifies",
+      "step2Desc": "Admin reviews the photo and validates details.",
+      "step3": "3. Dispatch Officer",
+      "step3Desc": "A field officer is assigned to start repairs.",
+      "step4": "4. Resolve & Close",
+      "step4Desc": "Repair is completed and updates are published."
+    },
+    "contact": {
+      "title": "Still need help?",
+      "desc": "If you couldn't find the answer to your question, feel free to contact our support team.",
+      "button": "Contact Support"
+    },
+    "faqs": {
+      "q1": "How do I submit an infrastructure report?",
+      "a1": "You can submit a report by logging into your account, clicking the 'Create Report' button, uploading a clear photo of the damage, and pinning the location on the map.",
+      "q2": "How can I check the progress of my report?",
+      "a2": "You can check progress by typing your report code in the tracker box on the home page, or by clicking your report on the Public Map.",
+      "q3": "What kinds of damage can be reported?",
+      "a3": "You can report public infrastructure damage such as potholes, broken traffic signals, street light outages, damaged sidewalks, and public facility issues.",
+      "q4": "Is my identity protected when I report?",
+      "a4": "Yes, your profile details are masked. The public map and public report detail page only show the report code, category, photos, and general region.",
+      "q5": "How are field officers dispatched?",
+      "a5": "After an administrator verifies the validity of a report, the report status transitions to Verified and is assigned to the appropriate field officer based on the category and region.",
+      "q6": "How long does a typical repair take?",
+      "a6": "Resolution times vary depending on the severity of the damage and department availability. You can track real-time updates as the officer submits progress photos."
+    }
+  },
   "publicMap": {
     "title": "Public Report Map",
     "description": "Browse verified infrastructure reports across all regions.",
