@@ -53,9 +53,9 @@ function PublicMapPageContent({ initialCategories }: PublicMapPageContentProps):
 
   return (
     <div className="flex h-[calc(100vh-4rem)] flex-col min-h-0 overflow-hidden">
-      <div className="bg-background border-b px-4 py-3 sm:px-6 shrink-0">
-        <h1 className="text-foreground text-lg font-semibold">{t('title')}</h1>
-        <p className="text-muted-foreground text-sm">{t('description')}</p>
+      <div className="bg-background border-b px-4 py-2 sm:px-6 shrink-0">
+        <h1 className="text-foreground text-sm font-semibold">{t('title')}</h1>
+        <p className="text-muted-foreground hidden sm:block text-[11px]">{t('description')}</p>
       </div>
       <PublicMapClient initialCategories={initialCategories} />
     </div>

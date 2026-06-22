@@ -32,20 +32,34 @@ export function MapFilterPanel({
   const t = useTranslations('common.publicMap.filters')
   const statusT = useTranslations('common.publicMap.status')
 
+  const hasActiveFilters = selectedStatus !== 'all' || selectedCategory !== 'all'
+
   return (
-    <Card className="shrink-0 shadow-sm">
-      <CardHeader className="pb-3">
-        <CardTitle className="text-sm">{t('title')}</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-3 pt-0">
+    <div className="flex flex-col gap-2 shrink-0 border-b pb-3 mb-1">
+      <div className="flex items-center justify-between">
+        <span className="text-muted-foreground text-[10px] font-bold uppercase tracking-wider">{t('title')}</span>
+        {hasActiveFilters && (
+          <Button
+            variant="ghost"
+            size="xs"
+            onClick={onReset}
+            className="h-auto p-0 text-xs font-semibold text-primary hover:text-primary/80"
+            disabled={isLoading}
+          >
+            {t('reset')}
+          </Button>
+        )}
+      </div>
+
+      <div className="grid grid-cols-2 gap-2">
         <Select value={selectedStatus} onValueChange={onStatusChange}>
-          <SelectTrigger className="w-full">
+          <SelectTrigger className="h-8 text-xs">
             <SelectValue placeholder={t('allStatuses')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{t('allStatuses')}</SelectItem>
+            <SelectItem value="all" className="text-xs">{t('allStatuses')}</SelectItem>
             {PUBLIC_STATUS_OPTIONS.map((status) => (
-              <SelectItem key={status} value={status}>
+              <SelectItem key={status} value={status} className="text-xs">
                 {statusT(status)}
               </SelectItem>
             ))}
@@ -53,28 +67,22 @@ export function MapFilterPanel({
         </Select>
 
         <Select value={selectedCategory} onValueChange={onCategoryChange}>
-          <SelectTrigger className="w-full">
+          <SelectTrigger className="h-8 text-xs">
             <SelectValue placeholder={t('allCategories')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">{t('allCategories')}</SelectItem>
+            <SelectItem value="all" className="text-xs">{t('allCategories')}</SelectItem>
             {categories.map((category) => (
-              <SelectItem key={category.id} value={category.id}>
+              <SelectItem key={category.id} value={category.id} className="text-xs">
                 {category.icon ? `${category.icon} ` : ''}
                 {category.name}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
+      </div>
 
-        <div className="flex gap-2">
-          <Button variant="outline" size="sm" onClick={onReset} className="flex-1" disabled={isLoading}>
-            {t('reset')}
-          </Button>
-        </div>
-
-        {isLoading ? <p className="text-muted-foreground text-center text-xs">{t('loading')}</p> : null}
-      </CardContent>
-    </Card>
+      {isLoading ? <p className="text-muted-foreground text-center text-[10px]">{t('loading')}</p> : null}
+    </div>
   )
 }
