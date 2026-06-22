@@ -1,10 +1,10 @@
 {
   "app": {
-    "name": "GeoLapor Infrastruktur",
+    "name": "Roostvasum",
     "tagline": "Report location-based infrastructure damage with transparency."
   },
   "metadata": {
-    "title": "GeoLapor Infrastruktur",
+    "title": "Roostvasum",
     "description": "A geolocation-based infrastructure reporting platform for citizens, field officers, and administrators."
   },
   "navigation": {
@@ -100,7 +100,7 @@
   "home": {
     "eyebrow": "Geolocation-based infrastructure reporting",
     "title": "Help the city move faster from report to repair.",
-    "description": "GeoLapor Infrastruktur helps citizens submit reports with photos, coordinates, and transparent progress updates.",
+    "description": "Roostvasum helps citizens submit reports with photos, coordinates, and transparent progress updates.",
     "primaryCta": "Create Report",
     "secondaryCta": "Explore Map",
     "stats": {
@@ -149,7 +149,7 @@
       "openMap": "Open Full Map"
     },
     "footer": {
-      "copyright": "© {year} GeoLapor Infrastruktur. All rights reserved.",
+      "copyright": "© {year} Roostvasum. All rights reserved.",
       "builtWith": "Built with transparency in mind.",
       "links": {
         "privacy": "Privacy",

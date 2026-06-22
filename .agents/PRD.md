@@ -1,16 +1,16 @@
-# PRD - GeoLapor Infrastruktur
+# PRD - Roostvasum
 
 > Product Requirement Document
 
 **Version:** v1.0.0-dev  
 **Status:** Draft  
-**Product:** GeoLapor Infrastruktur
+**Product:** Roostvasum
 
 ---
 
 ## 1. Executive Summary
 
-GeoLapor Infrastruktur is a web based reporting platform that allows citizens to report damaged infrastructure using photo evidence and geolocation. The system supports report verification, officer assignment, progress updates, and public transparency through a map based interface.
+Roostvasum is a web based reporting platform that allows citizens to report damaged infrastructure using photo evidence and geolocation. The system supports report verification, officer assignment, progress updates, and public transparency through a map based interface.
 
 The platform serves three operational goals:
 

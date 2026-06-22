@@ -1,4 +1,4 @@
-# DATABASE_SCHEMA - GeoLapor Infrastruktur
+# DATABASE_SCHEMA - Roostvasum
 
 > Database entities, relationships, indexes, and Prisma draft schema.
 

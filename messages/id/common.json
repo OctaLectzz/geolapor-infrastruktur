@@ -1,10 +1,10 @@
 {
   "app": {
-    "name": "GeoLapor Infrastruktur",
+    "name": "Roostvasum",
     "tagline": "Laporkan kerusakan infrastruktur berbasis lokasi dengan transparan."
   },
   "metadata": {
-    "title": "GeoLapor Infrastruktur",
+    "title": "Roostvasum",
     "description": "Platform pelaporan kerusakan infrastruktur berbasis geolokasi untuk warga, petugas, dan administrator."
   },
   "navigation": {
@@ -100,7 +100,7 @@
   "home": {
     "eyebrow": "Pelaporan infrastruktur berbasis geolokasi",
     "title": "Bantu kota bergerak lebih cepat dari laporan hingga perbaikan.",
-    "description": "GeoLapor Infrastruktur membantu warga mengirim laporan dengan foto, koordinat, dan status progres yang dapat dipantau secara transparan.",
+    "description": "Roostvasum membantu warga mengirim laporan dengan foto, koordinat, dan status progres yang dapat dipantau secara transparan.",
     "primaryCta": "Buat Laporan",
     "secondaryCta": "Jelajahi Peta",
     "stats": {
@@ -149,7 +149,7 @@
       "openMap": "Buka Peta Lengkap"
     },
     "footer": {
-      "copyright": "© {year} GeoLapor Infrastruktur. Hak cipta dilindungi.",
+      "copyright": "© {year} Roostvasum. Hak cipta dilindungi.",
       "builtWith": "Dibangun dengan semangat transparansi.",
       "links": {
         "privacy": "Privasi",

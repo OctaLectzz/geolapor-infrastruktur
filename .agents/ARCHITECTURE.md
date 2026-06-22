@@ -1,4 +1,4 @@
-# ARCHITECTURE - GeoLapor Infrastruktur
+# ARCHITECTURE - Roostvasum
 
 > Technical architecture and system design.
 
@@ -9,7 +9,7 @@
 
 ## 1. System Overview
 
-GeoLapor Infrastruktur is a modular Next.js application backed by Supabase PostgreSQL, Supabase Auth, Supabase Storage, and Prisma ORM. It uses a feature based structure and separates presentation, application logic, data access, validation, and service calls.
+Roostvasum is a modular Next.js application backed by Supabase PostgreSQL, Supabase Auth, Supabase Storage, and Prisma ORM. It uses a feature based structure and separates presentation, application logic, data access, validation, and service calls.
 
 ```text
 Browser

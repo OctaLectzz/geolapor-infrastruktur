@@ -210,8 +210,8 @@ async function seedUserProfiles(prisma: PrismaClient, agencyMap: Record<string, 
 
   const usersToSeed = [
     {
-      email: 'superadmin@geolapor.com',
-      fullName: 'GeoLapor Superadmin',
+      email: 'superadmin@roostvasum.com',
+      fullName: 'Roostvasum Superadmin',
       role: UserRole.SUPERADMIN,
       supabaseUserId: 'a8b27f1c-7f55-4cde-8033-77443831b81a',
       phoneNumber: '081234567890',
@@ -219,8 +219,8 @@ async function seedUserProfiles(prisma: PrismaClient, agencyMap: Record<string, 
       agencySlug: null
     },
     {
-      email: 'admin@geolapor.com',
-      fullName: 'GeoLapor Admin DPU',
+      email: 'admin@roostvasum.com',
+      fullName: 'Roostvasum Admin DPU',
       role: UserRole.ADMIN,
       supabaseUserId: 'b25c382f-8a02-4d2c-901d-5573752e5052',
       phoneNumber: '081234567891',
@@ -228,8 +228,8 @@ async function seedUserProfiles(prisma: PrismaClient, agencyMap: Record<string, 
       agencySlug: 'dinas-pekerjaan-umum'
     },
     {
-      email: 'officer@geolapor.com',
-      fullName: 'GeoLapor Officer DPU',
+      email: 'officer@roostvasum.com',
+      fullName: 'Roostvasum Officer DPU',
       role: UserRole.OFFICER,
       supabaseUserId: 'c4a1612e-1b84-482a-a53d-24950e181467',
       phoneNumber: '081234567892',
@@ -237,8 +237,8 @@ async function seedUserProfiles(prisma: PrismaClient, agencyMap: Record<string, 
       agencySlug: 'dinas-pekerjaan-umum'
     },
     {
-      email: 'citizen@geolapor.com',
-      fullName: 'GeoLapor Citizen',
+      email: 'citizen@roostvasum.com',
+      fullName: 'Roostvasum Citizen',
       role: UserRole.USER,
       supabaseUserId: 'd6b17a3a-9e5c-4d32-be43-850d75a898b9',
       phoneNumber: '081234567893',
@@ -285,10 +285,10 @@ async function seedReports(
   regionMap: Record<string, string>,
   userMap: Record<string, string>
 ): Promise<void> {
-  const reporterId = userMap['citizen@geolapor.com']!
-  const superadminId = userMap['superadmin@geolapor.com']!
-  const adminId = userMap['admin@geolapor.com']!
-  const officerId = userMap['officer@geolapor.com']!
+  const reporterId = userMap['citizen@roostvasum.com']!
+  const superadminId = userMap['superadmin@roostvasum.com']!
+  const adminId = userMap['admin@roostvasum.com']!
+  const officerId = userMap['officer@roostvasum.com']!
 
   // --- REPORT 1: PENDING VERIFICATION ---
   const report1Code = 'RPT-2026-0001'

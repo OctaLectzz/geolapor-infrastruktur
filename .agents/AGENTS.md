@@ -1,4 +1,4 @@
-# AGENTS.md - GeoLapor Infrastruktur
+# AGENTS.md - Roostvasum
 
 > Canonical internal AI agent instructions for this repository. Keep this file in English because AI coding agents generally follow English technical instructions more accurately.
 
@@ -20,7 +20,7 @@ Rules:
 
 ## 2. Project Overview
 
-- **Name:** GeoLapor Infrastruktur
+- **Name:** Roostvasum
 - **Description:** A geolocation based infrastructure reporting platform for citizens, administrators, and field officers.
 - **Goal:** Enable citizens to submit infrastructure damage reports with photo evidence and coordinates, then allow admins and officers to verify, assign, repair, and publish report progress transparently.
 - **Target Users:** Public visitor, User or Citizen Reporter, Officer, Admin, Superadmin.
@@ -74,7 +74,7 @@ This section must be updated as setup work progresses.
 - `messages/id` and `messages/en` do not exist yet.
 - next-intl is installed but not wired into `next.config.ts` or route layouts yet.
 - TanStack React Query is installed but no `QueryClientProvider` exists yet.
-- Prisma schema does not yet contain GeoLapor application models.
+- Prisma schema does not yet contain Roostvasum application models.
 - RBAC route protection and API guards are not implemented yet.
 - The current root `README.md` is still the default create-next-app README.
 - Root `AGENTS.md` is a duplicate source and should be treated as non-canonical after this `.agents/AGENTS.md` file.

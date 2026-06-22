@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'GeoLapor Infrastruktur',
+  title: 'Roostvasum',
   description: 'Platform pelaporan kerusakan infrastruktur berbasis geolokasi untuk warga, petugas, dan administrator.'
 }
 

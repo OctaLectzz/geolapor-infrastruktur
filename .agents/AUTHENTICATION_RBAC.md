@@ -1,4 +1,4 @@
-# AUTHENTICATION_RBAC - GeoLapor Infrastruktur
+# AUTHENTICATION_RBAC - Roostvasum
 
 > Authentication, Google OAuth, session handling, and role based access control.
 

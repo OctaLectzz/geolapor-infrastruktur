@@ -1,4 +1,4 @@
-# AGENTS.md - GeoLapor Infrastruktur
+# AGENTS.md - Roostvasum
 
 > This file acts as a permanent system prompt for AI Agents in IDEs such as Cursor, Windsurf, Copilot, Claude, or similar tools. Keep this file in English because AI coding agents generally follow English technical instructions more accurately.
 
@@ -6,7 +6,7 @@
 
 ## 1. Project Overview
 
-- **Name**: GeoLapor Infrastruktur
+- **Name**: Roostvasum
 - **Description**: A geolocation based infrastructure reporting platform for citizens, administrators, and field officers.
 - **Goal**: Enable citizens to submit infrastructure damage reports with photo evidence and coordinates, then allow admins and officers to verify, assign, repair, and publish report progress transparently.
 - **Target Users**: Public visitor, User or Citizen Reporter, Officer, Admin, Superadmin.

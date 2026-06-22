@@ -1,4 +1,4 @@
-# API_SPEC - GeoLapor Infrastruktur
+# API_SPEC - Roostvasum
 
 > API routes, request rules, response format, and authorization requirements.
 

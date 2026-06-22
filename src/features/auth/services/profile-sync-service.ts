@@ -23,7 +23,7 @@ interface ProfileSyncErrorResult {
 
 export type ProfileSyncResult = ProfileSyncSuccessResult | ProfileSyncErrorResult
 
-const FALLBACK_FULL_NAME = 'GeoLapor User'
+const FALLBACK_FULL_NAME = 'Roostvasum User'
 
 function getStringMetadataValue(metadata: Record<string, unknown>, keys: readonly string[]): string | null {
   for (const key of keys) {

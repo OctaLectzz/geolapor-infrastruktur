@@ -1,4 +1,4 @@
-# DESIGN - GeoLapor Infrastruktur
+# DESIGN - Roostvasum
 
 > UI and UX guideline for the infrastructure reporting platform.
 

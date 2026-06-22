@@ -1,4 +1,4 @@
-# SECURITY - GeoLapor Infrastruktur
+# SECURITY - Roostvasum
 
 > Security protocols and implementation standards.
 

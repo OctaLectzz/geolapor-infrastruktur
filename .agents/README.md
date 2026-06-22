@@ -1,6 +1,6 @@
-# GeoLapor Infrastruktur
+# Roostvasum
 
-GeoLapor Infrastruktur is a geolocation based infrastructure reporting platform. The platform allows citizens to report damaged public infrastructure, administrators to verify and assign reports, and field officers to update repair progress with evidence.
+Roostvasum is a geolocation based infrastructure reporting platform. The platform allows citizens to report damaged public infrastructure, administrators to verify and assign reports, and field officers to update repair progress with evidence.
 
 ## Core Goals
 

@@ -1,4 +1,4 @@
-# TESTING - GeoLapor Infrastruktur
+# TESTING - Roostvasum
 
 > Testing strategy and quality assurance guideline.
 

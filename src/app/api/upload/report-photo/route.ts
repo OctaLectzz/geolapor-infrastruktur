@@ -1,6 +1,6 @@
 import { requireAuth } from '@/lib/auth'
 import { errorResponse, successResponse } from '@/lib/response'
-import { createAdminClient } from '@/lib/supabase/admin'
+import { createClient } from '@/lib/supabase/server'
 import { ACCEPTED_EVIDENCE_PHOTO_MIME_TYPES, MAX_EVIDENCE_PHOTO_SIZE_BYTES } from '@/schemas/report-schema'
 
 import type { UploadedPhotoResult } from '@/types/upload'
@@ -72,11 +72,11 @@ export async function POST(request: Request): Promise<Response> {
     const safeFileName = generateSafeFileName(fileEntry.type)
     const storagePath = generateStoragePath(authResult.profile.id, safeFileName)
 
-    const adminClient = createAdminClient()
+    const supabase = await createClient()
 
     const fileBuffer = await fileEntry.arrayBuffer()
 
-    const { error: uploadError } = await adminClient.storage.from(REPORT_PHOTOS_BUCKET).upload(storagePath, fileBuffer, {
+    const { error: uploadError } = await supabase.storage.from(REPORT_PHOTOS_BUCKET).upload(storagePath, fileBuffer, {
       contentType: fileEntry.type,
       upsert: false
     })
@@ -85,7 +85,7 @@ export async function POST(request: Request): Promise<Response> {
       return errorResponse('upload.errors.uploadFailed', 500)
     }
 
-    const { data: signedUrlData, error: signedUrlError } = await adminClient.storage
+    const { data: signedUrlData, error: signedUrlError } = await supabase.storage
       .from(REPORT_PHOTOS_BUCKET)
       .createSignedUrl(storagePath, SIGNED_URL_EXPIRY_SECONDS)
 

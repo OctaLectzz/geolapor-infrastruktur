@@ -1,4 +1,4 @@
-# DEPLOYMENT - GeoLapor Infrastruktur
+# DEPLOYMENT - Roostvasum
 
 > Infrastructure guide and release steps.
 

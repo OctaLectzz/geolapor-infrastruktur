@@ -1,4 +1,4 @@
-# ENVIRONMENT - GeoLapor Infrastruktur
+# ENVIRONMENT - Roostvasum
 
 > Required environment variables. Do not include real secret values in this file.
 
@@ -9,7 +9,7 @@
 These variables can be exposed to the browser because they use `NEXT_PUBLIC_`.
 
 ```bash
-NEXT_PUBLIC_APP_NAME="GeoLapor Infrastruktur"
+NEXT_PUBLIC_APP_NAME="Roostvasum"
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
 NEXT_PUBLIC_SUPABASE_URL=""
 NEXT_PUBLIC_SUPABASE_ANON_KEY=""
