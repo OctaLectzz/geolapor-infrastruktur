@@ -3,7 +3,6 @@
 import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
 import type { CategoryDto } from '@/types/category'
