@@ -149,7 +149,7 @@ export default async function HomePage(): Promise<React.ReactElement> {
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         {/* Topographic Contour Lines */}
         <svg
-          className="text-primary/[0.03] dark:text-primary/[0.015] absolute top-0 left-0 h-[800px] w-full"
+          className="text-primary/15 dark:text-primary/10 absolute top-0 left-0 h-[800px] w-full"
           viewBox="0 0 1440 800"
           fill="none"
           stroke="currentColor"
@@ -168,7 +168,7 @@ export default async function HomePage(): Promise<React.ReactElement> {
 
         {/* Dynamic Mapping Radar & Node Network overlay */}
         <svg
-          className="absolute -top-[10%] -left-[10%] size-[600px] text-emerald-500/[0.02] dark:text-emerald-500/[0.01]"
+          className="absolute -top-[10%] -left-[10%] size-[600px] text-emerald-500/10 dark:text-emerald-500/5"
           viewBox="0 0 200 200"
           fill="none"
           stroke="currentColor"
@@ -304,7 +304,7 @@ function HeroSection({ stats }: { stats: PublicStats | null }): React.ReactEleme
 
             <FadeIn y={25} delay={0.05}>
               <h1 className="text-foreground text-4xl leading-[1.12] font-extrabold tracking-tight sm:text-5xl lg:max-w-md lg:text-6xl">
-                Your roadmap to infrastructure improvement
+                Peta jalan Anda menuju peningkatan infrastruktur
               </h1>
             </FadeIn>
 
@@ -611,13 +611,13 @@ function HowItWorksSection(): React.ReactElement {
   ]
 
   return (
-    <section id="how-it-works" className="border-border/40 relative overflow-hidden border-y bg-slate-50/70 py-20 sm:py-24 dark:bg-slate-900/35">
+    <section id="how-it-works" className="border-border/40 bg-muted/50 dark:bg-muted/15 relative overflow-hidden border-y py-20 sm:py-24">
       {/* Decorative grid pattern in background */}
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-30 dark:opacity-10" />
 
       {/* Decorative topographic lines in section */}
       <svg
-        className="text-primary/[0.04] dark:text-primary/[0.02] pointer-events-none absolute top-[10%] -right-[5%] -z-10 h-[350px] w-[350px]"
+        className="text-primary/15 dark:text-primary/10 pointer-events-none absolute top-[10%] -right-[5%] -z-10 h-[350px] w-[350px]"
         viewBox="0 0 100 100"
         fill="none"
         stroke="currentColor"
@@ -705,7 +705,7 @@ function FeaturesSection(): React.ReactElement {
   return (
     <section
       id="features"
-      className="from-background via-muted/10 to-background dark:from-background dark:via-muted/5 dark:to-background relative overflow-hidden bg-gradient-to-b py-20 sm:py-24"
+      className="from-background via-muted/45 to-background dark:from-background dark:via-muted/20 dark:to-background relative overflow-hidden bg-gradient-to-b py-20 sm:py-24"
     >
       {/* Decorative Blob */}
       <div
@@ -794,13 +794,10 @@ function BenefitsSection(): React.ReactElement {
   ]
 
   return (
-    <section
-      id="benefits"
-      className="border-border/40 relative overflow-hidden border-y bg-emerald-500/[0.02] py-20 sm:py-24 dark:bg-emerald-500/[0.01]"
-    >
+    <section id="benefits" className="border-border/40 relative overflow-hidden border-y bg-emerald-50/40 py-20 sm:py-24 dark:bg-emerald-950/20">
       {/* Topographic curves in background */}
       <svg
-        className="pointer-events-none absolute inset-0 -z-10 size-full text-emerald-500/[0.02] dark:text-emerald-500/[0.008]"
+        className="pointer-events-none absolute inset-0 -z-10 size-full text-emerald-600/15 dark:text-emerald-400/10"
         viewBox="0 0 1440 600"
         fill="none"
         stroke="currentColor"
@@ -955,11 +952,11 @@ function MapPreviewSection({ reports }: { reports: PublicReportListItemDto[] }):
   return (
     <section
       id="map-preview"
-      className="border-border/40 to-muted/20 dark:to-muted/5 relative overflow-hidden border-y bg-gradient-to-b from-emerald-50/30 py-20 sm:py-24 dark:from-emerald-950/10"
+      className="border-border/40 to-muted/40 dark:to-muted/10 relative overflow-hidden border-y bg-gradient-to-b from-emerald-100/50 py-20 sm:py-24 dark:from-emerald-950/20"
     >
       {/* Coordinates Grid Line SVG */}
       <svg
-        className="pointer-events-none absolute inset-0 -z-10 size-full text-emerald-500/[0.03] dark:text-emerald-500/[0.015]"
+        className="pointer-events-none absolute inset-0 -z-10 size-full text-emerald-500/15 dark:text-emerald-400/10"
         viewBox="0 0 1440 600"
         fill="none"
         stroke="currentColor"
@@ -1016,7 +1013,7 @@ function CtaSection({ dashboardPath }: { dashboardPath: string | null }): React.
     >
       {/* Glowing concentric target rings */}
       <svg
-        className="pointer-events-none absolute top-[-25%] right-[-10%] -z-0 size-[500px] text-white/5"
+        className="pointer-events-none absolute top-[-25%] right-[-10%] -z-0 size-[500px] text-white/12"
         viewBox="0 0 200 200"
         fill="none"
         stroke="currentColor"
@@ -1028,7 +1025,7 @@ function CtaSection({ dashboardPath }: { dashboardPath: string | null }): React.
         <circle cx="100" cy="100" r="130" />
       </svg>
       <svg
-        className="pointer-events-none absolute bottom-[-25%] left-[-5%] -z-0 size-[400px] text-white/5"
+        className="pointer-events-none absolute bottom-[-25%] left-[-5%] -z-0 size-[400px] text-white/12"
         viewBox="0 0 200 200"
         fill="none"
         stroke="currentColor"
@@ -1090,7 +1087,7 @@ function CtaSection({ dashboardPath }: { dashboardPath: string | null }): React.
               size="lg"
               variant="outline"
               asChild
-              className="border-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/10 group relative overflow-hidden rounded-full px-8 py-6 font-semibold transition-all duration-300 hover:-translate-y-1"
+              className="border-primary-foreground/25 text-primary-foreground bg-transparent hover:bg-primary-foreground/10 rounded-full px-8 py-6 font-semibold transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden"
             >
               <Link href="/map" className="relative z-10 flex items-center gap-2">
                 <Route className="mr-1 size-4 transition-transform group-hover:translate-x-0.5" />

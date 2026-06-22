@@ -87,7 +87,7 @@ export default function HelpPage(): React.ReactElement {
       {/* Decorative Spatial Grid & Topographic Background */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <svg
-          className="text-primary/[0.02] dark:text-primary/[0.01] absolute top-0 left-0 h-[500px] w-full"
+          className="text-primary/15 dark:text-primary/10 absolute top-0 left-0 h-[500px] w-full"
           viewBox="0 0 1440 500"
           fill="none"
           stroke="currentColor"
@@ -171,7 +171,7 @@ export default function HelpPage(): React.ReactElement {
         </div>
 
         {/* Workflow Roadmap Layout */}
-        <div className="border-border/40 relative mt-24 overflow-hidden rounded-3xl border-y bg-slate-50/50 p-8 dark:bg-slate-900/30">
+        <div className="border-border/40 relative mt-24 overflow-hidden rounded-3xl border-y bg-muted/50 p-8 dark:bg-muted/15">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-10" />
 
           <div className="relative mx-auto max-w-3xl space-y-4 text-center">
@@ -328,7 +328,7 @@ export default function HelpPage(): React.ReactElement {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full border-white/20 px-8 py-5 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/15"
+                  className="rounded-full border-white/20 bg-transparent px-8 py-5 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/15"
                   asChild
                 >
                   <Link href="/map" className="flex items-center gap-2">
