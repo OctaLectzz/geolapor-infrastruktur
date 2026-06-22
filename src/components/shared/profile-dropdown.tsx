@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react'
 
 import { LogOutIcon, UserIcon } from 'lucide-react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 
 import { ConfirmationDialog } from '@/components/shared/confirmation-dialog'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -38,7 +38,6 @@ function getInitials(name: string): string {
 
 export function ProfileDropdown({ profile }: ProfileDropdownProps): ReactNode {
   const t = useTranslations('common.navigation')
-  const locale = useLocale()
   const router = useRouter()
 
   async function handleLogout(): Promise<void> {
