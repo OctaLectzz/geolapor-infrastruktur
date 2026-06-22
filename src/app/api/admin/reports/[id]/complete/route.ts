@@ -43,6 +43,9 @@ export async function PATCH(request: Request, context: CompleteRouteContext): Pr
       return getAuthErrorResponse(authResult.errorCode)
     }
 
+    const ipAddress = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip')
+    const userAgent = request.headers.get('user-agent')
+
     const { id } = await context.params
     const payload = await readOptionalPayload(request)
     const validation = completeReportSchema.safeParse(payload)
@@ -148,6 +151,8 @@ export async function PATCH(request: Request, context: CompleteRouteContext): Pr
           action: 'REPORT_COMPLETED',
           entityType: 'Report',
           entityId: id,
+          ipAddress,
+          userAgent,
           metadata: {
             reportCode: report.reportCode,
             note: validation.data.note ?? null,

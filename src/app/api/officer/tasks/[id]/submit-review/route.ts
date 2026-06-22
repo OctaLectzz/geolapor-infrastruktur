@@ -43,6 +43,9 @@ export async function PATCH(request: Request, context: SubmitReviewRouteContext)
       return getAuthErrorResponse(authResult.errorCode)
     }
 
+    const ipAddress = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip')
+    const userAgent = request.headers.get('user-agent')
+
     const { id } = await context.params
     const payload = await readOptionalPayload(request)
     const validation = submitReviewSchema.safeParse(payload)
@@ -101,6 +104,8 @@ export async function PATCH(request: Request, context: SubmitReviewRouteContext)
           action: 'REPORT_SUBMITTED_FOR_REVIEW',
           entityType: 'Assignment',
           entityId: id,
+          ipAddress,
+          userAgent,
           metadata: {
             reportId: task.reportId,
             reportCode: task.report.reportCode,

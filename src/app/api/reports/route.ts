@@ -24,6 +24,9 @@ export async function POST(request: Request): Promise<Response> {
       return getAuthErrorResponse(authResult.errorCode)
     }
 
+    const ipAddress = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip')
+    const userAgent = request.headers.get('user-agent')
+
     const payload: unknown = await request.json()
     const validation = createReportSchema.safeParse(payload)
 
@@ -103,6 +106,8 @@ export async function POST(request: Request): Promise<Response> {
           action: 'REPORT_CREATED',
           entityType: 'Report',
           entityId: createdReport.id,
+          ipAddress,
+          userAgent,
           metadata: {
             reportCode: createdReport.reportCode,
             categoryId: createdReport.categoryId

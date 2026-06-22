@@ -1,7 +1,8 @@
-import type { Category, UserProfile } from '@generated/prisma/client'
+import type { UserProfile } from '@generated/prisma/client'
 import { UserRole } from '@generated/prisma/enums'
 
 import { requireRole } from '@/lib/auth'
+import { createPaginationDto, getPaginationParams } from '@/lib/pagination'
 import { prisma } from '@/lib/prisma'
 import { errorResponse, successResponse } from '@/lib/response'
 
@@ -33,7 +34,7 @@ function toUserDto(user: UserProfile): UserDto {
   }
 }
 
-export async function GET(): Promise<Response> {
+export async function GET(request: Request): Promise<Response> {
   try {
     const authResult = await requireRole(SUPERADMIN_ROLES)
 
@@ -41,12 +42,21 @@ export async function GET(): Promise<Response> {
       return getAuthErrorResponse(authResult.errorCode)
     }
 
-    const users = await prisma.userProfile.findMany({
-      orderBy: { createdAt: 'desc' }
-    })
+    const url = new URL(request.url)
+    const paginationParams = getPaginationParams(url.searchParams)
+
+    const [users, total] = await prisma.$transaction([
+      prisma.userProfile.findMany({
+        orderBy: { createdAt: 'desc' },
+        skip: paginationParams.skip,
+        take: paginationParams.take
+      }),
+      prisma.userProfile.count()
+    ])
 
     const data: UserListResponse = {
-      items: users.map(toUserDto)
+      items: users.map(toUserDto),
+      pagination: createPaginationDto(paginationParams.page, paginationParams.limit, total)
     }
 
     return successResponse(data, 'admin.users.messages.listRetrieved')

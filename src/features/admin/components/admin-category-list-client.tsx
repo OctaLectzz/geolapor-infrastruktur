@@ -175,12 +175,7 @@ export function AdminCategoryListClient({ initialCategories }: AdminCategoryList
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="category-icon">{tForm('icon')}</Label>
-                <Input
-                  id="category-icon"
-                  value={createIcon}
-                  onChange={(e) => setCreateIcon(e.target.value)}
-                  placeholder={tForm('iconPlaceholder')}
-                />
+                <Input id="category-icon" value={createIcon} onChange={(e) => setCreateIcon(e.target.value)} placeholder={tForm('iconPlaceholder')} />
               </div>
             </div>
             <DialogFooter>
@@ -218,7 +213,7 @@ export function AdminCategoryListClient({ initialCategories }: AdminCategoryList
                 <TableRow key={category.id}>
                   <TableCell className="font-medium">{category.name}</TableCell>
                   <TableCell className="text-muted-foreground hidden text-sm sm:table-cell">{category.slug}</TableCell>
-                  <TableCell className="text-muted-foreground hidden text-sm md:table-cell whitespace-nowrap">
+                  <TableCell className="text-muted-foreground hidden text-sm whitespace-nowrap md:table-cell">
                     {new Date(category.createdAt).toLocaleDateString()}
                   </TableCell>
                   <TableCell>

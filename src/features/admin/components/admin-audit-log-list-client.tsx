@@ -75,12 +75,10 @@ export function AdminAuditLogListClient(): React.ReactElement {
               ) : (
                 items.map((log) => (
                   <TableRow key={log.id}>
-                    <TableCell className="text-muted-foreground text-sm whitespace-nowrap">
-                      {new Date(log.createdAt).toLocaleString()}
-                    </TableCell>
+                    <TableCell className="text-muted-foreground text-sm whitespace-nowrap">{new Date(log.createdAt).toLocaleString()}</TableCell>
                     <TableCell className="text-sm">{log.actorName ?? log.actorEmail ?? <span className="italic">—</span>}</TableCell>
                     <TableCell>
-                      <code className="bg-muted rounded px-1.5 py-0.5 text-xs font-mono">{log.action}</code>
+                      <code className="bg-muted rounded px-1.5 py-0.5 font-mono text-xs">{log.action}</code>
                     </TableCell>
                     <TableCell className="hidden text-sm md:table-cell">
                       <span className="text-muted-foreground text-xs">

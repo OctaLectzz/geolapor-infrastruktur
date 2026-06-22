@@ -152,6 +152,20 @@ export async function proxy(request: NextRequest): Promise<NextResponse> {
     return loginRedirect
   }
 
+  // Check if account is suspended/disabled.
+  if (user.app_metadata?.isActive === false) {
+    const inactiveUrl = request.nextUrl.clone()
+    inactiveUrl.pathname = '/account-inactive'
+    inactiveUrl.searchParams.delete('next')
+
+    const inactiveRedirect = NextResponse.redirect(inactiveUrl)
+    supabaseResponse.cookies.getAll().forEach((cookie) => {
+      inactiveRedirect.cookies.set(cookie)
+    })
+
+    return inactiveRedirect
+  }
+
   // Check role-based access.
   const rule = findMatchingRouteRule(cleanPath)
 

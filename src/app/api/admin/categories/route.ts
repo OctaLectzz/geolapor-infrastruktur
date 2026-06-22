@@ -59,6 +59,9 @@ export async function POST(request: Request): Promise<Response> {
       return getAuthErrorResponse(authResult.errorCode)
     }
 
+    const ipAddress = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip')
+    const userAgent = request.headers.get('user-agent')
+
     const payload: unknown = await request.json()
     const validation = createCategorySchema.safeParse(payload)
 
@@ -97,6 +100,8 @@ export async function POST(request: Request): Promise<Response> {
           action: 'CATEGORY_CREATED',
           entityType: 'Category',
           entityId: createdCategory.id,
+          ipAddress,
+          userAgent,
           metadata: {
             name: createdCategory.name,
             slug: createdCategory.slug

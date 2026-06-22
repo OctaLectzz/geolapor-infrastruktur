@@ -43,6 +43,9 @@ export async function PATCH(request: Request, context: CategoryRouteContext): Pr
       return getAuthErrorResponse(authResult.errorCode)
     }
 
+    const ipAddress = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip')
+    const userAgent = request.headers.get('user-agent')
+
     const { id } = await context.params
     const payload: unknown = await request.json()
     const validation = updateCategorySchema.safeParse(payload)
@@ -93,6 +96,8 @@ export async function PATCH(request: Request, context: CategoryRouteContext): Pr
           action: 'CATEGORY_UPDATED',
           entityType: 'Category',
           entityId: updatedCategory.id,
+          ipAddress,
+          userAgent,
           metadata: {
             previousSlug: existingCategory.slug,
             nextSlug: updatedCategory.slug
@@ -109,13 +114,16 @@ export async function PATCH(request: Request, context: CategoryRouteContext): Pr
   }
 }
 
-export async function DELETE(_request: Request, context: CategoryRouteContext): Promise<Response> {
+export async function DELETE(request: Request, context: CategoryRouteContext): Promise<Response> {
   try {
     const authResult = await requireRole([UserRole.SUPERADMIN])
 
     if (!authResult.success) {
       return getAuthErrorResponse(authResult.errorCode)
     }
+
+    const ipAddress = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip')
+    const userAgent = request.headers.get('user-agent')
 
     const { id } = await context.params
     const existingCategory = await prisma.category.findUnique({
@@ -138,6 +146,8 @@ export async function DELETE(_request: Request, context: CategoryRouteContext): 
           action: 'CATEGORY_DEACTIVATED',
           entityType: 'Category',
           entityId: deactivatedCategory.id,
+          ipAddress,
+          userAgent,
           metadata: {
             slug: deactivatedCategory.slug
           }

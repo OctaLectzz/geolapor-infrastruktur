@@ -1,5 +1,7 @@
 import type { UserRole } from '@generated/prisma/enums'
 
+import type { PaginationDto } from './report'
+
 export interface UserDto {
   id: string
   supabaseUserId: string
@@ -16,4 +18,5 @@ export interface UserDto {
 
 export interface UserListResponse {
   items: UserDto[]
+  pagination?: PaginationDto
 }

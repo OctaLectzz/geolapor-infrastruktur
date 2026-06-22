@@ -32,6 +32,9 @@ export async function PATCH(request: Request, context: VerifyRouteContext): Prom
       return getAuthErrorResponse(authResult.errorCode)
     }
 
+    const ipAddress = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip')
+    const userAgent = request.headers.get('user-agent')
+
     const { id } = await context.params
     const payload: unknown = await request.json()
     const validation = verifyReportSchema.safeParse(payload)
@@ -95,6 +98,8 @@ export async function PATCH(request: Request, context: VerifyRouteContext): Prom
           action: 'REPORT_VERIFIED',
           entityType: 'Report',
           entityId: id,
+          ipAddress,
+          userAgent,
           metadata: {
             reportCode: report.reportCode,
             note: validation.data.note ?? null

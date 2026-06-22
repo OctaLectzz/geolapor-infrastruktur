@@ -32,6 +32,9 @@ export async function POST(request: Request, context: AssignRouteContext): Promi
       return getAuthErrorResponse(authResult.errorCode)
     }
 
+    const ipAddress = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip')
+    const userAgent = request.headers.get('user-agent')
+
     const { id } = await context.params
     const payload: unknown = await request.json()
     const validation = assignReportSchema.safeParse(payload)
@@ -123,6 +126,8 @@ export async function POST(request: Request, context: AssignRouteContext): Promi
           action: 'REPORT_ASSIGNED',
           entityType: 'Report',
           entityId: id,
+          ipAddress,
+          userAgent,
           metadata: {
             reportCode: report.reportCode,
             assignmentId: assignment.id,

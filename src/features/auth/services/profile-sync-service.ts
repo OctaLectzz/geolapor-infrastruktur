@@ -4,6 +4,7 @@ import type { UserProfile } from '@generated/prisma/client'
 import { UserRole } from '@generated/prisma/enums'
 
 import { prisma } from '@/lib/prisma'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 
 type ProfileSyncErrorCode = 'UNAUTHENTICATED' | 'EMAIL_MISSING' | 'ACCOUNT_DISABLED' | 'SYNC_FAILED'
@@ -112,6 +113,18 @@ export async function syncCurrentUserProfile(): Promise<ProfileSyncResult> {
           data: profileData
         })
       : existingProfile
+
+    // Sync app_metadata to Supabase Auth
+    try {
+      if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
+        const adminClient = createAdminClient()
+        await adminClient.auth.admin.updateUserById(data.user.id, {
+          app_metadata: { role: profile.role, isActive: profile.isActive }
+        })
+      }
+    } catch (adminError) {
+      console.error('Failed to sync app_metadata to Supabase Auth:', adminError)
+    }
 
     if (!profile.isActive) {
       return {

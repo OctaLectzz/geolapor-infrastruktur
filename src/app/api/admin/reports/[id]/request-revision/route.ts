@@ -33,6 +33,9 @@ export async function PATCH(request: Request, context: RevisionRouteContext): Pr
       return getAuthErrorResponse(authResult.errorCode)
     }
 
+    const ipAddress = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip')
+    const userAgent = request.headers.get('user-agent')
+
     const { id } = await context.params
     const payload: unknown = await request.json()
     const validation = requestRevisionSchema.safeParse(payload)
@@ -95,6 +98,8 @@ export async function PATCH(request: Request, context: RevisionRouteContext): Pr
           action: 'REPORT_REVISION_REQUESTED',
           entityType: 'Report',
           entityId: id,
+          ipAddress,
+          userAgent,
           metadata: {
             reportCode: report.reportCode,
             note: validation.data.note
