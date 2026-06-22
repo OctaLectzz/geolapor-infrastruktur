@@ -36,10 +36,12 @@ interface PublicMapClientProps {
 export function PublicMapClient({ initialCategories }: PublicMapClientProps): React.ReactElement {
   const t = useTranslations('common.publicMap')
   const statusT = useTranslations('common.publicMap.status')
+  const tPagination = useTranslations('dashboard.tables.pagination')
 
   const [selectedStatus, setSelectedStatus] = useState<string>('all')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [selectedReport, setSelectedReport] = useState<PublicReportListItemDto | null>(null)
+  const [currentPage, setCurrentPage] = useState<number>(1)
 
   const queryParams = useMemo(
     () => ({
@@ -78,23 +80,35 @@ export function PublicMapClient({ initialCategories }: PublicMapClientProps): Re
   const handleStatusChange = useCallback((value: string): void => {
     setSelectedStatus(value)
     setSelectedReport(null)
+    setCurrentPage(1)
   }, [])
 
   const handleCategoryChange = useCallback((value: string): void => {
     setSelectedCategory(value)
     setSelectedReport(null)
+    setCurrentPage(1)
   }, [])
 
   const handleReset = useCallback((): void => {
     setSelectedStatus('all')
     setSelectedCategory('all')
     setSelectedReport(null)
+    setCurrentPage(1)
   }, [])
 
+  const ITEMS_PER_PAGE = 5
+  const totalPages = Math.max(1, Math.ceil(reports.length / ITEMS_PER_PAGE))
+  const activePage = currentPage > totalPages ? totalPages : currentPage
+
+  const paginatedReports = useMemo(() => {
+    const startIndex = (activePage - 1) * ITEMS_PER_PAGE
+    return reports.slice(startIndex, startIndex + ITEMS_PER_PAGE)
+  }, [reports, activePage])
+
   return (
-    <div className="flex h-[calc(100vh-4rem)] flex-col gap-0 lg:flex-row">
+    <div className="flex flex-1 min-h-0 flex-col-reverse lg:flex-row gap-0">
       {/* Sidebar — filters + report list */}
-      <aside className="flex w-full shrink-0 flex-col gap-3 overflow-y-auto border-b p-4 lg:w-80 lg:border-r lg:border-b-0">
+      <aside className="flex w-full flex-col gap-3 p-4 border-b overflow-y-auto flex-1 min-h-0 lg:w-80 lg:shrink-0 lg:h-full lg:border-r lg:border-b-0 lg:overflow-hidden">
         <MapFilterPanel
           categories={categories}
           selectedStatus={selectedStatus}
@@ -112,7 +126,7 @@ export function PublicMapClient({ initialCategories }: PublicMapClientProps): Re
           </Badge>
         </div>
 
-        <div className="flex flex-1 flex-col gap-2 overflow-y-auto">
+        <div className="flex flex-col gap-2 flex-none lg:flex-1 lg:min-h-0 lg:overflow-y-auto">
           {isLoading ? (
             Array.from({ length: 4 }).map((_, i) => <Skeleton key={`skeleton-${i.toString()}`} className="h-20 rounded-lg" />)
           ) : isError ? (
@@ -120,7 +134,7 @@ export function PublicMapClient({ initialCategories }: PublicMapClientProps): Re
           ) : reports.length === 0 ? (
             <p className="text-muted-foreground py-8 text-center text-sm">{t('list.empty')}</p>
           ) : (
-            reports.map((report) => (
+            paginatedReports.map((report) => (
               <ReportListItem
                 key={report.id}
                 report={report}
@@ -131,10 +145,37 @@ export function PublicMapClient({ initialCategories }: PublicMapClientProps): Re
             ))
           )}
         </div>
+
+        {/* Pagination UI */}
+        {!isLoading && !isError && totalPages > 1 ? (
+          <div className="flex items-center justify-between border-t pt-3 mt-1 shrink-0">
+            <p className="text-muted-foreground text-xs font-medium">
+              {tPagination('page')} {activePage} / {totalPages}
+            </p>
+            <div className="flex items-center gap-1.5">
+              <Button
+                variant="outline"
+                size="xs"
+                disabled={activePage <= 1}
+                onClick={() => setCurrentPage(activePage - 1)}
+              >
+                {tPagination('previous')}
+              </Button>
+              <Button
+                variant="outline"
+                size="xs"
+                disabled={activePage >= totalPages}
+                onClick={() => setCurrentPage(activePage + 1)}
+              >
+                {tPagination('next')}
+              </Button>
+            </div>
+          </div>
+        ) : null}
       </aside>
 
       {/* Map area */}
-      <div className="relative flex-1">
+      <div className="relative h-[350px] shrink-0 lg:h-full lg:flex-1">
         <LeafletMap reports={reports} selectedReport={selectedReport} onMarkerClick={handleMarkerClick} />
         <ReportPreviewPanel report={selectedReport} onClose={handleClosePreview} />
       </div>
@@ -154,7 +195,7 @@ function ReportListItem({ report, isSelected, onSelect, statusLabel }: ReportLis
 
   return (
     <Card
-      className={`cursor-pointer transition hover:shadow-md ${isSelected ? 'ring-primary ring-2' : ''}`}
+      className={`shrink-0 cursor-pointer transition hover:shadow-md ${isSelected ? 'ring-primary ring-2' : ''}`}
       onClick={() => onSelect(report)}
       size="sm"
     >

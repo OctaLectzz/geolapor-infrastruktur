@@ -17,7 +17,7 @@ interface UserDashboardLayoutProps {
 
 export default async function UserDashboardLayout({ children, params }: UserDashboardLayoutProps): Promise<ReactNode> {
   const { locale } = await params
-  const authResult = await requireRole([UserRole.USER])
+  const authResult = await requireRole([UserRole.USER, UserRole.OFFICER, UserRole.ADMIN, UserRole.SUPERADMIN])
 
   if (!authResult.success) {
     if (authResult.errorCode === 'UNAUTHENTICATED') {
@@ -32,15 +32,41 @@ export default async function UserDashboardLayout({ children, params }: UserDash
   }
 
   const t = await getTranslations('common.navigation')
-  const items: SidebarNavigationItem[] = [
-    { href: '/dashboard', label: t('dashboard'), icon: 'dashboard' },
-    { href: '/dashboard/reports/create', label: t('createReport'), icon: 'createReport' },
-    { href: '/dashboard/reports', label: t('myReports'), icon: 'myReports' },
-    { href: '/dashboard/profile', label: t('profile'), icon: 'profile' }
-  ]
+  
+  let items: SidebarNavigationItem[] = []
+  let navLabel = t('dashboardNavigation')
+
+  if (authResult.profile.role === UserRole.SUPERADMIN || authResult.profile.role === UserRole.ADMIN) {
+    navLabel = t('adminNavigation')
+    const baseItems: SidebarNavigationItem[] = [
+      { href: '/admin', label: t('overview'), icon: 'overview' },
+      { href: '/admin/reports/verification', label: t('verification'), icon: 'verification' },
+      { href: '/admin/reports', label: t('reports'), icon: 'reports' },
+      { href: '/admin/categories', label: t('categories'), icon: 'categories' },
+      { href: '/admin/officers', label: t('officers'), icon: 'officers' }
+    ]
+    const superadminItems: SidebarNavigationItem[] = [
+      { href: '/admin/users', label: t('users'), icon: 'users' },
+      { href: '/admin/audit-logs', label: t('auditLogs'), icon: 'auditLogs' }
+    ]
+    items = authResult.profile.role === UserRole.SUPERADMIN ? [...baseItems, ...superadminItems] : baseItems
+  } else if (authResult.profile.role === UserRole.OFFICER) {
+    navLabel = t('officerNavigation')
+    items = [
+      { href: '/officer/tasks', label: t('myTasks'), icon: 'myTasks' },
+      { href: '/officer/history', label: t('history'), icon: 'history' }
+    ]
+  } else {
+    items = [
+      { href: '/dashboard', label: t('dashboard'), icon: 'dashboard' },
+      { href: '/dashboard/reports/create', label: t('createReport'), icon: 'createReport' },
+      { href: '/dashboard/reports', label: t('myReports'), icon: 'myReports' },
+      { href: '/dashboard/profile', label: t('profile'), icon: 'profile' }
+    ]
+  }
 
   return (
-    <DashboardLayout navigationLabel={t('dashboardNavigation')} items={items} role={authResult.profile.role} profile={authResult.profile}>
+    <DashboardLayout navigationLabel={navLabel} items={items} role={authResult.profile.role} profile={authResult.profile}>
       {children}
     </DashboardLayout>
   )

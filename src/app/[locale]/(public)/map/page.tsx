@@ -41,8 +41,8 @@ function PublicMapPageContent({ initialCategories }: PublicMapPageContentProps):
   const t = useTranslations('common.publicMap')
 
   return (
-    <div className="flex flex-col">
-      <div className="bg-background border-b px-4 py-3 sm:px-6">
+    <div className="flex h-[calc(100vh-4rem)] flex-col min-h-0 overflow-hidden">
+      <div className="bg-background border-b px-4 py-3 sm:px-6 shrink-0">
         <h1 className="text-foreground text-lg font-semibold">{t('title')}</h1>
         <p className="text-muted-foreground text-sm">{t('description')}</p>
       </div>

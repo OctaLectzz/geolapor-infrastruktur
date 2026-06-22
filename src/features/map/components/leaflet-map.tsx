@@ -132,5 +132,5 @@ export function LeafletMap({ reports, selectedReport, onMarkerClick }: LeafletMa
     }
   }, [selectedReport])
 
-  return <div ref={mapContainerRef} className="size-full" style={{ minHeight: '400px' }} />
+  return <div ref={mapContainerRef} className="size-full" />
 }
