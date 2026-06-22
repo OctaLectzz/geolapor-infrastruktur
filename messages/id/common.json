@@ -182,11 +182,14 @@
       "loadMore": "Muat lagi"
     },
     "status": {
+      "PENDING_VERIFICATION": "Menunggu Verifikasi",
       "VERIFIED": "Terverifikasi",
+      "REJECTED": "Ditolak",
       "ASSIGNED": "Ditugaskan",
       "IN_PROGRESS": "Dalam Proses",
       "NEED_REVIEW": "Perlu Ditinjau",
-      "COMPLETED": "Selesai"
+      "COMPLETED": "Selesai",
+      "CANCELLED": "Dibatalkan"
     }
   },
   "publicReportDetail": {

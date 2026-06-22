@@ -182,11 +182,14 @@
       "loadMore": "Load more"
     },
     "status": {
+      "PENDING_VERIFICATION": "Pending Verification",
       "VERIFIED": "Verified",
+      "REJECTED": "Rejected",
       "ASSIGNED": "Assigned",
       "IN_PROGRESS": "In Progress",
       "NEED_REVIEW": "Needs Review",
-      "COMPLETED": "Completed"
+      "COMPLETED": "Completed",
+      "CANCELLED": "Cancelled"
     }
   },
   "publicReportDetail": {

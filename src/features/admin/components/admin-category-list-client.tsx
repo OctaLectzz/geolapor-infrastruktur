@@ -23,7 +23,6 @@ interface AdminCategoryListClientProps {
 export function AdminCategoryListClient({ initialCategories }: AdminCategoryListClientProps): React.ReactElement {
   const t = useTranslations('common.admin.categories')
   const tForm = useTranslations('common.admin.categories.form')
-  const tDelete = useTranslations('common.admin.categories.delete')
   const tActions = useTranslations('common.actions')
   const tColumns = useTranslations('dashboard.tables.columns')
   const [categories, setCategories] = useState<CategoryDto[]>(initialCategories)
@@ -87,7 +86,7 @@ export function AdminCategoryListClient({ initialCategories }: AdminCategoryList
     } finally {
       setIsCreating(false)
     }
-  }, [createName, createDescription, createIcon, t, tActions, toast, resetCreateForm])
+  }, [createName, createDescription, createIcon, t, tActions, resetCreateForm])
 
   const handleUpdate = useCallback(async (): Promise<void> => {
     if (!editingCategory || !editName.trim()) return
@@ -116,7 +115,7 @@ export function AdminCategoryListClient({ initialCategories }: AdminCategoryList
     } finally {
       setIsUpdating(false)
     }
-  }, [editingCategory, editName, editSlug, editDescription, editIcon, editIsActive, t, tActions, toast])
+  }, [editingCategory, editName, editSlug, editDescription, editIcon, editIsActive, t, tActions])
 
   const handleDeactivate = useCallback(
     async (id: string): Promise<void> => {
@@ -139,7 +138,7 @@ export function AdminCategoryListClient({ initialCategories }: AdminCategoryList
         setDeactivatingId(null)
       }
     },
-    [t, tActions, toast]
+    [t, tActions]
   )
 
   return (

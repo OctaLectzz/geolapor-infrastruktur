@@ -20,13 +20,6 @@ const ROLE_OPTIONS: { value: PrismaUserRole; label: string }[] = [
   { value: UserRole.SUPERADMIN, label: 'SUPERADMIN' }
 ]
 
-const ROLE_BADGE_STYLES: Record<PrismaUserRole, string> = {
-  SUPERADMIN: 'bg-destructive text-white',
-  ADMIN: 'bg-primary text-primary-foreground',
-  OFFICER: 'bg-warning text-warning-foreground',
-  USER: 'bg-secondary text-secondary-foreground'
-}
-
 interface AdminUserListClientProps {
   initialUsers: UserDto[]
 }
