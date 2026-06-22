@@ -14,7 +14,7 @@ interface AppProviderProps {
 export function AppProvider({ children }: AppProviderProps): ReactNode {
   return (
     <QueryProvider>
-      <ThemeProvider attribute="class" defaultTheme="system" disableTransitionOnChange enableSystem>
+      <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange enableSystem>
         <TooltipProvider>
           {children}
           <Toaster closeButton richColors />
