@@ -125,7 +125,7 @@ function createForbiddenRedirect(request: NextRequest): NextResponse {
 }
 
 export async function proxy(request: NextRequest): Promise<NextResponse> {
-  const { response: supabaseResponse, user } = await updateSession(request)
+  const { response: supabaseResponse, user, supabase } = await updateSession(request)
   const intlResponse = handleI18nRouting(request)
 
   // Merge Supabase auth cookies into the i18n response.
@@ -170,7 +170,24 @@ export async function proxy(request: NextRequest): Promise<NextResponse> {
   const rule = findMatchingRouteRule(cleanPath)
 
   if (rule) {
-    const role = getUserRole(user)
+    let role = getUserRole(user)
+
+    // Fallback: If role is not in app_metadata, fetch from user_profiles table.
+    if (!role) {
+      try {
+        const { data: profile } = await supabase
+          .from('user_profiles')
+          .select('role')
+          .eq('supabase_user_id', user.id)
+          .single()
+
+        if (profile?.role) {
+          role = profile.role
+        }
+      } catch (err) {
+        console.error('Failed to fetch role from user_profiles in proxy:', err)
+      }
+    }
 
     if (!role || !rule.allowedRoles.includes(role)) {
       const forbiddenRedirect = createForbiddenRedirect(request)

@@ -1,19 +1,41 @@
 import type { ReactNode } from 'react'
 
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 
 import { AppLogo } from '@/components/shared/app-logo'
 import { LanguageSwitcher } from '@/components/shared/language-switcher'
 import { ThemeToggle } from '@/components/shared/theme-toggle'
 import { Button } from '@/components/ui/button'
+import { getRoleRedirectPath } from '@/features/auth/utils/role-redirect'
 import { Link } from '@/i18n/navigation'
+import { prisma } from '@/lib/prisma'
+import { createClient } from '@/lib/supabase/server'
 
 interface PublicLayoutProps {
   children: ReactNode
 }
 
-export function PublicLayout({ children }: PublicLayoutProps): ReactNode {
-  const t = useTranslations('common.navigation')
+export async function PublicLayout({ children }: PublicLayoutProps): Promise<ReactNode> {
+  const t = await getTranslations('common.navigation')
+
+  let dashboardPath: string | null = null
+
+  try {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (user) {
+      const profile = await prisma.userProfile.findUnique({
+        where: { supabaseUserId: user.id }
+      })
+
+      if (profile) {
+        dashboardPath = getRoleRedirectPath(profile.role)
+      }
+    }
+  } catch (err) {
+    console.error('Failed to resolve auth session in PublicLayout:', err)
+  }
 
   return (
     <div className="bg-background flex min-h-svh flex-col">
@@ -36,9 +58,15 @@ export function PublicLayout({ children }: PublicLayoutProps): ReactNode {
           <div className="flex items-center gap-2">
             <LanguageSwitcher />
             <ThemeToggle />
-            <Button size="sm" asChild>
-              <Link href="/login">{t('login')}</Link>
-            </Button>
+            {dashboardPath ? (
+              <Button size="sm" asChild variant="outline">
+                <Link href={dashboardPath}>{t('dashboard')}</Link>
+              </Button>
+            ) : (
+              <Button size="sm" asChild>
+                <Link href="/login">{t('login')}</Link>
+              </Button>
+            )}
           </div>
         </div>
       </header>

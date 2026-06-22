@@ -8,9 +8,13 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Link } from '@/i18n/navigation'
+import { getRoleRedirectPath } from '@/features/auth/utils/role-redirect'
 import { prisma } from '@/lib/prisma'
+import { createClient } from '@/lib/supabase/server'
 
 import type { ReportStatus } from '@generated/prisma/enums'
+
+export const dynamic = 'force-dynamic'
 
 interface PublicStats {
   total: number
@@ -65,23 +69,42 @@ const STEP_NUMBERS = ['01', '02', '03', '04'] as const
 export default async function HomePage(): Promise<React.ReactElement> {
   const [stats, categories] = await Promise.all([getPublicStats(), getCategories()])
 
+  let dashboardPath: string | null = null
+
+  try {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (user) {
+      const profile = await prisma.userProfile.findUnique({
+        where: { supabaseUserId: user.id }
+      })
+
+      if (profile) {
+        dashboardPath = getRoleRedirectPath(profile.role)
+      }
+    }
+  } catch (err) {
+    console.error('Failed to resolve auth session on home page:', err)
+  }
+
   return (
     <>
-      <LandingHeader />
+      <LandingHeader dashboardPath={dashboardPath} />
       <main>
-        <HeroSection />
+        <HeroSection dashboardPath={dashboardPath} />
         <PublicStatsSection stats={stats} />
         <HowItWorksSection />
         <CategoryPreviewSection categories={categories} />
         <MapPreviewSection />
-        <CtaSection />
+        <CtaSection dashboardPath={dashboardPath} />
       </main>
       <LandingFooter />
     </>
   )
 }
 
-function LandingHeader(): React.ReactElement {
+function LandingHeader({ dashboardPath }: { dashboardPath: string | null }): React.ReactElement {
   const t = useTranslations('common.navigation')
 
   return (
@@ -104,16 +127,22 @@ function LandingHeader(): React.ReactElement {
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
           <ThemeToggle />
-          <Button size="sm" asChild>
-            <Link href="/login">{t('login')}</Link>
-          </Button>
+          {dashboardPath ? (
+            <Button size="sm" asChild variant="outline">
+              <Link href={dashboardPath}>{t('dashboard')}</Link>
+            </Button>
+          ) : (
+            <Button size="sm" asChild>
+              <Link href="/login">{t('login')}</Link>
+            </Button>
+          )}
         </div>
       </div>
     </header>
   )
 }
 
-function HeroSection(): React.ReactElement {
+function HeroSection({ dashboardPath }: { dashboardPath: string | null }): React.ReactElement {
   const t = useTranslations('common.home')
   const common = useTranslations('common')
 
@@ -135,7 +164,7 @@ function HeroSection(): React.ReactElement {
 
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button size="lg" asChild className="rounded-full px-8 shadow-lg">
-              <Link href="/login">{t('primaryCta')}</Link>
+              <Link href={dashboardPath ?? '/login'}>{t('primaryCta')}</Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="rounded-full px-8">
               <Link href="/map">{t('secondaryCta')}</Link>
@@ -332,7 +361,7 @@ function MapPreviewSection(): React.ReactElement {
   )
 }
 
-function CtaSection(): React.ReactElement {
+function CtaSection({ dashboardPath }: { dashboardPath: string | null }): React.ReactElement {
   const t = useTranslations('common.home')
   const actions = useTranslations('common.actions')
 
@@ -343,7 +372,7 @@ function CtaSection(): React.ReactElement {
         <p className="text-primary-foreground/80 mx-auto mt-4 max-w-2xl text-lg">{t('description')}</p>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button size="lg" variant="secondary" asChild className="rounded-full px-8 shadow-lg">
-            <Link href="/login">{actions('getStarted')}</Link>
+            <Link href={dashboardPath ?? '/login'}>{actions('getStarted')}</Link>
           </Button>
           <Button
             size="lg"

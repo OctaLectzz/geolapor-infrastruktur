@@ -1,13 +1,14 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-import type { User } from '@supabase/supabase-js'
+import type { SupabaseClient, User } from '@supabase/supabase-js'
 
 import { getSupabasePublicEnv } from './env'
 
 interface SessionResult {
   response: NextResponse
   user: User | null
+  supabase: SupabaseClient
 }
 
 export async function updateSession(request: NextRequest): Promise<SessionResult> {
@@ -47,6 +48,7 @@ export async function updateSession(request: NextRequest): Promise<SessionResult
 
   return {
     response: supabaseResponse,
-    user: userData.user
+    user: userData.user,
+    supabase
   }
 }
