@@ -1,10 +1,30 @@
-import { useTranslations } from 'next-intl'
+import { prisma } from '@/lib/prisma'
 
-import { PlaceholderPage } from '@/components/shared/placeholder-page'
+import { AdminCategoryListClient } from '@/features/admin/components/admin-category-list-client'
 
-export default function CategoriesPage(): React.ReactElement {
-  const t = useTranslations('common.navigation')
-  const app = useTranslations('common.app')
+import type { CategoryDto } from '@/types/category'
 
-  return <PlaceholderPage title={t('categories')} description={app('tagline')} />
+export default async function AdminCategoriesPage(): Promise<React.ReactElement> {
+  const categories = await prisma.category.findMany({
+    orderBy: { createdAt: 'desc' }
+  })
+
+  const initialCategories: CategoryDto[] = categories.map((category) => ({
+    id: category.id,
+    name: category.name,
+    slug: category.slug,
+    description: category.description,
+    icon: category.icon,
+    isActive: category.isActive,
+    createdAt: category.createdAt.toISOString(),
+    updatedAt: category.updatedAt.toISOString()
+  }))
+
+  return (
+    <main className="px-4 py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6">
+        <AdminCategoryListClient initialCategories={initialCategories} />
+      </div>
+    </main>
+  )
 }

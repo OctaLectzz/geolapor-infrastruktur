@@ -1,10 +1,5 @@
-import { useTranslations } from 'next-intl'
+import { AdminAuditLogListClient } from '@/features/admin/components/admin-audit-log-list-client'
 
-import { PlaceholderPage } from '@/components/shared/placeholder-page'
-
-export default function AuditLogsPage(): React.ReactElement {
-  const t = useTranslations('common.navigation')
-  const app = useTranslations('common.app')
-
-  return <PlaceholderPage title={t('auditLogs')} description={app('tagline')} />
+export default function AdminAuditLogsPage(): React.ReactElement {
+  return <AdminAuditLogListClient />
 }

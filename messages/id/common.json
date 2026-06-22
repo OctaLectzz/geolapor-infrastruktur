@@ -40,6 +40,8 @@
     "viewMap": "Lihat Peta",
     "learnMore": "Pelajari Alur",
     "submit": "Kirim",
+    "submitting": "Mengirim...",
+    "unknownError": "Terjadi kesalahan. Silakan coba lagi.",
     "cancel": "Batal",
     "save": "Simpan",
     "edit": "Ubah",
@@ -71,6 +73,10 @@
     "officer": "Petugas",
     "admin": "Admin",
     "superadmin": "Superadmin"
+  },
+  "statusLabels": {
+    "active": "Aktif",
+    "inactive": "Nonaktif"
   },
   "theme": {
     "toggle": "Ubah tema",
@@ -181,6 +187,149 @@
       "IN_PROGRESS": "Dalam Proses",
       "NEED_REVIEW": "Perlu Ditinjau",
       "COMPLETED": "Selesai"
+    }
+  },
+  "publicReportDetail": {
+    "breadcrumb": "Laporan publik",
+    "reportCode": "Kode laporan",
+    "category": "Kategori",
+    "status": "Status",
+    "description": "Deskripsi",
+    "location": "Lokasi",
+    "coordinates": "Koordinat",
+    "address": "Alamat",
+    "region": "Wilayah",
+    "timeline": "Linimasa status",
+    "timelineDescription": "Hanya perubahan status publik yang ditampilkan. Catatan pribadi dan data tinjauan internal disembunyikan.",
+    "evidencePhotos": "Foto bukti",
+    "noPhotos": "Belum ada foto bukti publik untuk laporan ini.",
+    "backToMap": "Kembali ke peta",
+    "createdAt": "Dilaporkan pada",
+    "updatedAt": "Terakhir diperbarui",
+    "notFound": "Laporan tidak ditemukan",
+    "notFoundDescription": "Laporan ini mungkin bersifat privat, tidak tersedia, atau dihapus dari tampilan publik.",
+    "openMap": "Buka lokasi di peta",
+    "photoAlt": "Foto bukti untuk {title}",
+    "privacyNote": "Hanya informasi laporan yang aman untuk publik yang ditampilkan di sini. Identitas pelapor, komentar pribadi, identitas petugas, dan data audit disembunyikan.",
+    "photoType": {
+      "BEFORE": "Sebelum",
+      "PROGRESS": "Progres",
+      "AFTER": "Sesudah"
+    }
+  },
+  "notifications": {
+    "messages": {
+      "listRetrieved": "Notifikasi berhasil dimuat.",
+      "markedAsRead": "Notifikasi ditandai sudah dibaca.",
+      "notFound": "Notifikasi tidak ditemukan.",
+      "unexpectedError": "Terjadi kesalahan yang tidak terduga."
+    },
+    "reportCreated": {
+      "title": "Laporan terkirim",
+      "message": "Laporan infrastruktur Anda telah dikirim dan menunggu verifikasi."
+    },
+    "reportVerified": {
+      "title": "Laporan terverifikasi",
+      "message": "Laporan infrastruktur Anda telah diverifikasi oleh administrator."
+    },
+    "reportRejected": {
+      "title": "Laporan ditolak",
+      "message": "Laporan infrastruktur Anda ditolak. Periksa catatan penolakan untuk detailnya."
+    },
+    "reportAssigned": {
+      "title": "Penugasan baru",
+      "message": "Laporan infrastruktur baru telah ditugaskan kepada Anda."
+    },
+    "reportCompleted": {
+      "title": "Laporan selesai",
+      "message": "Laporan infrastruktur Anda telah ditandai selesai."
+    }
+  },
+  "admin": {
+    "categories": {
+      "title": "Kelola Kategori",
+      "description": "Buat, ubah, dan nonaktifkan kategori laporan infrastruktur.",
+      "create": "Buat Kategori",
+      "edit": "Ubah Kategori",
+      "deactivate": "Nonaktifkan",
+      "deactivateConfirm": "Apakah Anda yakin ingin menonaktifkan kategori ini? Kategori tidak akan muncul sebagai pilihan untuk laporan baru.",
+      "form": {
+        "name": "Nama",
+        "slug": "Slug",
+        "slugHelper": "Opsional. Akan dibuat otomatis dari nama jika dikosongkan.",
+        "description": "Deskripsi",
+        "descriptionPlaceholder": "Deskripsi singkat kategori infrastruktur ini",
+        "icon": "Ikon",
+        "iconPlaceholder": "Nama ikon atau pengenal",
+        "isActive": "Aktif"
+      },
+      "messages": {
+        "createSuccess": "Kategori berhasil dibuat.",
+        "updateSuccess": "Kategori berhasil diperbarui.",
+        "deactivateSuccess": "Kategori berhasil dinonaktifkan."
+      },
+      "empty": {
+        "title": "Belum ada kategori",
+        "description": "Buat kategori infrastruktur pertama untuk memulai."
+      },
+      "delete": {
+        "title": "Nonaktifkan Kategori",
+        "description": "Tindakan ini akan menonaktifkan kategori dan menyembunyikannya dari formulir laporan baru."
+      }
+    },
+    "officers": {
+      "title": "Petugas",
+      "description": "Lihat petugas lapangan aktif. Kelola petugas dilakukan melalui halaman Pengguna.",
+      "columns": {
+        "name": "Nama",
+        "email": "Email",
+        "phone": "Telepon",
+        "agency": "Instansi"
+      },
+      "empty": {
+        "title": "Tidak ada petugas",
+        "description": "Tidak ada petugas lapangan aktif. Berikan peran OFFICER kepada pengguna di halaman kelola Pengguna."
+      }
+    },
+    "users": {
+      "title": "Kelola Pengguna",
+      "description": "Lihat semua pengguna dan kelola peran.",
+      "columns": {
+        "name": "Nama",
+        "email": "Email",
+        "role": "Peran",
+        "status": "Status"
+      },
+      "roleUpdated": "Peran pengguna berhasil diperbarui.",
+      "empty": {
+        "title": "Belum ada pengguna",
+        "description": "Belum ada akun pengguna yang dibuat."
+      },
+      "messages": {
+        "listRetrieved": "Pengguna berhasil dimuat.",
+        "roleUpdated": "Peran pengguna berhasil diperbarui.",
+        "notFound": "Pengguna tidak ditemukan.",
+        "invalidPayload": "Data permintaan tidak valid.",
+        "unexpectedError": "Terjadi kesalahan yang tidak terduga."
+      }
+    },
+    "auditLogs": {
+      "title": "Log Audit",
+      "description": "Catatan tindakan keamanan dan administrasi.",
+      "columns": {
+        "time": "Waktu",
+        "actor": "Pelaku",
+        "action": "Aksi",
+        "entity": "Entitas",
+        "details": "Detail"
+      },
+      "empty": {
+        "title": "Belum ada log audit",
+        "description": "Catatan log audit akan muncul di sini saat tindakan dilakukan."
+      },
+      "messages": {
+        "unexpectedError": "Terjadi kesalahan saat memuat log audit."
+      }
     }
   },
   "validation": {

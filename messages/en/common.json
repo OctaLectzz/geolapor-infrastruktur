@@ -40,6 +40,8 @@
     "viewMap": "View Map",
     "learnMore": "Learn the Flow",
     "submit": "Submit",
+    "submitting": "Submitting...",
+    "unknownError": "Something went wrong. Please try again.",
     "cancel": "Cancel",
     "save": "Save",
     "edit": "Edit",
@@ -71,6 +73,10 @@
     "officer": "Officer",
     "admin": "Admin",
     "superadmin": "Superadmin"
+  },
+  "statusLabels": {
+    "active": "Active",
+    "inactive": "Inactive"
   },
   "theme": {
     "toggle": "Change theme",
@@ -181,6 +187,149 @@
       "IN_PROGRESS": "In Progress",
       "NEED_REVIEW": "Needs Review",
       "COMPLETED": "Completed"
+    }
+  },
+  "publicReportDetail": {
+    "breadcrumb": "Public reports",
+    "reportCode": "Report code",
+    "category": "Category",
+    "status": "Status",
+    "description": "Description",
+    "location": "Location",
+    "coordinates": "Coordinates",
+    "address": "Address",
+    "region": "Region",
+    "timeline": "Status timeline",
+    "timelineDescription": "Public status changes only. Private notes and internal review data are hidden.",
+    "evidencePhotos": "Evidence photos",
+    "noPhotos": "No public evidence photos are available for this report.",
+    "backToMap": "Back to map",
+    "createdAt": "Reported on",
+    "updatedAt": "Last updated",
+    "notFound": "Report not found",
+    "notFoundDescription": "This report may be private, unavailable, or removed from public visibility.",
+    "openMap": "Open location in maps",
+    "photoAlt": "Evidence photo for {title}",
+    "privacyNote": "Only public-safe report information is shown here. Reporter identity, private comments, officer identity, and audit data are hidden.",
+    "photoType": {
+      "BEFORE": "Before",
+      "PROGRESS": "Progress",
+      "AFTER": "After"
+    }
+  },
+  "notifications": {
+    "messages": {
+      "listRetrieved": "Notifications retrieved successfully.",
+      "markedAsRead": "Notification marked as read.",
+      "notFound": "Notification not found.",
+      "unexpectedError": "An unexpected error occurred."
+    },
+    "reportCreated": {
+      "title": "Report submitted",
+      "message": "Your infrastructure report has been submitted and is pending verification."
+    },
+    "reportVerified": {
+      "title": "Report verified",
+      "message": "Your infrastructure report has been verified by an administrator."
+    },
+    "reportRejected": {
+      "title": "Report rejected",
+      "message": "Your infrastructure report has been rejected. Check the rejection note for details."
+    },
+    "reportAssigned": {
+      "title": "New assignment",
+      "message": "A new infrastructure report has been assigned to you."
+    },
+    "reportCompleted": {
+      "title": "Report completed",
+      "message": "Your infrastructure report has been marked as completed."
+    }
+  },
+  "admin": {
+    "categories": {
+      "title": "Manage Categories",
+      "description": "Create, edit, and deactivate infrastructure report categories.",
+      "create": "Create Category",
+      "edit": "Edit Category",
+      "deactivate": "Deactivate",
+      "deactivateConfirm": "Are you sure you want to deactivate this category? It will no longer appear as an option for new reports.",
+      "form": {
+        "name": "Name",
+        "slug": "Slug",
+        "slugHelper": "Optional. Auto-generated from the name if left empty.",
+        "description": "Description",
+        "descriptionPlaceholder": "Brief description of this infrastructure category",
+        "icon": "Icon",
+        "iconPlaceholder": "Icon name or identifier",
+        "isActive": "Active"
+      },
+      "messages": {
+        "createSuccess": "Category created successfully.",
+        "updateSuccess": "Category updated successfully.",
+        "deactivateSuccess": "Category deactivated successfully."
+      },
+      "empty": {
+        "title": "No categories",
+        "description": "Create your first infrastructure category to get started."
+      },
+      "delete": {
+        "title": "Deactivate Category",
+        "description": "This will deactivate the category and hide it from new report forms."
+      }
+    },
+    "officers": {
+      "title": "Officers",
+      "description": "View active field officers. Officer management is done through the Users page.",
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "agency": "Agency"
+      },
+      "empty": {
+        "title": "No officers",
+        "description": "No active field officers found. Assign the OFFICER role to a user in the Users management page."
+      }
+    },
+    "users": {
+      "title": "Manage Users",
+      "description": "View all users and manage roles.",
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "status": "Status"
+      },
+      "roleUpdated": "User role updated successfully.",
+      "empty": {
+        "title": "No users",
+        "description": "No user accounts have been created yet."
+      },
+      "messages": {
+        "listRetrieved": "Users retrieved successfully.",
+        "roleUpdated": "User role updated successfully.",
+        "notFound": "User not found.",
+        "invalidPayload": "Invalid request payload.",
+        "unexpectedError": "An unexpected error occurred."
+      }
+    },
+    "auditLogs": {
+      "title": "Audit Logs",
+      "description": "Security and administrative action records.",
+      "columns": {
+        "time": "Time",
+        "actor": "Actor",
+        "action": "Action",
+        "entity": "Entity",
+        "details": "Details"
+      },
+      "empty": {
+        "title": "No audit logs",
+        "description": "Audit log records will appear here as actions are performed."
+      },
+      "messages": {
+        "unexpectedError": "An unexpected error occurred while loading audit logs."
+      }
     }
   },
   "validation": {
