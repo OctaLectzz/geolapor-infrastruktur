@@ -383,6 +383,37 @@
       }
     }
   },
+  "profile": {
+    "title": "User Profile",
+    "description": "Manage your profile information and update contact details.",
+    "fields": {
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "phoneNumber": "Phone Number",
+      "role": "Account Role",
+      "avatar": "Profile Picture"
+    },
+    "helpers": {
+      "emailReadOnly": "Your email address cannot be changed because it is linked to authentication.",
+      "roleReadOnly": "Your account role is determined by an administrator."
+    },
+    "actions": {
+      "edit": "Edit Profile",
+      "save": "Save Changes",
+      "cancel": "Cancel"
+    },
+    "messages": {
+      "updateSuccess": "Your profile has been successfully updated.",
+      "updateError": "Failed to update profile. Please try again.",
+      "uploadSuccess": "Profile picture successfully uploaded.",
+      "uploadError": "Failed to upload profile picture.",
+      "invalidFile": "Please select a valid image file (JPEG/PNG/WebP, max 5MB)."
+    },
+    "validation": {
+      "nameRequired": "Full name is required.",
+      "phoneInvalid": "Invalid phone number format. Use a valid Indonesian format (e.g. 08123456789)."
+    }
+  },
   "validation": {
     "required": "This field is required.",
     "invalidEmail": "Enter a valid email address.",

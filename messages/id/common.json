@@ -383,6 +383,37 @@
       }
     }
   },
+  "profile": {
+    "title": "Profil Pengguna",
+    "description": "Kelola informasi profil Anda dan perbarui detail kontak.",
+    "fields": {
+      "fullName": "Nama Lengkap",
+      "email": "Alamat Email",
+      "phoneNumber": "Nomor Telepon",
+      "role": "Peran Akun",
+      "avatar": "Foto Profil"
+    },
+    "helpers": {
+      "emailReadOnly": "Alamat email tidak dapat diubah karena terhubung dengan autentikasi.",
+      "roleReadOnly": "Peran akun Anda ditentukan oleh administrator."
+    },
+    "actions": {
+      "edit": "Ubah Profil",
+      "save": "Simpan Perubahan",
+      "cancel": "Batal"
+    },
+    "messages": {
+      "updateSuccess": "Profil Anda berhasil diperbarui.",
+      "updateError": "Gagal memperbarui profil. Silakan coba lagi.",
+      "uploadSuccess": "Foto profil berhasil diunggah.",
+      "uploadError": "Gagal mengunggah foto profil.",
+      "invalidFile": "Silakan pilih file gambar yang valid (JPEG/PNG/WebP, maks 5MB)."
+    },
+    "validation": {
+      "nameRequired": "Nama lengkap wajib diisi.",
+      "phoneInvalid": "Format nomor telepon tidak valid. Gunakan format Indonesia yang valid (contoh: 08123456789)."
+    }
+  },
   "validation": {
     "required": "Wajib diisi.",
     "invalidEmail": "Format email tidak valid.",
