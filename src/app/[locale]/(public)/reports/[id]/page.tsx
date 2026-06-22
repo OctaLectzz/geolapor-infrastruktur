@@ -1,3 +1,5 @@
+import { cache } from 'react'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
@@ -42,7 +44,7 @@ function toReportStatusValues(statuses: readonly string[]): ReportStatus[] {
   return statuses.map((status) => status as ReportStatus)
 }
 
-async function getPublicReportDetail(id: string): Promise<PublicReportDetailDto | null> {
+const getPublicReportDetail = cache(async (id: string): Promise<PublicReportDetailDto | null> => {
   try {
     const report = await prisma.report.findFirst({
       where: {
@@ -107,6 +109,22 @@ async function getPublicReportDetail(id: string): Promise<PublicReportDetailDto 
     return toPublicReportDetailDto(report)
   } catch {
     return null
+  }
+})
+
+export async function generateMetadata({ params }: PublicReportDetailPageProps): Promise<Metadata> {
+  const { id } = await params
+  const report = await getPublicReportDetail(id)
+
+  if (!report) {
+    return {
+      title: 'Report Not Found'
+    }
+  }
+
+  return {
+    title: `${report.reportCode}: ${report.title}`,
+    description: report.description
   }
 }
 

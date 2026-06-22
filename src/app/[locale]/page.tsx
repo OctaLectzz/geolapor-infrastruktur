@@ -33,10 +33,22 @@ import { prisma } from '@/lib/prisma'
 import { toPublicReportListItemDto } from '@/lib/public-report-dto'
 import { createClient } from '@/lib/supabase/server'
 
+import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
+
 import type { PublicReportListItemDto } from '@/types/report'
 import type { ReportStatus } from '@generated/prisma/enums'
 
 export const dynamic = 'force-dynamic'
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'common.metadata' })
+  return {
+    title: t('title'),
+    description: t('description')
+  }
+}
 
 interface PublicStats {
   total: number

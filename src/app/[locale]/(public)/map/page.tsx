@@ -1,9 +1,20 @@
+import type { Metadata } from 'next'
 import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 
 import { PublicMapClient } from '@/features/map/components/public-map-client'
 import { prisma } from '@/lib/prisma'
 
 import type { CategoryDto } from '@/types/category'
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'common.publicMap' })
+  return {
+    title: t('title'),
+    description: t('description')
+  }
+}
 
 async function getActiveCategories(): Promise<CategoryDto[]> {
   try {

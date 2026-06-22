@@ -19,7 +19,11 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Roostvasum',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
+  title: {
+    default: 'Roostvasum',
+    template: '%s | Roostvasum'
+  },
   description: 'Platform pelaporan kerusakan infrastruktur berbasis geolokasi untuk warga, petugas, dan administrator.'
 }
 
