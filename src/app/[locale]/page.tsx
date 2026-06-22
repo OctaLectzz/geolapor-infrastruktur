@@ -1,44 +1,41 @@
-import { useTranslations } from 'next-intl'
 import {
   ArrowRight,
   Camera,
+  Check,
   CheckCircle2,
+  ChevronLeft,
   ChevronRight,
   Compass,
-  FileText,
-  Globe,
   HelpCircle,
+  Mail,
   Map,
   MapPin,
   Route,
-  Shield,
   ShieldCheck,
   Sparkles,
-  TrendingUp,
-  Users,
   Wrench,
   Zap
 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
+import { AnimatedContainer, AnimatedItem, FadeIn } from '@/components/shared/animated-entrance'
 import { AppLogo } from '@/components/shared/app-logo'
+import { CategoryIcon } from '@/components/shared/category-icon'
 import { LanguageSwitcher } from '@/components/shared/language-switcher'
 import { MobileNav } from '@/components/shared/mobile-nav'
 import { ThemeToggle } from '@/components/shared/theme-toggle'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
-import { Link } from '@/i18n/navigation'
 import { getRoleRedirectPath } from '@/features/auth/utils/role-redirect'
-import { prisma } from '@/lib/prisma'
-import { createClient } from '@/lib/supabase/server'
-import { toPublicReportListItemDto } from '@/lib/public-report-dto'
-import { CategoryIcon } from '@/components/shared/category-icon'
 import { MapPreviewClient } from '@/features/map/components/map-preview-client'
-import { FadeIn, AnimatedContainer, AnimatedItem } from '@/components/shared/animated-entrance'
+import { Link } from '@/i18n/navigation'
+import { prisma } from '@/lib/prisma'
+import { toPublicReportListItemDto } from '@/lib/public-report-dto'
+import { createClient } from '@/lib/supabase/server'
 
-import type { ReportStatus } from '@generated/prisma/enums'
 import type { PublicReportListItemDto } from '@/types/report'
+import type { ReportStatus } from '@generated/prisma/enums'
 
 export const dynamic = 'force-dynamic'
 
@@ -168,15 +165,39 @@ export default async function HomePage(): Promise<React.ReactElement> {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="relative min-h-screen bg-background overflow-hidden">
+      {/* Decorative Wave Backgrounds (Mockup Style) */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <svg
+          className="absolute top-0 left-0 w-full h-[650px] text-primary/[0.04] dark:text-primary/[0.02] fill-current"
+          viewBox="0 0 1440 650"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0,0 L1440,0 L1440,220 C1100,380 950,150 600,420 C300,680 150,520 0,600 Z" />
+        </svg>
+        <svg
+          className="absolute top-0 left-0 w-full h-[720px] text-emerald-500/[0.02] dark:text-emerald-500/[0.01] fill-current"
+          viewBox="0 0 1440 720"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0,0 L1440,0 L1440,250 C1150,400 920,200 650,470 C350,700 200,550 0,700 Z" />
+        </svg>
+      </div>
+
       <LandingHeader dashboardPath={dashboardPath} />
+      
       <main>
         <HeroSection dashboardPath={dashboardPath} stats={stats} />
         <HowItWorksSection />
+        <FeaturesSection />
+        <BenefitsSection />
         <CategoryPreviewSection categories={categories} />
         <MapPreviewSection reports={reports} />
         <CtaSection dashboardPath={dashboardPath} />
       </main>
+      
       <LandingFooter />
     </div>
   )
@@ -188,7 +209,7 @@ function LandingHeader({ dashboardPath }: { dashboardPath: string | null }): Rea
   const t = useTranslations('common.navigation')
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/60 backdrop-blur-xl backdrop-saturate-150">
+    <header className="sticky top-0 z-[1050] w-full border-b border-border/50 bg-background/60 backdrop-blur-xl backdrop-saturate-150">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" aria-label={t('home')} className="shrink-0">
@@ -224,7 +245,7 @@ function LandingHeader({ dashboardPath }: { dashboardPath: string | null }): Rea
                 <Link href={dashboardPath}>{t('dashboard')}</Link>
               </Button>
             ) : (
-              <Button size="sm" asChild className="rounded-full shadow-sm">
+              <Button size="sm" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-5">
                 <Link href="/login">{t('login')}</Link>
               </Button>
             )}
@@ -243,132 +264,440 @@ function HeroSection({ dashboardPath, stats }: { dashboardPath: string | null; s
   const statsT = useTranslations('common.home.publicStats')
 
   return (
-    <section id="hero" className="relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,oklch(var(--primary)/0.15),transparent)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,oklch(var(--primary)/0.06),transparent)]" aria-hidden="true" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(var(--border)/0.04)_1px,transparent_1px),linear-gradient(to_bottom,oklch(var(--border)/0.04)_1px,transparent_1px)] bg-[size:3rem_3rem]" aria-hidden="true" />
+    <section id="hero" className="relative overflow-hidden pt-12 pb-20 lg:pt-16 lg:pb-28">
+      {/* Subtle Grid Overlay */}
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.25] dark:opacity-[0.08]" aria-hidden="true" />
+      
+      {/* Decorative Blur Circles */}
+      <div className="absolute top-[-10%] left-[-15%] -z-10 h-[30rem] w-[30rem] rounded-full bg-primary/10 blur-[130px] dark:bg-primary/5 pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-[20%] right-[-10%] -z-10 h-[35rem] w-[35rem] rounded-full bg-emerald-500/10 blur-[150px] dark:bg-emerald-500/5 pointer-events-none" aria-hidden="true" />
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24 lg:pb-28">
-        <div className="flex flex-col items-center text-center">
-          <FadeIn y={20}>
-            <Badge variant="secondary" className="mb-8 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary">
-              <span className="relative mr-2 flex size-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex size-1.5 rounded-full bg-primary" />
-              </span>
-              {t('eyebrow')}
-            </Badge>
-          </FadeIn>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+          
+          {/* Left Column (Text & Call-To-Action) */}
+          <div className="lg:col-span-5 space-y-6 text-left">
+            <FadeIn y={20}>
+              <Badge variant="secondary" className="rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary">
+                <span className="relative mr-2 flex size-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                  <span className="relative inline-flex size-1.5 rounded-full bg-primary" />
+                </span>
+                {t('eyebrow') ?? 'Platform Laporan Geospasial'}
+              </Badge>
+            </FadeIn>
 
-          <FadeIn y={30} delay={0.05}>
-            <h1 className="max-w-4xl text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
-              {t('title')}
-            </h1>
-          </FadeIn>
+            <FadeIn y={25} delay={0.05}>
+              <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.12] lg:max-w-md">
+                Your roadmap to infrastructure improvement
+              </h1>
+            </FadeIn>
 
-          <FadeIn y={25} delay={0.1}>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:text-xl">
-              {t('description')}
-            </p>
-          </FadeIn>
+            <FadeIn y={20} delay={0.1}>
+              <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                {t('description')}
+              </p>
+            </FadeIn>
 
-          <FadeIn y={20} delay={0.15}>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
-              <Button size="lg" asChild className="rounded-full px-8 text-sm font-semibold shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:-translate-y-0.5">
-                <Link href={dashboardPath ?? '/login'}>
-                  {t('primaryCta')}
-                  <ArrowRight className="ml-2 size-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="rounded-full px-8 text-sm font-semibold transition-all hover:-translate-y-0.5">
-                <Link href="/map">
-                  <MapPin className="mr-2 size-4" />
-                  {t('secondaryCta')}
-                </Link>
-              </Button>
-            </div>
-          </FadeIn>
-
-          {/* Stats row */}
-          {stats && (
-            <FadeIn y={20} delay={0.25} className="mt-16 w-full max-w-3xl">
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-                <StatChip icon={<FileText className="size-4" />} value={stats.total} label={statsT('totalReports')} />
-                <StatChip icon={<ShieldCheck className="size-4" />} value={stats.verified} label={statsT('verified')} />
-                <StatChip icon={<TrendingUp className="size-4" />} value={stats.inProgress} label={statsT('inProgress')} />
-                <StatChip icon={<CheckCircle2 className="size-4" />} value={stats.completed} label={statsT('completed')} />
+            {/* Newsletter-styled Status Check box */}
+            <FadeIn y={20} delay={0.15}>
+              <div className="flex w-full max-w-md items-center gap-2 rounded-full border border-border/80 bg-card p-1.5 shadow-md focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+                <div className="flex flex-1 items-center gap-2 pl-4">
+                  <Mail className="size-4 text-muted-foreground" />
+                  <input
+                    type="text"
+                    placeholder="Enter report code (e.g. REP-1234)"
+                    className="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
+                  />
+                </div>
+                <Button className="rounded-full bg-primary hover:bg-primary/95 text-primary-foreground text-xs font-bold px-6 py-2">
+                  CHECK
+                </Button>
               </div>
             </FadeIn>
-          )}
+
+            {/* Public Stats summary row */}
+            {stats && (
+              <FadeIn y={20} delay={0.2} className="pt-4">
+                <div className="grid grid-cols-2 gap-4 border-t border-border/50 pt-6">
+                  <div>
+                    <span className="text-3xl font-extrabold text-foreground">{stats.total.toLocaleString()}</span>
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mt-1">{statsT('totalReports')}</p>
+                  </div>
+                  <div>
+                    <span className="text-3xl font-extrabold text-primary">{stats.completed.toLocaleString()}</span>
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mt-1">{statsT('completed')}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            )}
+          </div>
+
+          {/* Right Column (Floating Dashboard Mockup UI) */}
+          <div className="lg:col-span-7 flex justify-center">
+            <FadeIn y={30} delay={0.2} className="relative w-full max-w-lg lg:max-w-none">
+              
+              {/* Main Dashboard Panel */}
+              <div className="relative rounded-3xl border border-border/80 bg-card shadow-2xl overflow-hidden aspect-[4/3] p-4 group transition-transform duration-500 hover:scale-[1.01] hover:shadow-primary/5">
+                
+                {/* Styled Map Background Representation */}
+                <div className="absolute inset-0 bg-slate-100 dark:bg-slate-900 overflow-hidden">
+                  {/* Grid Lines */}
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:2rem_2rem]" />
+                  
+                  {/* Decorative Winding Road (SVG Path) */}
+                  <svg className="absolute inset-0 w-full h-full text-primary/20 dark:text-primary/10 stroke-current fill-none stroke-[8] stroke-linecap-round" viewBox="0 0 400 300">
+                    <path d="M50,250 C120,200 80,100 200,120 C320,140 280,40 380,50" />
+                  </svg>
+                  
+                  {/* Glowing Map Pins */}
+                  <div className="absolute top-[35%] left-[20%] animate-bounce duration-1000">
+                    <div className="flex size-7 items-center justify-center rounded-full bg-blue-500 text-white shadow-lg border-2 border-white">
+                      <MapPin className="size-3.5" />
+                    </div>
+                  </div>
+                  <div className="absolute top-[42%] left-[50%] animate-bounce duration-1000 delay-300">
+                    <div className="flex size-7 items-center justify-center rounded-full bg-amber-500 text-white shadow-lg border-2 border-white">
+                      <MapPin className="size-3.5" />
+                    </div>
+                  </div>
+                  <div className="absolute top-[18%] left-[72%] animate-bounce duration-1000 delay-500">
+                    <div className="flex size-7 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg border-2 border-white">
+                      <MapPin className="size-3.5" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Card A: Report Card Mockup */}
+                <div className="absolute bottom-6 left-6 right-6 sm:right-auto sm:w-80 rounded-2xl border border-border bg-card/95 backdrop-blur-md p-4 shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <Badge className="bg-amber-500/10 text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 border-none font-semibold text-[10px] rounded-full px-2">
+                        <span className="mr-1.5 inline-block size-1.5 rounded-full bg-amber-500 animate-pulse" />
+                        In Progress
+                      </Badge>
+                      <h4 className="text-sm font-bold text-foreground mt-2">REP-4819: Pothole on Main St.</h4>
+                      <p className="text-xs text-muted-foreground mt-1">Reported 2 mins ago by Citizen</p>
+                    </div>
+                    <div className="flex size-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-600">
+                      <Camera className="size-5" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Card B: Stats Chip */}
+                <div className="absolute top-6 left-6 rounded-2xl border border-border bg-card/95 backdrop-blur-md px-4 py-3 shadow-lg flex items-center gap-3">
+                  <div className="flex size-8 items-center justify-center rounded-full bg-emerald-500 text-white">
+                    <CheckCircle2 className="size-4" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">RESOLVED REPORTS</p>
+                    <span className="text-sm font-extrabold text-foreground">99.2% rate</span>
+                  </div>
+                </div>
+
+                {/* Floating Card C: Officer Avatar Chip */}
+                <div className="absolute top-6 right-6 rounded-2xl border border-border bg-card/95 backdrop-blur-md px-4 py-2.5 shadow-lg flex items-center gap-2">
+                  <div className="size-7 rounded-full bg-primary/20 text-primary flex items-center justify-center text-[10px] font-bold">
+                    BW
+                  </div>
+                  <div>
+                    <span className="block text-[11px] font-bold text-foreground">Budiman W.</span>
+                    <span className="block text-[9px] text-muted-foreground">Officer Dispatched</span>
+                  </div>
+                </div>
+
+              </div>
+              
+            </FadeIn>
+          </div>
+
         </div>
       </div>
     </section>
   )
 }
 
-function StatChip({ icon, value, label }: { icon: React.ReactNode; value: number; label: string }): React.ReactElement {
-  return (
-    <div className="flex flex-col items-center gap-2 rounded-2xl border border-border/60 bg-card/80 px-4 py-5 shadow-sm backdrop-blur-md transition-all hover:border-primary/30 hover:shadow-md">
-      <div className="text-primary">{icon}</div>
-      <span className="text-2xl font-extrabold tabular-nums text-foreground sm:text-3xl">{value.toLocaleString()}</span>
-      <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{label}</span>
-    </div>
-  )
-}
-
-/* ─────────────────────────── HOW IT WORKS ─────────────────────────── */
+/* ─────────────────────────── HOW IT WORKS (OUR OFFER) ─────────────────────────── */
 
 function HowItWorksSection(): React.ReactElement {
   const t = useTranslations('common.home.howItWorks')
 
-  const steps = STEP_NUMBERS.map((number, idx) => ({
-    number,
-    icon: getStepIcon(idx),
-    title: t(`step${idx + 1}Title` as 'step1Title' | 'step2Title' | 'step3Title' | 'step4Title'),
-    description: t(`step${idx + 1}Description` as 'step1Description' | 'step2Description' | 'step3Description' | 'step4Description')
-  }))
+  const steps = [
+    {
+      number: '01',
+      icon: <Camera className="size-6 text-primary" />,
+      title: t('step1Title'),
+      description: t('step1Description')
+    },
+    {
+      number: '02',
+      icon: <ShieldCheck className="size-6 text-primary" />,
+      title: t('step2Title'),
+      description: t('step2Description')
+    },
+    {
+      number: '03',
+      icon: <Wrench className="size-6 text-primary" />,
+      title: t('step3Title'),
+      description: t('step3Description')
+    }
+  ]
 
   return (
-    <section id="how-it-works" className="border-t border-border/40 bg-muted/30 py-20 sm:py-24 lg:py-28">
+    <section id="how-it-works" className="relative overflow-hidden border-t border-border/40 bg-muted/20 py-20 sm:py-24">
+      {/* Decorative radial color shadow */}
+      <div className="absolute bottom-[-10%] right-[-5%] -z-10 h-[28rem] w-[28rem] rounded-full bg-primary/5 blur-[120px] pointer-events-none" aria-hidden="true" />
+      
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <FadeIn className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">{t('title')}</h2>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">{t('description')}</p>
-        </FadeIn>
+        
+        {/* Section Header */}
+        <div className="mx-auto max-w-2xl text-center space-y-4">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-primary">WHAT WE DO</span>
+          <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">Our Process</h2>
+          <p className="text-base text-muted-foreground sm:text-lg">
+            {t('description') ?? 'Dari temuan kerusakan hingga selesai diperbaiki secara transparan.'}
+          </p>
+        </div>
 
-        <AnimatedContainer className="relative mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8" delay={0.1}>
-          {steps.map((step) => (
-            <AnimatedItem key={step.number}>
-              <div className="group relative flex h-full flex-col rounded-2xl border border-border/50 bg-card p-6 shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:-translate-y-1">
-                {/* Step number */}
-                <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-0.5 text-[11px] font-bold text-primary-foreground">
-                  {step.number}
-                </span>
+        {/* Connected Steps Timeline */}
+        <div className="relative mt-16">
+          
+          {/* Connector Line (Desktop) */}
+          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-border/60 -translate-y-1/2 hidden md:block z-0" aria-hidden="true" />
+          
+          <AnimatedContainer className="relative grid gap-8 md:grid-cols-3 z-10" delay={0.1}>
+            {steps.map((step, idx) => (
+              <AnimatedItem key={step.number}>
+                <div className="flex flex-col items-center text-center bg-card md:bg-transparent p-6 md:p-0 rounded-2xl border border-border md:border-none shadow-sm md:shadow-none">
+                  
+                  {/* Step Icon Wrapper */}
+                  <div className="relative flex size-16 items-center justify-center rounded-full bg-card border-2 border-primary/20 shadow-md transition-transform duration-300 hover:scale-105 z-10">
+                    <span className="absolute -top-1 -right-1 flex size-5 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-primary-foreground">
+                      {step.number}
+                    </span>
+                    {step.icon}
+                  </div>
 
-                {/* Icon */}
-                <div className="mt-3 flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                  {step.icon}
+                  {/* Step Title & Description */}
+                  <h3 className="mt-6 text-lg font-bold text-foreground">{step.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-xs">
+                    {step.description}
+                  </p>
+
                 </div>
+              </AnimatedItem>
+            ))}
+          </AnimatedContainer>
+        </div>
 
-                {/* Content */}
-                <h3 className="mt-5 text-base font-bold text-foreground">{step.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
-              </div>
-            </AnimatedItem>
-          ))}
-        </AnimatedContainer>
       </div>
     </section>
   )
 }
 
-/* ─────────────────────────── CATEGORIES ─────────────────────────── */
+/* ─────────────────────────── FEATURES (LEFT HEADING, RIGHT CARDS) ─────────────────────────── */
+
+function FeaturesSection(): React.ReactElement {
+  const t = useTranslations('common.home')
+
+  const features = [
+    {
+      icon: <MapPin className="size-5" />,
+      title: 'Geotagged Reports',
+      description: 'Pinpoint precise locations using GPS coordinates to speed up dispatching.'
+    },
+    {
+      icon: <ShieldCheck className="size-5" />,
+      title: 'Admin Verification',
+      description: 'Reports are vetted by administrators first to prevent spam or duplicate tasks.'
+    },
+    {
+      icon: <Route className="size-5" />,
+      title: 'Real-time Updates',
+      description: 'Receive real-time progress alerts as reports transition from verification to repair.'
+    },
+    {
+      icon: <Wrench className="size-5" />,
+      title: 'Smart Resolution',
+      description: 'Automated task routing and tools mapping for designated field officers.'
+    }
+  ]
+
+  return (
+    <section id="features" className="relative overflow-hidden py-20 sm:py-24">
+      {/* Decorative Blob */}
+      <div className="absolute top-[20%] left-[-10%] -z-10 h-[30rem] w-[30rem] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none" aria-hidden="true" />
+      
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+          
+          {/* Left Side: Header & Controls */}
+          <div className="lg:col-span-4 space-y-6 text-left">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-primary">LEARN MORE</span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">Platform Features</h2>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              We empower citizens, administrators, and field officers with geolocalized tools designed for transparency and velocity.
+            </p>
+            
+            {/* Slider Controls Mockup (Matching the uploaded design) */}
+            <div className="flex items-center gap-3 pt-2">
+              <Button size="icon" variant="outline" className="rounded-full size-10 border-primary/20 text-primary hover:bg-primary/10">
+                <ChevronLeft className="size-5" />
+              </Button>
+              <Button size="icon" className="rounded-full size-10 bg-primary hover:bg-primary/90 text-primary-foreground">
+                <ChevronRight className="size-5" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Side: Features Cards Grid */}
+          <div className="lg:col-span-8">
+            <AnimatedContainer className="grid gap-6 sm:grid-cols-2" delay={0.1}>
+              {features.map((feature, idx) => (
+                <AnimatedItem key={idx}>
+                  <Card className="group h-full border-border/60 bg-card shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/20 hover:-translate-y-0.5">
+                    <CardContent className="flex flex-col items-start p-6">
+                      
+                      {/* Icon wrapper */}
+                      <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                        {feature.icon}
+                      </div>
+
+                      <h3 className="mt-4 text-base font-bold text-foreground group-hover:text-primary transition-colors">{feature.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
+                      
+                      {/* "Learn More" Link */}
+                      <Link href="/help" className="inline-flex items-center text-xs font-bold text-primary mt-5 hover:underline gap-1">
+                        Learn More
+                        <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
+                      </Link>
+
+                    </CardContent>
+                  </Card>
+                </AnimatedItem>
+              ))}
+            </AnimatedContainer>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ─────────────────────────── BENEFITS (LEFT ILLUSTRATION, RIGHT CHECKLIST) ─────────────────────────── */
+
+function BenefitsSection(): React.ReactElement {
+  const benefits = [
+    {
+      title: 'Reliable Geolocation Data',
+      desc: 'GPS parameters eliminate verification mistakes and speed up repair routing.'
+    },
+    {
+      title: 'Full Citizen Transparency',
+      desc: 'Public status logs build trust and active community civic participation.'
+    },
+    {
+      title: 'Accelerated Dispatch Flow',
+      desc: 'Quick verification and instant assignment direct tasks to the right teams.'
+    },
+    {
+      title: 'Optimized Task Reporting',
+      desc: 'Field officers submit photos of completed repairs directly from their mobile devices.'
+    }
+  ]
+
+  return (
+    <section id="benefits" className="relative overflow-hidden py-20 sm:py-24 border-t border-border/40 bg-muted/10">
+      {/* Decorative glow */}
+      <div className="absolute top-[10%] right-[-10%] -z-10 h-[30rem] w-[30rem] rounded-full bg-primary/5 blur-[120px] pointer-events-none" aria-hidden="true" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+          
+          {/* Left Column: Climbing Mountain Progress Mockup (Custom SVG) */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative w-full max-w-md aspect-square bg-card/50 rounded-3xl border border-border/50 p-6 shadow-xl flex items-center justify-center overflow-hidden">
+              
+              {/* Graphic Backdrop Wave */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/[0.03] to-transparent -z-10" />
+
+              {/* Mountains SVG Illustration */}
+              <svg className="w-full h-full text-muted-foreground/30 fill-none stroke-current" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                {/* Hills */}
+                <path d="M 0,280 Q 75,200 150,280" className="text-emerald-500/10 fill-current" />
+                <path d="M 100,280 Q 200,160 300,280" className="text-primary/10 fill-current" />
+                
+                {/* Winding climb line */}
+                <path d="M 30,280 C 60,250 80,180 140,190 C 200,200 200,100 250,70" className="stroke-primary stroke-[3] stroke-dasharray-[5,5]" />
+                
+                {/* Checkpoint Markers */}
+                <circle cx="30" cy="280" r="8" className="fill-blue-500 stroke-white stroke-[2]" />
+                <circle cx="140" cy="190" r="8" className="fill-amber-500 stroke-white stroke-[2]" />
+                <circle cx="250" cy="70" r="10" className="fill-emerald-500 stroke-white stroke-[2]" />
+
+                {/* Decorative Sun */}
+                <circle cx="260" cy="40" r="16" className="text-amber-400/20 fill-current" />
+                <circle cx="260" cy="40" r="8" className="text-amber-500 fill-current" />
+              </svg>
+
+              {/* Woven Text Badges on Mock Illustration */}
+              <div className="absolute bottom-10 left-10 rounded-xl border border-border bg-card p-3 shadow-md">
+                <span className="block text-[9px] font-bold text-muted-foreground uppercase">STEP 1</span>
+                <span className="block text-xs font-bold text-foreground">Issue Spotted</span>
+              </div>
+              <div className="absolute top-[48%] right-8 rounded-xl border border-border bg-card p-3 shadow-md">
+                <span className="block text-[9px] font-bold text-muted-foreground uppercase">STEP 2</span>
+                <span className="block text-xs font-bold text-foreground">Admin Verified</span>
+              </div>
+              <div className="absolute top-12 left-[20%] rounded-xl border border-border bg-card p-3 shadow-md">
+                <span className="block text-[9px] font-bold text-emerald-600 uppercase">RESOLVED!</span>
+                <span className="block text-xs font-bold text-foreground">Facility Repaired</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Benefits Description & Grid */}
+          <div className="lg:col-span-7 space-y-6 text-left">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-primary">WHY OUR PROGRAM</span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">Platform Benefits</h2>
+            <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
+              Roostvasum bridges the communication gap between citizens reporting damage and the civil departments responsible for maintaining facilities.
+            </p>
+
+            {/* Checkmark 2x2 Grid */}
+            <div className="grid gap-6 sm:grid-cols-2 pt-4">
+              {benefits.map((benefit, idx) => (
+                <div key={idx} className="flex items-start gap-3">
+                  <div className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                    <Check className="size-3.5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-foreground">{benefit.title}</h4>
+                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{benefit.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ─────────────────────────── CATEGORIES PREVIEW ─────────────────────────── */
 
 function CategoryPreviewSection({ categories }: { categories: CategoryPreview[] }): React.ReactElement {
   const t = useTranslations('common.home.categoryPreview')
 
   return (
-    <section id="categories" className="py-20 sm:py-24 lg:py-28">
+    <section id="categories" className="relative overflow-hidden py-20 sm:py-24">
+      {/* Glowing Blob */}
+      <div className="absolute top-[10%] left-[-10%] -z-10 h-[30rem] w-[30rem] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none" aria-hidden="true" />
+      
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <FadeIn className="max-w-2xl">
@@ -411,7 +740,10 @@ function MapPreviewSection({ reports }: { reports: PublicReportListItemDto[] }):
   const t = useTranslations('common.home.mapPreview')
 
   return (
-    <section id="map-preview" className="border-t border-border/40 bg-muted/30 py-20 sm:py-24 lg:py-28">
+    <section id="map-preview" className="relative overflow-hidden border-t border-border/40 bg-emerald-50/20 dark:bg-emerald-950/5 py-20 sm:py-24">
+      {/* Glowing blob behind map */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[35rem] w-[35rem] rounded-full bg-primary/5 blur-[130px] pointer-events-none" aria-hidden="true" />
+      
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FadeIn className="space-y-10" y={30}>
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -423,7 +755,7 @@ function MapPreviewSection({ reports }: { reports: PublicReportListItemDto[] }):
               <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">{t('title')}</h2>
               <p className="text-base text-muted-foreground">{t('description')}</p>
             </div>
-            <Button asChild variant="outline" className="group shrink-0 rounded-full">
+            <Button asChild variant="outline" className="group shrink-0 rounded-full border-primary/20 text-primary hover:bg-primary/5">
               <Link href="/map">
                 {t('openMap')}
                 <ChevronRight className="ml-1 size-4 transition-transform group-hover:translate-x-0.5" />
@@ -488,73 +820,62 @@ function CtaSection({ dashboardPath }: { dashboardPath: string | null }): React.
 
 function LandingFooter(): React.ReactElement {
   const t = useTranslations('common.home.footer')
-  const nav = useTranslations('common.navigation')
-  const app = useTranslations('common.app')
-  const currentYear = new Date().getFullYear().toString()
+  const navT = useTranslations('common.navigation')
+  const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-border/40 bg-muted/20">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        {/* Top */}
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <AppLogo showTagline />
-            <p className="mt-4 max-w-xs text-xs leading-relaxed text-muted-foreground">{t('builtWith')}</p>
+    <footer className="border-t border-border/50 bg-background py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+          
+          <div className="space-y-3">
+            <AppLogo />
+            <p className="text-xs text-muted-foreground leading-relaxed max-w-xs">{t('builtWith')}</p>
           </div>
-
-          {/* Navigation */}
+          
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">{nav('publicNavigation')}</h3>
-            <ul className="mt-4 space-y-2.5">
+            <h4 className="text-xs font-bold text-foreground uppercase tracking-wider">Navigation</h4>
+            <ul className="mt-4 space-y-2">
               <li>
-                <Link href="/" className="text-sm text-muted-foreground transition hover:text-foreground">{nav('home')}</Link>
+                <Link href="/" className="text-xs text-muted-foreground hover:text-foreground">{navT('home')}</Link>
               </li>
               <li>
-                <Link href="/map" className="text-sm text-muted-foreground transition hover:text-foreground">{nav('map')}</Link>
+                <Link href="/map" className="text-xs text-muted-foreground hover:text-foreground">{navT('map')}</Link>
               </li>
               <li>
-                <Link href="/help" className="text-sm text-muted-foreground transition hover:text-foreground">{nav('help')}</Link>
+                <Link href="/help" className="text-xs text-muted-foreground hover:text-foreground">{navT('help')}</Link>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-xs font-bold text-foreground uppercase tracking-wider">Features</h4>
+            <ul className="mt-4 space-y-2">
+              <li className="text-xs text-muted-foreground">Geotagged Maps</li>
+              <li className="text-xs text-muted-foreground">Verification flow</li>
+              <li className="text-xs text-muted-foreground">Task Assignment</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-xs font-bold text-foreground uppercase tracking-wider">Legal</h4>
+            <ul className="mt-4 space-y-2">
+              <li>
+                <span className="text-xs text-muted-foreground cursor-not-allowed">{t('links.privacy')}</span>
+              </li>
+              <li>
+                <span className="text-xs text-muted-foreground cursor-not-allowed">{t('links.terms')}</span>
+              </li>
+              <li>
+                <span className="text-xs text-muted-foreground cursor-not-allowed">{t('links.contact')}</span>
               </li>
             </ul>
           </div>
 
-          {/* Platform */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">{app('name')}</h3>
-            <ul className="mt-4 space-y-2.5">
-              <li>
-                <Link href="/login" className="text-sm text-muted-foreground transition hover:text-foreground">{nav('login')}</Link>
-              </li>
-              <li>
-                <Link href="/register" className="text-sm text-muted-foreground transition hover:text-foreground">{nav('register')}</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">{t('links.terms')}</h3>
-            <ul className="mt-4 space-y-2.5">
-              <li>
-                <Link href="/help" className="text-sm text-muted-foreground transition hover:text-foreground">{t('links.privacy')}</Link>
-              </li>
-              <li>
-                <Link href="/help" className="text-sm text-muted-foreground transition hover:text-foreground">{t('links.terms')}</Link>
-              </li>
-              <li>
-                <Link href="/help" className="text-sm text-muted-foreground transition hover:text-foreground">{t('links.contact')}</Link>
-              </li>
-            </ul>
-          </div>
         </div>
 
-        <Separator className="my-8" />
-
-        {/* Bottom */}
-        <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
+        <div className="mt-12 border-t border-border/50 pt-6 text-center">
           <p className="text-xs text-muted-foreground">{t('copyright', { year: currentYear })}</p>
-          <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground/60">{app('tagline')}</p>
         </div>
       </div>
     </footer>
