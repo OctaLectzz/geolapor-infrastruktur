@@ -21,6 +21,8 @@
     "login": "Sign In",
     "register": "Register",
     "logout": "Sign Out",
+    "logoutConfirmTitle": "Confirm Logout",
+    "logoutConfirmDescription": "Are you sure you want to log out of your account?",
     "help": "Help",
     "overview": "Overview",
     "verification": "Verification",

@@ -40,7 +40,7 @@ export default async function UserDashboardLayout({ children, params }: UserDash
   ]
 
   return (
-    <DashboardLayout navigationLabel={t('dashboardNavigation')} items={items} role={authResult.profile.role}>
+    <DashboardLayout navigationLabel={t('dashboardNavigation')} items={items} role={authResult.profile.role} profile={authResult.profile}>
       {children}
     </DashboardLayout>
   )

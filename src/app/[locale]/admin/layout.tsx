@@ -46,7 +46,7 @@ export default async function AdminLayout({ children, params }: AdminLayoutProps
   const items = authResult.profile.role === UserRole.SUPERADMIN ? [...baseItems, ...superadminItems] : baseItems
 
   return (
-    <DashboardLayout navigationLabel={t('adminNavigation')} items={items} role={authResult.profile.role}>
+    <DashboardLayout navigationLabel={t('adminNavigation')} items={items} role={authResult.profile.role} profile={authResult.profile}>
       {children}
     </DashboardLayout>
   )

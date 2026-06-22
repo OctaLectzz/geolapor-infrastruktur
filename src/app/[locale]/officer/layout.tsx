@@ -38,7 +38,7 @@ export default async function OfficerLayout({ children, params }: OfficerLayoutP
   ]
 
   return (
-    <DashboardLayout navigationLabel={t('officerNavigation')} items={items} role={authResult.profile.role}>
+    <DashboardLayout navigationLabel={t('officerNavigation')} items={items} role={authResult.profile.role} profile={authResult.profile}>
       {children}
     </DashboardLayout>
   )

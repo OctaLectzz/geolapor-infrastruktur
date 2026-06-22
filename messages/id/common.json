@@ -21,6 +21,8 @@
     "login": "Masuk",
     "register": "Daftar",
     "logout": "Keluar",
+    "logoutConfirmTitle": "Konfirmasi Keluar",
+    "logoutConfirmDescription": "Apakah Anda yakin ingin keluar dari akun Anda?",
     "help": "Bantuan",
     "overview": "Ringkasan",
     "verification": "Verifikasi",

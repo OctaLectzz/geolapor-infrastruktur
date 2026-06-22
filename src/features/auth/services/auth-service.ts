@@ -23,3 +23,10 @@ export async function signInWithGoogle(locale: string): Promise<AuthServiceResul
 
   return { error }
 }
+
+export async function logout(): Promise<AuthServiceResult> {
+  const supabase = createClient()
+  const { error } = await supabase.auth.signOut()
+
+  return { error }
+}

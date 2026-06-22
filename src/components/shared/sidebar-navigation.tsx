@@ -19,6 +19,9 @@ import {
 } from 'lucide-react'
 
 import { AppLogo } from '@/components/shared/app-logo'
+import { LanguageSwitcher } from '@/components/shared/language-switcher'
+import { ProfileDropdown, type UserProfileDto } from '@/components/shared/profile-dropdown'
+import { ThemeToggle } from '@/components/shared/theme-toggle'
 import {
   Sidebar,
   SidebarContent,
@@ -61,6 +64,7 @@ interface SidebarNavigationProps {
   children: ReactNode
   navigationLabel: string
   items: SidebarNavigationItem[]
+  profile?: UserProfileDto
 }
 
 const ICONS: Record<SidebarIconName, ComponentType> = {
@@ -80,7 +84,7 @@ const ICONS: Record<SidebarIconName, ComponentType> = {
   map: MapIcon
 }
 
-export function SidebarNavigation({ children, navigationLabel, items }: SidebarNavigationProps): ReactNode {
+export function SidebarNavigation({ children, navigationLabel, items, profile }: SidebarNavigationProps): ReactNode {
   const pathname = usePathname()
 
   return (
@@ -96,7 +100,9 @@ export function SidebarNavigation({ children, navigationLabel, items }: SidebarN
               <SidebarMenu>
                 {items.map((item) => {
                   const Icon = ICONS[item.icon]
-                  const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`)
+                  const isActive = item.href === '/dashboard' || item.href === '/admin' || item.href === '/officer'
+                    ? pathname === item.href
+                    : pathname === item.href || pathname.startsWith(`${item.href}/`)
 
                   return (
                     <SidebarMenuItem key={item.href}>
@@ -115,13 +121,20 @@ export function SidebarNavigation({ children, navigationLabel, items }: SidebarN
         </SidebarContent>
       </Sidebar>
       <SidebarInset>
-        <header className="flex min-h-14 items-center gap-3 border-b px-4 md:px-6">
-          <SidebarTrigger />
-          <div className="min-w-0 flex-1">
-            <p className="text-muted-foreground truncate text-sm font-medium">{navigationLabel}</p>
+        <header className="flex min-h-14 items-center justify-between gap-3 border-b px-4 md:px-6">
+          <div className="flex items-center gap-3 min-w-0 flex-1">
+            <SidebarTrigger />
+            <div className="min-w-0 flex-1">
+              <p className="text-muted-foreground truncate text-sm font-medium">{navigationLabel}</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <ThemeToggle />
+            {profile ? <ProfileDropdown profile={profile} /> : null}
           </div>
         </header>
-        <main className="flex-1 p-4 md:p-6">{children}</main>
+        <main className="flex-1 p-4 md:p-6 min-w-0">{children}</main>
       </SidebarInset>
     </SidebarProvider>
   )
