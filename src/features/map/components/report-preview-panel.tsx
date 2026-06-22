@@ -36,7 +36,7 @@ export function ReportPreviewPanel({ report, onClose }: ReportPreviewPanelProps)
   const variant = STATUS_VARIANT_MAP[statusKey] ?? 'secondary'
 
   return (
-    <Card className="absolute top-4 right-4 z-1000 w-80 shadow-xl">
+    <Card className="absolute bottom-4 inset-x-4 md:bottom-auto md:top-4 md:right-4 md:left-auto md:inset-x-auto z-[1000] w-auto max-w-sm md:w-80 shadow-xl">
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between gap-2">
           <CardTitle className="line-clamp-2 text-sm">{report.title}</CardTitle>
