@@ -1,7 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -24,6 +24,7 @@ function translateValidationMessage(t: ReturnType<typeof useTranslations>, messa
 }
 
 export function RegisterForm(): React.ReactElement {
+  const locale = useLocale()
   const t = useTranslations('auth')
   const [safeError, setSafeError] = useState<string | null>(null)
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
@@ -49,7 +50,7 @@ export function RegisterForm(): React.ReactElement {
         data: {
           full_name: values.fullName
         },
-        emailRedirectTo: new URL('/auth/callback', window.location.origin).toString()
+        emailRedirectTo: new URL(`/${locale}/auth/callback`, window.location.origin).toString()
       }
     })
 

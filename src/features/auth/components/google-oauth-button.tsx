@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -13,6 +13,7 @@ interface GoogleOauthButtonProps {
 }
 
 export function GoogleOauthButton({ className }: GoogleOauthButtonProps): React.ReactElement {
+  const locale = useLocale()
   const t = useTranslations('auth')
   const [isPending, setIsPending] = useState(false)
   const [hasError, setHasError] = useState(false)
@@ -21,7 +22,7 @@ export function GoogleOauthButton({ className }: GoogleOauthButtonProps): React.
     setIsPending(true)
     setHasError(false)
 
-    const { error } = await signInWithGoogle()
+    const { error } = await signInWithGoogle(locale)
 
     if (error) {
       setHasError(true)

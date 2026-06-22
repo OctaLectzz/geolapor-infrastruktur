@@ -1,7 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -23,6 +23,7 @@ function translateValidationMessage(t: ReturnType<typeof useTranslations>, messa
 }
 
 export function ForgotPasswordForm(): React.ReactElement {
+  const locale = useLocale()
   const t = useTranslations('auth')
   const [safeError, setSafeError] = useState<string | null>(null)
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
@@ -39,7 +40,7 @@ export function ForgotPasswordForm(): React.ReactElement {
 
     const supabase = createClient()
     const { error } = await supabase.auth.resetPasswordForEmail(values.email, {
-      redirectTo: new URL('/auth/callback', window.location.origin).toString()
+      redirectTo: new URL(`/${locale}/auth/callback`, window.location.origin).toString()
     })
 
     if (error) {

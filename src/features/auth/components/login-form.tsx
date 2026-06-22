@@ -1,7 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -24,6 +24,7 @@ function translateValidationMessage(t: ReturnType<typeof useTranslations>, messa
 }
 
 export function LoginForm(): React.ReactElement {
+  const locale = useLocale()
   const t = useTranslations('auth')
   const [safeError, setSafeError] = useState<string | null>(null)
   const form = useForm<LoginSchema>({
@@ -47,7 +48,7 @@ export function LoginForm(): React.ReactElement {
       return
     }
 
-    window.location.assign('/auth/callback')
+    window.location.assign(`/${locale}/auth/callback`)
   }
 
   const isSubmitting = form.formState.isSubmitting

@@ -8,16 +8,16 @@ interface AuthServiceResult {
   error: AuthError | null
 }
 
-function getAuthCallbackUrl(): string {
-  return new URL('/auth/callback', window.location.origin).toString()
+function getAuthCallbackUrl(locale: string): string {
+  return new URL(`/${locale}/auth/callback`, window.location.origin).toString()
 }
 
-export async function signInWithGoogle(): Promise<AuthServiceResult> {
+export async function signInWithGoogle(locale: string): Promise<AuthServiceResult> {
   const supabase = createClient()
   const { error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: getAuthCallbackUrl()
+      redirectTo: getAuthCallbackUrl(locale)
     }
   })
 
